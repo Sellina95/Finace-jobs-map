@@ -1,0 +1,30 @@
+{
+  "schema_version": "0.1",
+  "markets": [
+    {
+      "id": "money_market",
+      "label": "Money Market",
+      "emoji": "💵"
+    },
+    {
+      "id": "government_bond_market",
+      "label": "Government Bond Market",
+      "emoji": "📜"
+    },
+    {
+      "id": "fx_market",
+      "label": "FX Market",
+      "emoji": "💱"
+    },
+    {
+      "id": "credit_market",
+      "label": "Credit Market",
+      "emoji": "💳"
+    },
+    {
+      "id": "equity_market",
+      "label": "Equity Market",
+      "emoji": "📈"
+    }
+  ]
+}
