@@ -1,5 +1,6 @@
 {
-  "schema_version": "0.1",
+  "schema_version": "0.2",
+
   "relationship_types": [
     {
       "id": "policy",
@@ -28,56 +29,61 @@
     },
     {
       "id": "information",
-      "label": "Information",
+      "label": "Information / Coordination",
       "emoji": "📊"
     }
   ],
 
   "relationships": [
     {
-      "source": "Central Bank",
-      "target": "Commercial Bank",
+      "source": "central_bank",
+      "target": "commercial_bank",
       "types": [
         "policy",
         "funding_liquidity",
         "payment_settlement"
-      ],
-      "intensity": 5
+      ]
     },
     {
-      "source": "Central Bank",
-      "target": "Universal Bank",
+      "source": "central_bank",
+      "target": "universal_bank",
       "types": [
         "policy",
         "funding_liquidity",
         "payment_settlement"
-      ],
-      "intensity": 5
+      ]
     },
     {
-      "source": "Central Bank",
-      "target": "Financial Regulator",
+      "source": "central_bank",
+      "target": "financial_regulator",
       "types": [
         "regulatory",
         "information"
       ],
-      "intensity": 4
+      "variation": "jurisdiction_dependent"
     },
     {
-      "source": "Central Bank",
-      "target": "Treasury / Ministry of Finance",
+      "source": "central_bank",
+      "target": "treasury_ministry_finance",
       "types": [
         "information"
-      ],
-      "intensity": 4
+      ]
     },
     {
-      "source": "Central Bank",
-      "target": "Payment System",
+      "source": "central_bank",
+      "target": "payment_system",
       "types": [
         "payment_settlement"
-      ],
-      "intensity": 5
+      ]
+    },
+    {
+      "source": "central_bank",
+      "target": "money_market",
+      "types": [
+        "policy",
+        "funding_liquidity",
+        "market_transaction"
+      ]
     }
   ]
 }
