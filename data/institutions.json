@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.1",
+  "schema_version": "0.2",
 
   "institution_groups": [
     {
@@ -7,9 +7,21 @@
       "label": "Public & Monetary",
       "emoji": "🏛️",
       "institutions": [
-        "Central Bank",
-        "Treasury / Ministry of Finance",
-        "Financial Regulator"
+        {
+          "id": "central_bank",
+          "label": "Central Bank",
+          "emoji": "🏛️"
+        },
+        {
+          "id": "treasury_ministry_finance",
+          "label": "Treasury / Ministry of Finance",
+          "emoji": "🏛️"
+        },
+        {
+          "id": "financial_regulator",
+          "label": "Financial Regulator",
+          "emoji": "🛡️"
+        }
       ]
     },
     {
@@ -17,10 +29,26 @@
       "label": "Sell Side",
       "emoji": "🏦",
       "institutions": [
-        "Universal Bank",
-        "Investment Bank",
-        "Commercial Bank",
-        "Broker-Dealer"
+        {
+          "id": "universal_bank",
+          "label": "Universal Bank",
+          "emoji": "🏦"
+        },
+        {
+          "id": "investment_bank",
+          "label": "Investment Bank",
+          "emoji": "🏦"
+        },
+        {
+          "id": "commercial_bank",
+          "label": "Commercial Bank",
+          "emoji": "🏦"
+        },
+        {
+          "id": "broker_dealer",
+          "label": "Broker-Dealer",
+          "emoji": "🤝"
+        }
       ]
     },
     {
@@ -28,13 +56,41 @@
       "label": "Buy Side",
       "emoji": "💰",
       "institutions": [
-        "Asset Manager",
-        "Hedge Fund",
-        "Pension Fund",
-        "Insurance Company",
-        "Sovereign Wealth Fund",
-        "Private Equity",
-        "Private Credit"
+        {
+          "id": "asset_manager",
+          "label": "Asset Manager",
+          "emoji": "📊"
+        },
+        {
+          "id": "hedge_fund",
+          "label": "Hedge Fund",
+          "emoji": "🦔"
+        },
+        {
+          "id": "pension_fund",
+          "label": "Pension Fund",
+          "emoji": "👵"
+        },
+        {
+          "id": "insurance_company",
+          "label": "Insurance Company",
+          "emoji": "🛡️"
+        },
+        {
+          "id": "sovereign_wealth_fund",
+          "label": "Sovereign Wealth Fund",
+          "emoji": "🌍"
+        },
+        {
+          "id": "private_equity",
+          "label": "Private Equity",
+          "emoji": "💼"
+        },
+        {
+          "id": "private_credit",
+          "label": "Private Credit",
+          "emoji": "💳"
+        }
       ]
     },
     {
@@ -42,20 +98,11 @@
       "label": "Real Economy",
       "emoji": "🏢",
       "institutions": [
-        "Corporate"
-      ]
-    },
-    {
-      "id": "market_infrastructure",
-      "label": "Market Infrastructure",
-      "emoji": "🔗",
-      "institutions": [
-        "Exchange",
-        "Clearing House / CCP",
-        "Custodian",
-        "Central Securities Depository",
-        "Payment System",
-        "Market Data / Index Provider"
+        {
+          "id": "corporate",
+          "label": "Corporate",
+          "emoji": "🏢"
+        }
       ]
     }
   ]
