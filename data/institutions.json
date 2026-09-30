@@ -1,0 +1,62 @@
+{
+  "schema_version": "0.1",
+
+  "institution_groups": [
+    {
+      "id": "public_monetary",
+      "label": "Public & Monetary",
+      "emoji": "🏛️",
+      "institutions": [
+        "Central Bank",
+        "Treasury / Ministry of Finance",
+        "Financial Regulator"
+      ]
+    },
+    {
+      "id": "sell_side",
+      "label": "Sell Side",
+      "emoji": "🏦",
+      "institutions": [
+        "Universal Bank",
+        "Investment Bank",
+        "Commercial Bank",
+        "Broker-Dealer"
+      ]
+    },
+    {
+      "id": "buy_side",
+      "label": "Buy Side",
+      "emoji": "💰",
+      "institutions": [
+        "Asset Manager",
+        "Hedge Fund",
+        "Pension Fund",
+        "Insurance Company",
+        "Sovereign Wealth Fund",
+        "Private Equity",
+        "Private Credit"
+      ]
+    },
+    {
+      "id": "real_economy",
+      "label": "Real Economy",
+      "emoji": "🏢",
+      "institutions": [
+        "Corporate"
+      ]
+    },
+    {
+      "id": "market_infrastructure",
+      "label": "Market Infrastructure",
+      "emoji": "🔗",
+      "institutions": [
+        "Exchange",
+        "Clearing House / CCP",
+        "Custodian",
+        "Central Securities Depository",
+        "Payment System",
+        "Market Data / Index Provider"
+      ]
+    }
+  ]
+}
