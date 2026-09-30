@@ -1,0 +1,25 @@
+{
+  "schema_version": "0.1",
+  "root": {
+    "id": "financial_system",
+    "label": "Financial System",
+    "emoji": "🌍",
+    "children": [
+      {
+        "id": "financial_institutions",
+        "label": "Financial Institutions",
+        "emoji": "🏦"
+      },
+      {
+        "id": "financial_markets",
+        "label": "Financial Markets",
+        "emoji": "📈"
+      },
+      {
+        "id": "financial_infrastructure",
+        "label": "Financial Infrastructure",
+        "emoji": "🔗"
+      }
+    ]
+  }
+}
