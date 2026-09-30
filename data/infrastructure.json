@@ -1,0 +1,30 @@
+{
+  "schema_version": "0.1",
+  "infrastructure": [
+    {
+      "id": "payment_system",
+      "label": "Payment System",
+      "emoji": "💸"
+    },
+    {
+      "id": "exchange",
+      "label": "Exchange",
+      "emoji": "🏛️"
+    },
+    {
+      "id": "ccp",
+      "label": "Clearing House / CCP",
+      "emoji": "🔄"
+    },
+    {
+      "id": "csd",
+      "label": "Central Securities Depository",
+      "emoji": "🗄️"
+    },
+    {
+      "id": "custodian",
+      "label": "Custodian",
+      "emoji": "🔐"
+    }
+  ]
+}
