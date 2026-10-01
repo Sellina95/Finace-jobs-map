@@ -784,6 +784,14 @@ function GlobalMarketsMap({
 }
 
 
+const commoditiesTradingAreas: Item[] = [
+  { id: "commodities-oil-energy", emoji: "🛢️", label: "Oil / Energy" },
+  { id: "commodities-natural-gas", emoji: "🔥", label: "Natural Gas" },
+  { id: "commodities-power", emoji: "⚡", label: "Power" },
+  { id: "commodities-metals", emoji: "🥇", label: "Metals" },
+  { id: "commodities-agriculture", emoji: "🌾", label: "Agricultural Commodities" },
+];
+
 const equitiesTradingAreas: Item[] = [
   { id: "equities-cash", emoji: "📊", label: "Cash Equities" },
   { id: "equities-derivatives", emoji: "🧩", label: "Equity Derivatives" },
@@ -822,12 +830,14 @@ function TradingMap({
   openRates,
   openCredit,
   openEquities,
+  openCommodities,
 }: {
   goBack: () => void;
   openFX: () => void;
   openRates: () => void;
   openCredit: () => void;
   openEquities: () => void;
+  openCommodities: () => void;
 }) {
   return (
     <main className="world">
@@ -872,6 +882,8 @@ function TradingMap({
                   openCredit();
                 } else if (item.id === "equities") {
                   openEquities();
+                } else if (item.id === "commodities") {
+                  openCommodities();
                 }
               }}
             >
@@ -1750,6 +1762,972 @@ function CashEquityTraderMap({
       intro="Trades listed equities, facilitates institutional flow and manages trading risk across supported stocks and markets."
       sections={cashEquityTraderSections}
     />
+  );
+}
+
+
+
+
+
+
+
+function AgriculturalCommoditiesMap({
+  goBack,
+  openTrader,
+}: {
+  goBack: () => void;
+  openTrader: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Commodities Trading
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">🌾</div>
+        <div>
+          <p className="eyebrow">COMMODITIES TRADING</p>
+          <h1>Agricultural Commodities</h1>
+          <p className="intro">
+            Explore trading roles across grains, soft commodities and related
+            agricultural derivatives.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🌾</span>
+          <div>
+            <h2>Agricultural Commodities Roles</h2>
+            <p>Explore a core trading role in institutional agricultural commodity markets.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openTrader}>
+            <span>👤</span>
+            <strong>Agricultural Commodities Trader</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const agriculturalCommoditiesTraderSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Trading"],
+      ["🌾", "Commodities Trading", "Agricultural Commodities → Agricultural Commodities Trader"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The markets in which this role primarily operates.",
+    cards: [
+      [
+        "🌾",
+        "Agricultural Commodity Markets",
+        "Global markets for grains, soft commodities and related agricultural price exposures.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core instruments and exposures associated with this role.",
+    cards: [
+      [
+        "🌾",
+        "Grains",
+        "Agricultural commodities such as wheat, corn and soybeans traded across physical and derivatives markets.",
+      ],
+      [
+        "☕",
+        "Soft Commodities",
+        "Agricultural products such as coffee, sugar and cocoa traded across global commodity markets.",
+      ],
+      [
+        "📅",
+        "Futures & Swaps",
+        "Derivative contracts used to trade and manage agricultural commodity price exposures.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities on an institutional agricultural commodities trading desk.",
+    cards: [
+      [
+        "💱",
+        "Provide Liquidity",
+        "Price and facilitate transactions across supported agricultural commodity products.",
+      ],
+      [
+        "📊",
+        "Manage Market Risk",
+        "Monitor price, spread, basis, liquidity and inventory-related exposures.",
+      ],
+      [
+        "⚖️",
+        "Trade Market Relationships",
+        "Monitor relationships across commodities, regions, grades and delivery periods.",
+      ],
+      [
+        "🌦️",
+        "Monitor Agricultural Markets",
+        "Track weather, harvests, inventories, trade flows, supply-demand conditions and broader market developments.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to an agricultural commodities trading desk.",
+    cards: [
+      ["🤝", "Commodity Sales", "Connects institutional and corporate client activity with the trading desk."],
+      ["🔬", "Commodity Research / Strategy", "Provides supply-demand, weather and agricultural-market analysis."],
+      ["🧩", "Structuring", "Supports customized commodity and risk-management solutions."],
+      ["🛡️", "Market Risk", "Monitors commodity-market exposures and risk limits."],
+      ["⚙️", "Middle Office", "Supports trade control, monitoring and exception management."],
+      ["🧾", "Product Control", "Supports valuation control and trading P&L oversight."],
+      ["💸", "Operations", "Supports confirmations, settlements and applicable commodity post-trade workflows."],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Trades?",
+    description: "Trading and physical-market infrastructure supporting agricultural commodity markets.",
+    cards: [
+      [
+        "🏛️",
+        "Commodity Exchanges & Trading Venues",
+        "Support execution and price discovery across listed and other supported agricultural markets.",
+      ],
+      [
+        "📡",
+        "Market & Reference Data",
+        "Prices, forward curves, inventories, weather and benchmark data support trading and risk decisions.",
+      ],
+      [
+        "🔗",
+        "Clearing & Post-Trade Infrastructure",
+        "Supports applicable clearing, confirmations, settlement and post-trade processing.",
+      ],
+      [
+        "🚚",
+        "Storage & Transportation Infrastructure",
+        "Warehousing, transportation and delivery systems shape physical supply, regional pricing and market relationships.",
+      ],
+    ],
+  },
+];
+
+function AgriculturalCommoditiesTraderMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Agricultural Commodities"
+      title="Agricultural Commodities Trader"
+      intro="Trades agricultural commodities and related derivatives, provides liquidity and manages price, spread and market risk across supported markets."
+      sections={agriculturalCommoditiesTraderSections}
+    />
+  );
+}
+
+function MetalsMap({
+  goBack,
+  openTrader,
+}: {
+  goBack: () => void;
+  openTrader: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Commodities Trading
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">🥇</div>
+        <div>
+          <p className="eyebrow">COMMODITIES TRADING</p>
+          <h1>Metals</h1>
+          <p className="intro">
+            Explore trading roles across precious metals, base metals and
+            related commodity derivatives.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🥇</span>
+          <div>
+            <h2>Metals Roles</h2>
+            <p>Explore a core trading role in institutional metals markets.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openTrader}>
+            <span>👤</span>
+            <strong>Metals Trader</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const metalsTraderSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Trading"],
+      ["🥇", "Commodities Trading", "Metals → Metals Trader"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The markets in which this role primarily operates.",
+    cards: [
+      [
+        "🥇",
+        "Metals Markets",
+        "Global markets for precious metals, base metals and related financial exposures.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core instruments and exposures associated with this role.",
+    cards: [
+      [
+        "🥇",
+        "Precious Metals",
+        "Metals such as gold and silver traded through physical and financial markets.",
+      ],
+      [
+        "⛏️",
+        "Base Metals",
+        "Industrial metals such as copper and aluminum traded across global commodity markets.",
+      ],
+      [
+        "📅",
+        "Futures & Swaps",
+        "Derivative contracts used to trade and manage metals-price exposures.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities on an institutional metals trading desk.",
+    cards: [
+      [
+        "💱",
+        "Provide Liquidity",
+        "Price and facilitate transactions across supported metals products.",
+      ],
+      [
+        "📊",
+        "Manage Market Risk",
+        "Monitor outright price, spread, basis, liquidity and inventory-related exposures.",
+      ],
+      [
+        "⚖️",
+        "Trade Market Relationships",
+        "Monitor relationships across metals, locations, maturities and related instruments.",
+      ],
+      [
+        "🌍",
+        "Monitor Metals Markets",
+        "Track supply, demand, inventories, currencies, macro conditions and industrial-market developments.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to a metals trading desk.",
+    cards: [
+      ["🤝", "Commodity Sales", "Connects institutional and corporate client activity with the trading desk."],
+      ["🔬", "Commodity Research / Strategy", "Provides supply-demand, macro and metals-market analysis."],
+      ["🧩", "Structuring", "Supports customized commodity and risk-management solutions."],
+      ["🛡️", "Market Risk", "Monitors commodity-market exposures and risk limits."],
+      ["⚙️", "Middle Office", "Supports trade control, monitoring and exception management."],
+      ["🧾", "Product Control", "Supports valuation control and trading P&L oversight."],
+      ["💸", "Operations", "Supports confirmations, settlements and applicable metals post-trade workflows."],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Trades?",
+    description: "Trading and physical-market infrastructure supporting metals markets.",
+    cards: [
+      [
+        "🏛️",
+        "Commodity Exchanges & Trading Venues",
+        "Support execution and price discovery across listed and other supported metals markets.",
+      ],
+      [
+        "📡",
+        "Market & Reference Data",
+        "Prices, forward curves, inventories and benchmark data support trading and risk decisions.",
+      ],
+      [
+        "🔗",
+        "Clearing & Post-Trade Infrastructure",
+        "Supports applicable clearing, confirmations, settlement and post-trade processing.",
+      ],
+      [
+        "🏭",
+        "Warehousing & Delivery Infrastructure",
+        "Storage, approved warehouses and delivery systems support applicable physical metals markets.",
+      ],
+    ],
+  },
+];
+
+function MetalsTraderMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Metals"
+      title="Metals Trader"
+      intro="Trades precious and base metals, provides liquidity and manages commodity price, spread and market risk across supported markets."
+      sections={metalsTraderSections}
+    />
+  );
+}
+
+function PowerMap({
+  goBack,
+  openTrader,
+}: {
+  goBack: () => void;
+  openTrader: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Commodities Trading
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">⚡</div>
+        <div>
+          <p className="eyebrow">COMMODITIES TRADING</p>
+          <h1>Power</h1>
+          <p className="intro">
+            Explore trading roles across electricity markets and related
+            regional power-price exposures.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">⚡</span>
+          <div>
+            <h2>Power Roles</h2>
+            <p>Explore a core trading role in institutional power markets.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openTrader}>
+            <span>👤</span>
+            <strong>Power Trader</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const powerTraderSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Trading"],
+      ["⚡", "Commodities Trading", "Power → Power Trader"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The markets in which this role primarily operates.",
+    cards: [
+      [
+        "⚡",
+        "Power Markets",
+        "Regional electricity markets where power and related price exposures are traded.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core instruments and exposures associated with this role.",
+    cards: [
+      [
+        "⚡",
+        "Electricity / Power",
+        "Physical and financial exposures linked to electricity prices across supported regional markets.",
+      ],
+      [
+        "📅",
+        "Power Futures",
+        "Exchange-traded contracts linked to future electricity prices and delivery periods.",
+      ],
+      [
+        "🔁",
+        "Power Swaps",
+        "Derivative contracts used to trade and manage electricity-price exposures.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities on an institutional power trading desk.",
+    cards: [
+      [
+        "💱",
+        "Provide Liquidity",
+        "Price and facilitate transactions across supported power products and markets.",
+      ],
+      [
+        "📊",
+        "Manage Market Risk",
+        "Monitor price, location, time, liquidity and other power-market exposures.",
+      ],
+      [
+        "⚖️",
+        "Trade Regional & Curve Relationships",
+        "Monitor relationships across locations, delivery periods and related energy markets.",
+      ],
+      [
+        "🌦️",
+        "Monitor Power Fundamentals",
+        "Track electricity demand, generation, fuel costs, weather, transmission constraints and market conditions.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to a power trading desk.",
+    cards: [
+      ["🤝", "Commodity Sales", "Connects institutional and corporate client activity with the trading desk."],
+      ["🔬", "Commodity Research / Analytics", "Provides supply-demand, weather and power-market analysis."],
+      ["🧩", "Structuring", "Supports customized power and energy risk-management solutions."],
+      ["🛡️", "Market Risk", "Monitors commodity-market exposures and risk limits."],
+      ["⚙️", "Middle Office", "Supports trade control, monitoring and exception management."],
+      ["🧾", "Product Control", "Supports valuation control and trading P&L oversight."],
+      ["💸", "Operations", "Supports confirmations, settlements and applicable power-market workflows."],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Trades?",
+    description: "Trading and physical-market infrastructure supporting power markets.",
+    cards: [
+      [
+        "🏛️",
+        "Power Exchanges & Trading Venues",
+        "Support execution and price discovery across supported electricity markets.",
+      ],
+      [
+        "📡",
+        "Market & Grid Data",
+        "Prices, demand, generation, weather and grid information support trading and risk decisions.",
+      ],
+      [
+        "🔗",
+        "Clearing & Post-Trade Infrastructure",
+        "Supports applicable clearing, confirmations, settlement and post-trade processing.",
+      ],
+      [
+        "🔌",
+        "Grid & Transmission Infrastructure",
+        "Electricity networks and transmission constraints shape regional supply, delivery and pricing.",
+      ],
+    ],
+  },
+];
+
+function PowerTraderMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Power"
+      title="Power Trader"
+      intro="Trades power and related derivatives, provides liquidity and manages regional electricity-price and market risk across supported markets."
+      sections={powerTraderSections}
+    />
+  );
+}
+
+function NaturalGasMap({
+  goBack,
+  openTrader,
+}: {
+  goBack: () => void;
+  openTrader: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Commodities Trading
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">🔥</div>
+        <div>
+          <p className="eyebrow">COMMODITIES TRADING</p>
+          <h1>Natural Gas</h1>
+          <p className="intro">
+            Explore trading roles across natural-gas markets, derivatives and
+            regional energy exposures.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🔥</span>
+          <div>
+            <h2>Natural Gas Roles</h2>
+            <p>Explore a core trading role in institutional natural-gas markets.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openTrader}>
+            <span>👤</span>
+            <strong>Natural Gas Trader</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const naturalGasTraderSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Trading"],
+      ["🔥", "Commodities Trading", "Natural Gas → Natural Gas Trader"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The markets in which this role primarily operates.",
+    cards: [
+      [
+        "🔥",
+        "Natural Gas Markets",
+        "Regional and international markets for natural gas and related price exposures.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core instruments and exposures associated with this role.",
+    cards: [
+      [
+        "🔥",
+        "Natural Gas",
+        "Physical and financial exposures linked to natural-gas markets and regional pricing hubs.",
+      ],
+      [
+        "📅",
+        "Natural Gas Futures",
+        "Exchange-traded contracts linked to natural-gas prices and delivery periods.",
+      ],
+      [
+        "🔁",
+        "Natural Gas Swaps",
+        "Derivative contracts used to trade and manage natural-gas price and basis exposures.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities on an institutional natural-gas trading desk.",
+    cards: [
+      [
+        "💱",
+        "Provide Liquidity",
+        "Price and facilitate transactions across supported natural-gas products.",
+      ],
+      [
+        "📊",
+        "Manage Market Risk",
+        "Monitor price, basis, spread, liquidity and inventory-related exposures.",
+      ],
+      [
+        "⚖️",
+        "Trade Regional & Curve Relationships",
+        "Monitor relationships across locations, pricing hubs and delivery periods.",
+      ],
+      [
+        "🌍",
+        "Monitor Gas Markets",
+        "Track supply, demand, storage, weather, transportation and broader energy-market developments.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to a natural-gas trading desk.",
+    cards: [
+      ["🤝", "Commodity Sales", "Connects institutional and corporate client activity with the trading desk."],
+      ["🔬", "Commodity Research / Strategy", "Provides supply-demand, weather and market analysis."],
+      ["🧩", "Structuring", "Supports customized commodity and risk-management solutions."],
+      ["🛡️", "Market Risk", "Monitors commodity-market exposures and risk limits."],
+      ["⚙️", "Middle Office", "Supports trade control, monitoring and exception management."],
+      ["🧾", "Product Control", "Supports valuation control and trading P&L oversight."],
+      ["💸", "Operations", "Supports confirmations, settlements and applicable commodity post-trade workflows."],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Trades?",
+    description: "Trading and physical-market infrastructure supporting natural-gas markets.",
+    cards: [
+      [
+        "🏛️",
+        "Commodity Exchanges & Trading Venues",
+        "Support execution and price discovery across listed and other supported gas markets.",
+      ],
+      [
+        "📡",
+        "Market & Reference Data",
+        "Prices, forward curves, storage, weather and benchmark data support trading and risk decisions.",
+      ],
+      [
+        "🔗",
+        "Clearing & Post-Trade Infrastructure",
+        "Supports applicable clearing, confirmations, settlement and post-trade processing.",
+      ],
+      [
+        "🛠️",
+        "Pipeline & Storage Infrastructure",
+        "Transportation networks, storage facilities and delivery points shape regional gas pricing and market relationships.",
+      ],
+    ],
+  },
+];
+
+function NaturalGasTraderMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Natural Gas"
+      title="Natural Gas Trader"
+      intro="Trades natural-gas products, provides liquidity and manages price, basis and market risk across supported regional and derivatives markets."
+      sections={naturalGasTraderSections}
+    />
+  );
+}
+
+function OilEnergyMap({
+  goBack,
+  openTrader,
+}: {
+  goBack: () => void;
+  openTrader: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Commodities Trading
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">🛢️</div>
+        <div>
+          <p className="eyebrow">COMMODITIES TRADING</p>
+          <h1>Oil / Energy</h1>
+          <p className="intro">
+            Explore trading roles across crude oil, refined products and related
+            energy markets.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🛢️</span>
+          <div>
+            <h2>Oil / Energy Roles</h2>
+            <p>Explore a core trading role in institutional oil and energy markets.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openTrader}>
+            <span>👤</span>
+            <strong>Oil / Energy Trader</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const oilEnergyTraderSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Trading"],
+      ["🛢️", "Commodities Trading", "Oil / Energy → Oil / Energy Trader"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The markets in which this role primarily operates.",
+    cards: [
+      [
+        "🛢️",
+        "Oil & Energy Markets",
+        "Markets for crude oil, refined petroleum products and related energy exposures.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core instruments and exposures associated with this role.",
+    cards: [
+      [
+        "🛢️",
+        "Crude Oil",
+        "Physical and financial exposures linked to major crude-oil markets and benchmarks.",
+      ],
+      [
+        "⛽",
+        "Refined Products",
+        "Energy products such as gasoline, diesel and other petroleum products.",
+      ],
+      [
+        "📅",
+        "Futures & Swaps",
+        "Derivative contracts used to trade and manage oil and energy price exposures.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities on an institutional oil and energy trading desk.",
+    cards: [
+      [
+        "💱",
+        "Provide Liquidity",
+        "Price and facilitate transactions across supported oil and energy products.",
+      ],
+      [
+        "📊",
+        "Manage Market Risk",
+        "Monitor outright price, spread, basis, liquidity and inventory-related exposures.",
+      ],
+      [
+        "⚖️",
+        "Trade Market Relationships",
+        "Monitor and trade relationships across grades, locations, products and maturities.",
+      ],
+      [
+        "🌍",
+        "Monitor Energy Markets",
+        "Track supply, demand, inventories, geopolitics, transportation and broader energy-market developments.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to an oil and energy trading desk.",
+    cards: [
+      ["🤝", "Commodity Sales", "Connects institutional and corporate client activity with the trading desk."],
+      ["🔬", "Commodity Research / Strategy", "Provides supply-demand, macro and market analysis."],
+      ["🧩", "Structuring", "Supports customized commodity and risk-management solutions."],
+      ["🛡️", "Market Risk", "Monitors commodity-market exposures and risk limits."],
+      ["⚙️", "Middle Office", "Supports trade control, monitoring and exception management."],
+      ["🧾", "Product Control", "Supports valuation control and trading P&L oversight."],
+      ["💸", "Operations", "Supports confirmations, settlements and applicable commodity post-trade workflows."],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Trades?",
+    description: "Trading and post-trade infrastructure supporting oil and energy markets.",
+    cards: [
+      [
+        "🏛️",
+        "Commodity Exchanges & Trading Venues",
+        "Support execution and price discovery across listed and other supported commodity markets.",
+      ],
+      [
+        "📡",
+        "Market & Reference Data",
+        "Prices, curves, inventories and benchmark data support trading and risk decisions.",
+      ],
+      [
+        "🔗",
+        "Clearing & Post-Trade Infrastructure",
+        "Supports applicable clearing, confirmations, settlement and post-trade processing.",
+      ],
+      [
+        "🚢",
+        "Physical Market Infrastructure",
+        "Storage, transportation and delivery systems shape physical commodity pricing and market relationships.",
+      ],
+    ],
+  },
+];
+
+function OilEnergyTraderMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Oil / Energy"
+      title="Oil / Energy Trader"
+      intro="Trades oil and related energy products, provides liquidity and manages commodity price, spread and market risk across supported markets."
+      sections={oilEnergyTraderSections}
+    />
+  );
+}
+
+function CommoditiesTradingMap({
+  goBack,
+  openOilEnergy,
+  openNaturalGas,
+  openPower,
+  openMetals,
+  openAgriculture,
+}: {
+  goBack: () => void;
+  openOilEnergy: () => void;
+  openNaturalGas: () => void;
+  openPower: () => void;
+  openMetals: () => void;
+  openAgriculture: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Trading
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">🛢️</div>
+        <div>
+          <p className="eyebrow">TRADING</p>
+          <h1>Commodities Trading</h1>
+          <p className="intro">
+            Explore major trading areas across energy, metals and agricultural
+            commodity markets.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🛢️</span>
+          <div>
+            <h2>Commodities Trading Areas</h2>
+            <p>
+              Explore major commodity-market trading areas commonly found
+              across institutional markets businesses.
+            </p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          {commoditiesTradingAreas.map((item) => (
+            <button
+              className="finance-card"
+              key={item.id}
+              onClick={() => {
+                if (item.id === "commodities-oil-energy") {
+                  openOilEnergy();
+                } else if (item.id === "commodities-natural-gas") {
+                  openNaturalGas();
+                } else if (item.id === "commodities-power") {
+                  openPower();
+                } else if (item.id === "commodities-metals") {
+                  openMetals();
+                } else if (item.id === "commodities-agriculture") {
+                  openAgriculture();
+                }
+              }}
+            >
+              <span>{item.emoji}</span>
+              <strong>{item.label}</strong>
+              <span className="card-arrow">→</span>
+            </button>
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }
 
@@ -5560,7 +6538,7 @@ function FunctionMap({
 }
 
 function App() {
-  const [page, setPage] = useState<"system" | "central-bank" | "banks" | "global-markets" | "trading" | "credit-trading" | "credit-ig" | "credit-ig-trader" | "credit-hy" | "credit-hy-trader" | "credit-em" | "credit-em-trader" | "credit-derivatives" | "credit-derivatives-trader" | "credit-electronic" | "credit-electronic-trader" | "equities-trading" | "equities-cash" | "equities-cash-trader" | "equities-derivatives" | "equities-derivatives-trader" | "equities-index-etf" | "equities-index-etf-trader" | "equities-electronic" | "equities-electronic-trader" | "equities-em" | "equities-em-trader" | "rates-trading" | "rates-government-bonds" | "rates-government-bond-trader" | "rates-swaps" | "rates-swap-trader" | "rates-futures-stir" | "rates-futures-trader" | "rates-options" | "rates-options-trader" | "rates-electronic" | "rates-electronic-trader" | "fx-trading" | "fx-spot" | "fx-spot-trader" | "fx-forwards-swaps" | "fx-forward-swap-trader" | "fx-options" | "fx-options-trader" | "fx-em-ndf" | "fx-em-ndf-trader" | "fx-electronic" | "fx-electronic-trader" | "function">(
+  const [page, setPage] = useState<"system" | "central-bank" | "banks" | "global-markets" | "trading" | "credit-trading" | "credit-ig" | "credit-ig-trader" | "credit-hy" | "credit-hy-trader" | "credit-em" | "credit-em-trader" | "credit-derivatives" | "credit-derivatives-trader" | "credit-electronic" | "credit-electronic-trader" | "commodities-trading" | "commodities-oil-energy" | "commodities-oil-energy-trader" | "commodities-natural-gas" | "commodities-natural-gas-trader" | "commodities-power" | "commodities-power-trader" | "commodities-metals" | "commodities-metals-trader" | "commodities-agriculture" | "commodities-agriculture-trader" | "equities-trading" | "equities-cash" | "equities-cash-trader" | "equities-derivatives" | "equities-derivatives-trader" | "equities-index-etf" | "equities-index-etf-trader" | "equities-electronic" | "equities-electronic-trader" | "equities-em" | "equities-em-trader" | "rates-trading" | "rates-government-bonds" | "rates-government-bond-trader" | "rates-swaps" | "rates-swap-trader" | "rates-futures-stir" | "rates-futures-trader" | "rates-options" | "rates-options-trader" | "rates-electronic" | "rates-electronic-trader" | "fx-trading" | "fx-spot" | "fx-spot-trader" | "fx-forwards-swaps" | "fx-forward-swap-trader" | "fx-options" | "fx-options-trader" | "fx-em-ndf" | "fx-em-ndf-trader" | "fx-electronic" | "fx-electronic-trader" | "function">(
     "system"
   );
 
@@ -5752,6 +6730,104 @@ function App() {
         openOptions={() => setPage("fx-options")}
         openEMNDF={() => setPage("fx-em-ndf")}
         openElectronicFX={() => setPage("fx-electronic")}
+      />
+    );
+  }
+
+  if (page === "commodities-agriculture-trader") {
+    return (
+      <AgriculturalCommoditiesTraderMap
+        goBack={() => setPage("commodities-agriculture")}
+      />
+    );
+  }
+
+  if (page === "commodities-agriculture") {
+    return (
+      <AgriculturalCommoditiesMap
+        goBack={() => setPage("commodities-trading")}
+        openTrader={() => setPage("commodities-agriculture-trader")}
+      />
+    );
+  }
+
+  if (page === "commodities-metals-trader") {
+    return (
+      <MetalsTraderMap
+        goBack={() => setPage("commodities-metals")}
+      />
+    );
+  }
+
+  if (page === "commodities-metals") {
+    return (
+      <MetalsMap
+        goBack={() => setPage("commodities-trading")}
+        openTrader={() => setPage("commodities-metals-trader")}
+      />
+    );
+  }
+
+  if (page === "commodities-power-trader") {
+    return (
+      <PowerTraderMap
+        goBack={() => setPage("commodities-power")}
+      />
+    );
+  }
+
+  if (page === "commodities-power") {
+    return (
+      <PowerMap
+        goBack={() => setPage("commodities-trading")}
+        openTrader={() => setPage("commodities-power-trader")}
+      />
+    );
+  }
+
+  if (page === "commodities-natural-gas-trader") {
+    return (
+      <NaturalGasTraderMap
+        goBack={() => setPage("commodities-natural-gas")}
+      />
+    );
+  }
+
+  if (page === "commodities-natural-gas") {
+    return (
+      <NaturalGasMap
+        goBack={() => setPage("commodities-trading")}
+        openTrader={() => setPage("commodities-natural-gas-trader")}
+      />
+    );
+  }
+
+  if (page === "commodities-oil-energy-trader") {
+    return (
+      <OilEnergyTraderMap
+        goBack={() => setPage("commodities-oil-energy")}
+      />
+    );
+  }
+
+  if (page === "commodities-oil-energy") {
+    return (
+      <OilEnergyMap
+        goBack={() => setPage("commodities-trading")}
+        openTrader={() => setPage("commodities-oil-energy-trader")}
+      />
+    );
+  }
+
+  if (page === "commodities-trading") {
+    return (
+      <CommoditiesTradingMap
+        goBack={() => setPage("trading")}
+        openOilEnergy={() => setPage("commodities-oil-energy")}
+        openNaturalGas={() => setPage("commodities-natural-gas")}
+        openPower={() => setPage("commodities-power")}
+        openMetals={() => setPage("commodities-metals")}
+        openAgriculture={() => setPage("commodities-agriculture")}
       />
     );
   }
@@ -5960,6 +7036,7 @@ function App() {
         openRates={() => setPage("rates-trading")}
         openCredit={() => setPage("credit-trading")}
         openEquities={() => setPage("equities-trading")}
+        openCommodities={() => setPage("commodities-trading")}
       />
     );
   }
