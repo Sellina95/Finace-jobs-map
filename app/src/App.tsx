@@ -441,10 +441,44 @@ function Island({
 
 function FinancialSystemMap({
   openCentralBank,
+  openFunction,
 }: {
   openCentralBank: () => void;
+  openFunction: (item: CentralBankFunction) => void;
 }) {
   const [search, setSearch] = useState("");
+
+  const normalizedSearch = search.trim().toLowerCase();
+
+  const searchResults = normalizedSearch
+    ? centralBankFunctions.flatMap((fn) => {
+        const results = [];
+
+        if (fn.label.toLowerCase().includes(normalizedSearch)) {
+          results.push({
+            type: "Function",
+            title: fn.label,
+            path: `Central Bank › ${fn.label}`,
+          });
+        }
+
+        for (const role of fn.roles) {
+          if (
+            role.title.toLowerCase().includes(normalizedSearch) ||
+            role.description.toLowerCase().includes(normalizedSearch)
+          ) {
+            results.push({
+              type: "Role",
+              title: role.title,
+              path: `Central Bank › ${fn.label}`,
+            });
+          }
+        }
+
+        return results;
+      })
+    : [];
+
   return (
     <main className="world">
       <header className="hero system-hero">
@@ -468,6 +502,37 @@ function FinancialSystemMap({
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
+          {search && (
+            <div className="search-results">
+              {searchResults.length > 0 ? (
+                searchResults.slice(0, 8).map((result, index) => (
+                  <div
+                    className="search-result-item"
+                    key={`${result.title}-${index}`}
+                    onClick={() => {
+                      const target = centralBankFunctions.find(
+                        (fn) => result.path === `Central Bank › ${fn.label}`
+                      );
+
+                      if (target) openFunction(target);
+                    }}
+                  >
+                    <div>
+                      <strong>{result.title}</strong>
+                      <span>{result.path}</span>
+                    </div>
+
+                    <small>{result.type}</small>
+                  </div>
+                ))
+              ) : (
+                <div className="search-empty">
+                  No matching roles or functions found.
+                </div>
+              )}
+            </div>
+          )}
+        
         </div>
       </header>
 
@@ -650,6 +715,10 @@ function App() {
   return (
     <FinancialSystemMap
       openCentralBank={() => setPage("central-bank")}
+      openFunction={(item) => {
+        setSelectedFunction(item);
+        setPage("function");
+      }}
     />
   );
 }
