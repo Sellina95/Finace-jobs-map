@@ -716,6 +716,15 @@ function BanksMap({
   );
 }
 
+const researchStrategyAreas: Item[] = [
+  { id: "research-macro", emoji: "🌍", label: "Macro / Economics Research" },
+  { id: "research-fx", emoji: "💱", label: "FX Strategy" },
+  { id: "research-rates", emoji: "📉", label: "Rates Strategy" },
+  { id: "research-credit", emoji: "💳", label: "Credit Research / Strategy" },
+  { id: "research-equity", emoji: "📈", label: "Equity Research / Strategy" },
+  { id: "research-cross-asset", emoji: "🧩", label: "Cross-Asset Strategy" },
+];
+
 const structuringDesks: Item[] = [
   { id: "structuring-fx", emoji: "💱", label: "FX Structuring" },
   { id: "structuring-rates", emoji: "📉", label: "Rates Structuring" },
@@ -748,11 +757,13 @@ function GlobalMarketsMap({
   openTrading,
   openSales,
   openStructuring,
+  openResearchStrategy,
 }: {
   goBack: () => void;
   openTrading: () => void;
   openSales: () => void;
   openStructuring: () => void;
+  openResearchStrategy: () => void;
 }) {
   return (
     <main className="world">
@@ -795,6 +806,8 @@ function GlobalMarketsMap({
                   openTrading();
                 } else if (item.id === "structuring") {
                   openStructuring();
+                } else if (item.id === "research-strategy") {
+                  openResearchStrategy();
                 }
               }}
             >
@@ -863,6 +876,1263 @@ const fxTradingAreas: Item[] = [
 
 
 
+
+
+function ResearchStrategyMap({
+  goBack,
+  openMacroResearch,
+  openFXStrategy,
+  openRatesStrategy,
+  openCreditStrategy,
+  openEquityStrategy,
+  openCrossAssetStrategy,
+}: {
+  goBack: () => void;
+  openMacroResearch: () => void;
+  openFXStrategy: () => void;
+  openRatesStrategy: () => void;
+  openCreditStrategy: () => void;
+  openEquityStrategy: () => void;
+  openCrossAssetStrategy: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Global Markets
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">🔬</div>
+        <div>
+          <p className="eyebrow">GLOBAL MARKETS</p>
+          <h1>Research / Strategy</h1>
+          <p className="intro">
+            Explore research and strategy roles that analyze economies,
+            markets, asset classes and cross-market relationships.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🔬</span>
+          <div>
+            <h2>Research / Strategy Areas</h2>
+            <p>Select an area to explore its representative roles.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          {researchStrategyAreas.map((item) => (
+            <button
+              className="finance-card"
+              key={item.id}
+              onClick={() => {
+                if (item.id === "research-macro") {
+                  openMacroResearch();
+                } else if (item.id === "research-fx") {
+                  openFXStrategy();
+                } else if (item.id === "research-rates") {
+                  openRatesStrategy();
+                } else if (item.id === "research-credit") {
+                  openCreditStrategy();
+                } else if (item.id === "research-equity") {
+                  openEquityStrategy();
+                } else if (item.id === "research-cross-asset") {
+                  openCrossAssetStrategy();
+                }
+              }}
+            >
+              <span>{item.emoji}</span>
+              <strong>{item.label}</strong>
+              <span className="card-arrow">→</span>
+            </button>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
+}
+
+
+
+
+
+
+function CrossAssetStrategyMap({
+  goBack,
+  openRole,
+}: {
+  goBack: () => void;
+  openRole: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Research / Strategy
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">🧩</div>
+        <div>
+          <p className="eyebrow">GLOBAL MARKETS RESEARCH</p>
+          <h1>Cross-Asset Strategy</h1>
+          <p className="intro">
+            Explore roles that analyze relationships across asset classes,
+            macro themes and broader global financial-market conditions.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🧩</span>
+          <div>
+            <h2>Cross-Asset Strategy Roles</h2>
+            <p>Explore a representative strategy role across multiple markets.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openRole}>
+            <span>👤</span>
+            <strong>Cross-Asset Strategist</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const crossAssetStrategistSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Research / Strategy"],
+      ["🧩", "Cross-Asset Strategy", "Cross-Asset Strategist"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The markets this role analyzes.",
+    cards: [
+      [
+        "🌍",
+        "Multiple Financial Markets",
+        "Analyzes relationships across rates, FX, credit, equities, commodities and related derivatives depending on the strategy mandate.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core market exposures commonly analyzed across asset classes.",
+    cards: [
+      [
+        "📉",
+        "Rates",
+        "Government bonds, yield curves, monetary-policy expectations and related rates markets.",
+      ],
+      [
+        "💱",
+        "FX",
+        "Currencies, cross-border flows and relationships between exchange rates and macro conditions.",
+      ],
+      [
+        "💳",
+        "Credit",
+        "Credit spreads, financing conditions and corporate or sovereign credit markets.",
+      ],
+      [
+        "📈",
+        "Equities",
+        "Equity indices, sectors, valuation and broader equity-market conditions.",
+      ],
+      [
+        "🛢️",
+        "Commodities",
+        "Energy, metals and other commodity markets relevant to global macro and cross-asset themes.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities in Cross-Asset Strategy.",
+    cards: [
+      [
+        "🌍",
+        "Analyze Global Themes",
+        "Assess macroeconomic, policy and market developments that affect multiple asset classes.",
+      ],
+      [
+        "🔗",
+        "Study Cross-Market Relationships",
+        "Analyze how rates, currencies, credit, equities and commodities interact across market regimes.",
+      ],
+      [
+        "🧠",
+        "Develop Cross-Asset Views",
+        "Build evidence-based views on relative performance, market themes, risks and scenarios.",
+      ],
+      [
+        "📝",
+        "Communicate Strategy",
+        "Produce research, charts, presentations and market commentary that connect developments across markets.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to a Cross-Asset Strategist.",
+    cards: [
+      [
+        "🌍",
+        "Macro Research / Economists",
+        "Provides economic and policy analysis underlying broader market themes.",
+      ],
+      [
+        "🔬",
+        "Asset-Class Strategists",
+        "Contribute specialized views across rates, FX, credit, equities and commodities.",
+      ],
+      [
+        "🤝",
+        "Sales",
+        "Uses cross-market research and strategy in discussions with clients.",
+      ],
+      [
+        "📊",
+        "Trading Desks",
+        "Provide real-time market, liquidity, flow and positioning context across products.",
+      ],
+      [
+        "🧩",
+        "Structuring",
+        "Uses cross-market analysis when evaluating multi-asset products and solutions.",
+      ],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Work?",
+    description: "Data and systems supporting cross-asset strategy activity.",
+    cards: [
+      [
+        "📡",
+        "Cross-Asset Market Data",
+        "Provides prices, curves, spreads, volatility and other information across financial markets.",
+      ],
+      [
+        "🌍",
+        "Economic & Policy Data",
+        "Provides macroeconomic releases, central-bank information and broader policy developments.",
+      ],
+      [
+        "💻",
+        "Research & Analytics Tools",
+        "Support statistical analysis, cross-market comparison, modeling and visualization.",
+      ],
+      [
+        "📚",
+        "Research Distribution Systems",
+        "Support publication and distribution of strategy output.",
+      ],
+    ],
+  },
+];
+
+function CrossAssetStrategistMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Cross-Asset Strategy"
+      title="Cross-Asset Strategist"
+      intro="Analyzes relationships across asset classes and global market themes to develop and communicate evidence-based views on cross-market conditions, risks and scenarios."
+      sections={crossAssetStrategistSections}
+      eyebrow="RESEARCH / STRATEGY ROLE"
+    />
+  );
+}
+
+function EquityStrategyMap({
+  goBack,
+  openRole,
+}: {
+  goBack: () => void;
+  openRole: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Research / Strategy
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">📈</div>
+        <div>
+          <p className="eyebrow">GLOBAL MARKETS RESEARCH</p>
+          <h1>Equity Research / Strategy</h1>
+          <p className="intro">
+            Explore roles that analyze companies, sectors, earnings,
+            valuation and broader equity-market conditions.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">📈</span>
+          <div>
+            <h2>Equity Research / Strategy Roles</h2>
+            <p>Explore a representative research and strategy role in equity markets.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openRole}>
+            <span>👤</span>
+            <strong>Equity Strategist / Analyst</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const equityStrategistSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Research / Strategy"],
+      ["📈", "Equity Research / Strategy", "Equity Strategist / Analyst"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The market this role primarily analyzes.",
+    cards: [
+      [
+        "📈",
+        "Equity Markets",
+        "Analyzes listed companies, sectors, indices and broader equity-market conditions.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core equity exposures commonly analyzed.",
+    cards: [
+      [
+        "🏢",
+        "Listed Equities",
+        "Publicly traded companies analyzed through fundamentals, earnings, valuation and market conditions.",
+      ],
+      [
+        "🧭",
+        "Sectors & Industries",
+        "Groups of companies analyzed through shared economic, competitive and industry drivers.",
+      ],
+      [
+        "🧺",
+        "Equity Indices",
+        "Broad and sector indices used to assess market performance, valuation and positioning.",
+      ],
+      [
+        "🌍",
+        "Regional Equity Markets",
+        "Equity markets across developed and emerging regions depending on research coverage.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities in Equity Research / Strategy.",
+    cards: [
+      [
+        "🏢",
+        "Analyze Companies & Sectors",
+        "Evaluate business fundamentals, industry conditions, earnings and competitive dynamics.",
+      ],
+      [
+        "📐",
+        "Analyze Valuation",
+        "Assess valuation measures and relationships across companies, sectors and markets.",
+      ],
+      [
+        "🧠",
+        "Develop Equity Views",
+        "Build evidence-based views on companies, sectors, market themes and broader equity conditions.",
+      ],
+      [
+        "📝",
+        "Communicate Research",
+        "Produce research, charts, presentations and market commentary for relevant audiences.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to Equity Research / Strategy.",
+    cards: [
+      [
+        "🤝",
+        "Equities Sales",
+        "Uses company, sector and market research in discussions with clients.",
+      ],
+      [
+        "📊",
+        "Equity Trading",
+        "Shares real-time market, liquidity, flow and positioning information.",
+      ],
+      [
+        "🧩",
+        "Equity Derivatives Structuring",
+        "Uses equity and market analysis when evaluating relevant products and structures.",
+      ],
+      [
+        "🌍",
+        "Economists / Macro Strategy",
+        "Connects equity views with growth, inflation, policy and broader economic conditions.",
+      ],
+      [
+        "🔬",
+        "Other Research Teams",
+        "Collaborates across sectors, regions and asset classes on shared market themes.",
+      ],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Work?",
+    description: "Data and systems supporting equity research activity.",
+    cards: [
+      [
+        "📑",
+        "Company & Fundamental Data",
+        "Provides financial statements, earnings, estimates, disclosures and company information.",
+      ],
+      [
+        "📡",
+        "Equity Market Data",
+        "Provides prices, indices, valuation measures, volumes and other market information.",
+      ],
+      [
+        "💻",
+        "Research & Analytics Tools",
+        "Support financial analysis, valuation work, modeling and visualization.",
+      ],
+      [
+        "📚",
+        "Research Distribution Systems",
+        "Support publication and distribution of research output.",
+      ],
+    ],
+  },
+];
+
+function EquityStrategistMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Equity Research / Strategy"
+      title="Equity Strategist / Analyst"
+      intro="Analyzes companies, sectors, earnings, valuation and broader market conditions to develop and communicate evidence-based views on equity markets."
+      sections={equityStrategistSections}
+      eyebrow="RESEARCH / STRATEGY ROLE"
+    />
+  );
+}
+
+function CreditStrategyMap({
+  goBack,
+  openRole,
+}: {
+  goBack: () => void;
+  openRole: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Research / Strategy
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">💳</div>
+        <div>
+          <p className="eyebrow">GLOBAL MARKETS RESEARCH</p>
+          <h1>Credit Research / Strategy</h1>
+          <p className="intro">
+            Explore roles that analyze issuers, sectors, credit conditions,
+            spreads and relative value across credit markets.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">💳</span>
+          <div>
+            <h2>Credit Research / Strategy Roles</h2>
+            <p>Explore a representative research and strategy role in credit markets.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openRole}>
+            <span>👤</span>
+            <strong>Credit Strategist / Analyst</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const creditStrategistSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Research / Strategy"],
+      ["💳", "Credit Research / Strategy", "Credit Strategist / Analyst"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The markets this role primarily analyzes.",
+    cards: [
+      [
+        "💳",
+        "Credit Markets",
+        "Analyzes corporate, sovereign and other supported credit markets, including spreads, fundamentals and financing conditions.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core credit instruments and exposures commonly analyzed.",
+    cards: [
+      [
+        "🏢",
+        "Investment Grade Credit",
+        "Corporate bonds and credit exposures associated with higher-rated issuers.",
+      ],
+      [
+        "⚡",
+        "High Yield Credit",
+        "Corporate bonds and credit exposures associated with lower-rated issuers.",
+      ],
+      [
+        "🌍",
+        "Emerging Markets Credit",
+        "Sovereign and corporate credit exposures across supported emerging markets.",
+      ],
+      [
+        "🧩",
+        "Credit Derivatives",
+        "Single-name CDS, credit indices and related derivative-market information.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities in Credit Research / Strategy.",
+    cards: [
+      [
+        "🏢",
+        "Analyze Issuers & Sectors",
+        "Evaluate company, sovereign and sector fundamentals relevant to creditworthiness and market pricing.",
+      ],
+      [
+        "📊",
+        "Analyze Credit Markets",
+        "Study spreads, curves, default expectations, liquidity, positioning and relative-value relationships.",
+      ],
+      [
+        "🧠",
+        "Develop Credit Views",
+        "Build evidence-based views on credit themes, risks, sectors and market scenarios.",
+      ],
+      [
+        "📝",
+        "Communicate Research",
+        "Produce research, charts, presentations and market commentary for relevant audiences.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to Credit Research / Strategy.",
+    cards: [
+      [
+        "🤝",
+        "Credit Sales",
+        "Uses issuer, sector and strategy analysis in discussions with clients.",
+      ],
+      [
+        "📊",
+        "Credit Trading",
+        "Shares real-time spread, liquidity, flow and positioning information.",
+      ],
+      [
+        "🧩",
+        "Credit Structuring",
+        "Uses credit analysis and market context when evaluating relevant structures.",
+      ],
+      [
+        "🌍",
+        "Economists / Macro Strategy",
+        "Connects credit conditions with growth, policy and broader financing conditions.",
+      ],
+      [
+        "🔬",
+        "Other Research Teams",
+        "Collaborates across sectors, regions and asset classes on shared market themes.",
+      ],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Work?",
+    description: "Data and systems supporting credit research activity.",
+    cards: [
+      [
+        "📡",
+        "Credit & Market Data",
+        "Provides bond prices, spreads, curves, CDS data, ratings and other market information.",
+      ],
+      [
+        "📑",
+        "Issuer & Fundamental Data",
+        "Provides financial statements, disclosures and other issuer or sovereign information.",
+      ],
+      [
+        "💻",
+        "Research & Analytics Tools",
+        "Support fundamental analysis, relative-value work, modeling and visualization.",
+      ],
+      [
+        "📚",
+        "Research Distribution Systems",
+        "Support publication and distribution of research output.",
+      ],
+    ],
+  },
+];
+
+function CreditStrategistMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Credit Research / Strategy"
+      title="Credit Strategist / Analyst"
+      intro="Analyzes issuers, sectors, credit spreads and financing conditions to develop and communicate evidence-based views on credit markets and relative value."
+      sections={creditStrategistSections}
+      eyebrow="RESEARCH / STRATEGY ROLE"
+    />
+  );
+}
+
+function RatesStrategyMap({
+  goBack,
+  openRole,
+}: {
+  goBack: () => void;
+  openRole: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Research / Strategy
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">📉</div>
+        <div>
+          <p className="eyebrow">GLOBAL MARKETS RESEARCH</p>
+          <h1>Rates Strategy</h1>
+          <p className="intro">
+            Explore roles that analyze interest rates, monetary policy,
+            yield curves and fixed-income market relationships.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">📉</span>
+          <div>
+            <h2>Rates Strategy Roles</h2>
+            <p>Explore a representative strategy role in rates markets.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openRole}>
+            <span>👤</span>
+            <strong>Rates Strategist</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const ratesStrategistSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Research / Strategy"],
+      ["📉", "Rates Strategy", "Rates Strategist"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The markets this role primarily analyzes.",
+    cards: [
+      [
+        "📉",
+        "Interest Rate Markets",
+        "Analyzes government bonds, yield curves, monetary-policy expectations and related rates derivatives.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core rates instruments and exposures commonly analyzed.",
+    cards: [
+      [
+        "🏛️",
+        "Government Bonds",
+        "Sovereign bond yields, curves, spreads and relative-value relationships.",
+      ],
+      [
+        "🔁",
+        "Interest Rate Swaps",
+        "Swap curves, spreads and expectations embedded in derivatives markets.",
+      ],
+      [
+        "📅",
+        "Rates Futures / STIR",
+        "Futures and short-term interest-rate markets reflecting policy and rate expectations.",
+      ],
+      [
+        "🧩",
+        "Rates Options",
+        "Volatility and option-market information across supported rates products.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities in a Rates Strategy role.",
+    cards: [
+      [
+        "🏛️",
+        "Analyze Policy & Macro Drivers",
+        "Assess monetary policy, inflation, growth and fiscal developments affecting interest rates.",
+      ],
+      [
+        "📊",
+        "Analyze Curves & Markets",
+        "Study yield curves, spreads, positioning, volatility and relative-value relationships.",
+      ],
+      [
+        "🧠",
+        "Develop Market Views",
+        "Build evidence-based views on rates themes, risks and market scenarios.",
+      ],
+      [
+        "📝",
+        "Communicate Research",
+        "Produce research, charts, presentations and market commentary for relevant audiences.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to a Rates Strategist.",
+    cards: [
+      [
+        "🤝",
+        "Rates Sales",
+        "Uses strategy and market analysis in discussions with clients.",
+      ],
+      [
+        "📊",
+        "Rates Trading",
+        "Shares real-time market observations, liquidity conditions and positioning context.",
+      ],
+      [
+        "🧩",
+        "Rates Structuring",
+        "Uses rates, curve and volatility analysis when evaluating relevant structures.",
+      ],
+      [
+        "🌍",
+        "Economists / Macro Strategy",
+        "Connects rates views with monetary policy, inflation, growth and fiscal developments.",
+      ],
+      [
+        "🔬",
+        "Other Asset Strategists",
+        "Collaborates on cross-market relationships involving FX, credit, equities and commodities.",
+      ],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Work?",
+    description: "Data and systems supporting Rates Strategy activity.",
+    cards: [
+      [
+        "📡",
+        "Rates & Macro Market Data",
+        "Provides bond yields, curves, swap rates, futures, volatility and macroeconomic datasets.",
+      ],
+      [
+        "💻",
+        "Research & Analytics Tools",
+        "Support curve analysis, statistical work, modeling and visualization.",
+      ],
+      [
+        "📰",
+        "News & Policy Information",
+        "Provides central-bank communication, fiscal developments and real-time market information.",
+      ],
+      [
+        "📚",
+        "Research Distribution Systems",
+        "Support publication and distribution of strategy output.",
+      ],
+    ],
+  },
+];
+
+function RatesStrategistMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Rates Strategy"
+      title="Rates Strategist"
+      intro="Analyzes monetary policy, yield curves and interest-rate markets to develop and communicate evidence-based views on rates, relative value and market scenarios."
+      sections={ratesStrategistSections}
+      eyebrow="RESEARCH / STRATEGY ROLE"
+    />
+  );
+}
+
+function FXStrategyMap({
+  goBack,
+  openRole,
+}: {
+  goBack: () => void;
+  openRole: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Research / Strategy
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">💱</div>
+        <div>
+          <p className="eyebrow">GLOBAL MARKETS RESEARCH</p>
+          <h1>FX Strategy</h1>
+          <p className="intro">
+            Explore roles that analyze currencies, macroeconomic drivers,
+            policy and cross-border market relationships.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">💱</span>
+          <div>
+            <h2>FX Strategy Roles</h2>
+            <p>Explore a representative strategy role in currency markets.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openRole}>
+            <span>👤</span>
+            <strong>FX Strategist</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const fxStrategistSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Research / Strategy"],
+      ["💱", "FX Strategy", "FX Strategist"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The market this role primarily analyzes.",
+    cards: [
+      [
+        "💱",
+        "Foreign Exchange Market",
+        "Analyzes currencies and their relationships with monetary policy, macroeconomic conditions and global capital flows.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core FX instruments and exposures commonly analyzed.",
+    cards: [
+      [
+        "💵",
+        "FX Spot",
+        "Currency pairs and spot-market price movements.",
+      ],
+      [
+        "🔁",
+        "Forwards & FX Swaps",
+        "Forward pricing, carry, funding and cross-currency relationships.",
+      ],
+      [
+        "🧩",
+        "FX Options",
+        "Volatility, option-market pricing and related currency risk measures.",
+      ],
+      [
+        "🌏",
+        "EM FX / NDFs",
+        "Deliverable and non-deliverable currencies across supported emerging markets.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities in an FX Strategy role.",
+    cards: [
+      [
+        "🌍",
+        "Analyze Macro Drivers",
+        "Assess growth, inflation, monetary policy, capital flows and other forces affecting currencies.",
+      ],
+      [
+        "📊",
+        "Analyze FX Markets",
+        "Study valuation, positioning, carry, volatility and cross-currency relationships.",
+      ],
+      [
+        "🧠",
+        "Develop Market Views",
+        "Build evidence-based views on currency themes, risks and market scenarios.",
+      ],
+      [
+        "📝",
+        "Communicate Research",
+        "Produce research, charts, presentations and market commentary for relevant audiences.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to an FX Strategist.",
+    cards: [
+      [
+        "🤝",
+        "FX Sales",
+        "Uses strategy and market analysis in discussions with clients.",
+      ],
+      [
+        "📊",
+        "FX Trading",
+        "Shares real-time market observations, liquidity conditions and positioning context.",
+      ],
+      [
+        "🧩",
+        "FX Structuring",
+        "Uses currency and volatility analysis when evaluating relevant structures.",
+      ],
+      [
+        "🌍",
+        "Economists / Macro Strategy",
+        "Connects currency views with monetary policy and broader macroeconomic developments.",
+      ],
+      [
+        "🔬",
+        "Other Asset Strategists",
+        "Collaborates on cross-market relationships involving rates, credit, equities and commodities.",
+      ],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Work?",
+    description: "Data and systems supporting FX Strategy activity.",
+    cards: [
+      [
+        "📡",
+        "FX & Macro Market Data",
+        "Provides currency prices, forward points, volatility, rates and macroeconomic datasets.",
+      ],
+      [
+        "💻",
+        "Research & Analytics Tools",
+        "Support statistical analysis, valuation work, modeling and visualization.",
+      ],
+      [
+        "📰",
+        "News & Policy Information",
+        "Provides central-bank communication, economic developments and real-time market information.",
+      ],
+      [
+        "📚",
+        "Research Distribution Systems",
+        "Support publication and distribution of strategy output.",
+      ],
+    ],
+  },
+];
+
+function FXStrategistMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="FX Strategy"
+      title="FX Strategist"
+      intro="Analyzes currencies, macroeconomic drivers and cross-border market relationships to develop and communicate evidence-based views on foreign-exchange markets."
+      sections={fxStrategistSections}
+      eyebrow="RESEARCH / STRATEGY ROLE"
+    />
+  );
+}
+
+function MacroResearchMap({
+  goBack,
+  openRole,
+}: {
+  goBack: () => void;
+  openRole: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Research / Strategy
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">🌍</div>
+        <div>
+          <p className="eyebrow">GLOBAL MARKETS RESEARCH</p>
+          <h1>Macro / Economics Research</h1>
+          <p className="intro">
+            Explore roles that analyze economic conditions, policy,
+            financial markets and their transmission across asset classes.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🌍</span>
+          <div>
+            <h2>Macro / Economics Research Roles</h2>
+            <p>Explore a representative macro research role.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openRole}>
+            <span>👤</span>
+            <strong>Macro Strategist / Economist</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const macroStrategistSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Research / Strategy"],
+      ["🌍", "Macro / Economics Research", "Macro Strategist / Economist"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The markets and economic environment analyzed by the role.",
+    cards: [
+      [
+        "🌍",
+        "Global Economy & Financial Markets",
+        "Analyzes macroeconomic conditions and their transmission across rates, FX, credit, equities and other financial markets.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "The market exposures and instruments commonly analyzed.",
+    cards: [
+      ["📉", "Rates", "Government bonds, yield curves and monetary-policy-sensitive markets."],
+      ["💱", "FX", "Currencies and their relationships with growth, inflation, policy and capital flows."],
+      ["💳", "Credit", "Credit conditions and spreads as indicators of financing conditions and risk."],
+      ["📈", "Equities", "Equity markets viewed through macroeconomic, earnings and valuation conditions."],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities in macro and economics research.",
+    cards: [
+      [
+        "📊",
+        "Analyze Economic Data",
+        "Interpret growth, inflation, labor, activity and other macroeconomic indicators.",
+      ],
+      [
+        "🏛️",
+        "Assess Policy",
+        "Analyze central-bank, fiscal and other policy developments and their market implications.",
+      ],
+      [
+        "🧠",
+        "Develop Market Views",
+        "Build evidence-based views on economic regimes, market themes and transmission across assets.",
+      ],
+      [
+        "📝",
+        "Communicate Research",
+        "Produce research, charts, presentations and market commentary for internal or external audiences.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to macro and economics research.",
+    cards: [
+      ["🤝", "Sales", "Uses research and market views in discussions with clients."],
+      ["📊", "Trading", "Shares market observations, positioning context and real-time price information."],
+      ["🔬", "Product Strategists", "Connect macro themes with specific asset classes and market structures."],
+      ["🧩", "Structuring", "Uses macro and market context when developing relevant client solutions."],
+      ["📚", "Research Teams", "Collaborates with economists, strategists and analysts across regions and products."],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Work?",
+    description: "Data and systems supporting macro research activity.",
+    cards: [
+      [
+        "📡",
+        "Economic & Market Data",
+        "Provides macroeconomic releases, market prices, curves and historical datasets.",
+      ],
+      [
+        "💻",
+        "Research & Analytics Tools",
+        "Support statistical analysis, modeling, visualization and scenario analysis.",
+      ],
+      [
+        "📰",
+        "News & Policy Information",
+        "Provides central-bank communication, policy developments and real-time market information.",
+      ],
+      [
+        "📚",
+        "Research Distribution Systems",
+        "Support publication, internal communication and distribution of research output.",
+      ],
+    ],
+  },
+];
+
+function MacroStrategistMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Macro / Economics Research"
+      title="Macro Strategist / Economist"
+      intro="Analyzes economic conditions, policy developments and cross-market relationships to explain how macroeconomic forces may transmit through financial markets."
+      sections={macroStrategistSections}
+      eyebrow="RESEARCH / STRATEGY ROLE"
+    />
+  );
+}
 
 function CrossAssetStructuringMap({
   goBack,
@@ -6861,6 +8131,7 @@ type RoleDetailPageProps = {
   title: string;
   intro: string;
   sections: RoleDetailSection[];
+  eyebrow?: string;
 };
 
 function RoleDetailPage({
@@ -6869,6 +8140,7 @@ function RoleDetailPage({
   title,
   intro,
   sections,
+  eyebrow = "GLOBAL MARKETS ROLE",
 }: RoleDetailPageProps) {
   return (
     <main className="world">
@@ -6879,7 +8151,7 @@ function RoleDetailPage({
       <header className="hero detail-hero">
         <div className="globe">👤</div>
         <div>
-          <p className="eyebrow">TRADING ROLE</p>
+          <p className="eyebrow">{eyebrow}</p>
           <h1>{title}</h1>
           <p className="intro">{intro}</p>
         </div>
@@ -9452,7 +10724,7 @@ function FunctionMap({
 }
 
 function App() {
-  const [page, setPage] = useState<"system" | "central-bank" | "banks" | "global-markets" | "structuring" | "structuring-fx" | "structuring-fx-structurer" | "structuring-rates" | "structuring-rates-structurer" | "structuring-credit" | "structuring-credit-structurer" | "structuring-equity" | "structuring-equity-structurer" | "structuring-commodities" | "structuring-commodities-structurer" | "structuring-cross-asset" | "structuring-cross-asset-structurer" | "sales" | "sales-fx" | "sales-fx-salesperson" | "sales-rates" | "sales-rates-salesperson" | "sales-credit" | "sales-credit-salesperson" | "sales-equities" | "sales-equities-salesperson" | "sales-commodities" | "sales-commodities-salesperson" | "sales-cross-asset" | "sales-cross-asset-salesperson" | "trading" | "credit-trading" | "credit-ig" | "credit-ig-trader" | "credit-hy" | "credit-hy-trader" | "credit-em" | "credit-em-trader" | "credit-derivatives" | "credit-derivatives-trader" | "credit-electronic" | "credit-electronic-trader" | "cross-asset-trading" | "cross-asset-trader" | "commodities-trading" | "commodities-oil-energy" | "commodities-oil-energy-trader" | "commodities-natural-gas" | "commodities-natural-gas-trader" | "commodities-power" | "commodities-power-trader" | "commodities-metals" | "commodities-metals-trader" | "commodities-agriculture" | "commodities-agriculture-trader" | "equities-trading" | "equities-cash" | "equities-cash-trader" | "equities-derivatives" | "equities-derivatives-trader" | "equities-index-etf" | "equities-index-etf-trader" | "equities-electronic" | "equities-electronic-trader" | "equities-em" | "equities-em-trader" | "rates-trading" | "rates-government-bonds" | "rates-government-bond-trader" | "rates-swaps" | "rates-swap-trader" | "rates-futures-stir" | "rates-futures-trader" | "rates-options" | "rates-options-trader" | "rates-electronic" | "rates-electronic-trader" | "fx-trading" | "fx-spot" | "fx-spot-trader" | "fx-forwards-swaps" | "fx-forward-swap-trader" | "fx-options" | "fx-options-trader" | "fx-em-ndf" | "fx-em-ndf-trader" | "fx-electronic" | "fx-electronic-trader" | "function">(
+  const [page, setPage] = useState<"system" | "central-bank" | "banks" | "global-markets" | "research-strategy" | "research-macro" | "research-macro-role" | "research-fx" | "research-fx-role" | "research-rates" | "research-rates-role" | "research-credit" | "research-credit-role" | "research-equity" | "research-equity-role" | "research-cross-asset" | "research-cross-asset-role" | "structuring" | "structuring-fx" | "structuring-fx-structurer" | "structuring-rates" | "structuring-rates-structurer" | "structuring-credit" | "structuring-credit-structurer" | "structuring-equity" | "structuring-equity-structurer" | "structuring-commodities" | "structuring-commodities-structurer" | "structuring-cross-asset" | "structuring-cross-asset-structurer" | "sales" | "sales-fx" | "sales-fx-salesperson" | "sales-rates" | "sales-rates-salesperson" | "sales-credit" | "sales-credit-salesperson" | "sales-equities" | "sales-equities-salesperson" | "sales-commodities" | "sales-commodities-salesperson" | "sales-cross-asset" | "sales-cross-asset-salesperson" | "trading" | "credit-trading" | "credit-ig" | "credit-ig-trader" | "credit-hy" | "credit-hy-trader" | "credit-em" | "credit-em-trader" | "credit-derivatives" | "credit-derivatives-trader" | "credit-electronic" | "credit-electronic-trader" | "cross-asset-trading" | "cross-asset-trader" | "commodities-trading" | "commodities-oil-energy" | "commodities-oil-energy-trader" | "commodities-natural-gas" | "commodities-natural-gas-trader" | "commodities-power" | "commodities-power-trader" | "commodities-metals" | "commodities-metals-trader" | "commodities-agriculture" | "commodities-agriculture-trader" | "equities-trading" | "equities-cash" | "equities-cash-trader" | "equities-derivatives" | "equities-derivatives-trader" | "equities-index-etf" | "equities-index-etf-trader" | "equities-electronic" | "equities-electronic-trader" | "equities-em" | "equities-em-trader" | "rates-trading" | "rates-government-bonds" | "rates-government-bond-trader" | "rates-swaps" | "rates-swap-trader" | "rates-futures-stir" | "rates-futures-trader" | "rates-options" | "rates-options-trader" | "rates-electronic" | "rates-electronic-trader" | "fx-trading" | "fx-spot" | "fx-spot-trader" | "fx-forwards-swaps" | "fx-forward-swap-trader" | "fx-options" | "fx-options-trader" | "fx-em-ndf" | "fx-em-ndf-trader" | "fx-electronic" | "fx-electronic-trader" | "function">(
     "system"
   );
 
@@ -9959,6 +11231,122 @@ function App() {
     );
   }
 
+  if (page === "research-cross-asset-role") {
+    return (
+      <CrossAssetStrategistMap
+        goBack={() => setPage("research-cross-asset")}
+      />
+    );
+  }
+
+  if (page === "research-cross-asset") {
+    return (
+      <CrossAssetStrategyMap
+        goBack={() => setPage("research-strategy")}
+        openRole={() => setPage("research-cross-asset-role")}
+      />
+    );
+  }
+
+  if (page === "research-equity-role") {
+    return (
+      <EquityStrategistMap
+        goBack={() => setPage("research-equity")}
+      />
+    );
+  }
+
+  if (page === "research-equity") {
+    return (
+      <EquityStrategyMap
+        goBack={() => setPage("research-strategy")}
+        openRole={() => setPage("research-equity-role")}
+      />
+    );
+  }
+
+  if (page === "research-credit-role") {
+    return (
+      <CreditStrategistMap
+        goBack={() => setPage("research-credit")}
+      />
+    );
+  }
+
+  if (page === "research-credit") {
+    return (
+      <CreditStrategyMap
+        goBack={() => setPage("research-strategy")}
+        openRole={() => setPage("research-credit-role")}
+      />
+    );
+  }
+
+  if (page === "research-rates-role") {
+    return (
+      <RatesStrategistMap
+        goBack={() => setPage("research-rates")}
+      />
+    );
+  }
+
+  if (page === "research-rates") {
+    return (
+      <RatesStrategyMap
+        goBack={() => setPage("research-strategy")}
+        openRole={() => setPage("research-rates-role")}
+      />
+    );
+  }
+
+  if (page === "research-fx-role") {
+    return (
+      <FXStrategistMap
+        goBack={() => setPage("research-fx")}
+      />
+    );
+  }
+
+  if (page === "research-fx") {
+    return (
+      <FXStrategyMap
+        goBack={() => setPage("research-strategy")}
+        openRole={() => setPage("research-fx-role")}
+      />
+    );
+  }
+
+  if (page === "research-macro-role") {
+    return (
+      <MacroStrategistMap
+        goBack={() => setPage("research-macro")}
+      />
+    );
+  }
+
+  if (page === "research-macro") {
+    return (
+      <MacroResearchMap
+        goBack={() => setPage("research-strategy")}
+        openRole={() => setPage("research-macro-role")}
+      />
+    );
+  }
+
+  if (page === "research-strategy") {
+    return (
+      <ResearchStrategyMap
+        goBack={() => setPage("global-markets")}
+        openMacroResearch={() => setPage("research-macro")}
+        openFXStrategy={() => setPage("research-fx")}
+        openRatesStrategy={() => setPage("research-rates")}
+        openCreditStrategy={() => setPage("research-credit")}
+        openEquityStrategy={() => setPage("research-equity")}
+        openCrossAssetStrategy={() => setPage("research-cross-asset")}
+      />
+    );
+  }
+
   if (page === "structuring-cross-asset-structurer") {
     return (
       <CrossAssetStructurerMap
@@ -10212,6 +11600,7 @@ function App() {
         openTrading={() => setPage("trading")}
         openSales={() => setPage("sales")}
         openStructuring={() => setPage("structuring")}
+        openResearchStrategy={() => setPage("research-strategy")}
       />
     );
   }
