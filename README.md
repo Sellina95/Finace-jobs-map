@@ -88,6 +88,20 @@ Job titles, reporting lines, desk structures, and responsibilities vary across i
 
 The taxonomy therefore focuses on broadly recognizable industry functions and relationships while allowing the map to evolve as additional roles and institutional structures are researched.
 
+## Methodology & Scope
+
+Finance Jobs Map is built from publicly available information about financial institutions, markets, market infrastructure, and professional roles, including official institutional materials, regulatory and market-structure documentation, and publicly available role descriptions.
+
+The map does not reproduce the organizational structure of any single institution. Instead, it aims to identify broadly recognizable functions, role families, products, and relationships that can provide a useful common framework for navigating the financial industry.
+
+Financial organizations are not structured identically. Team names, job titles, responsibilities, reporting lines, product coverage, and the placement of individual functions can vary significantly across institutions, jurisdictions, and business models. 
+
+A function shown under one category in this map may therefore sit elsewhere — or be divided across several teams — at a particular institution.
+
+The map should be understood as an educational and navigational framework rather than a universal or authoritative industry taxonomy.
+
+As the project develops, the taxonomy and role descriptions will continue to be refined using additional primary and institutional sources, practitioner feedback, and cross-market comparisons.
+
 ## Long-Term Vision
 
 Finance is the starting point.
@@ -101,6 +115,7 @@ The broader ambition is simple:
 **make the world of work easier to navigate by showing not only what jobs do, but where they exist, what they interact with, and how they connect to the larger system around them.**
 
 In other words: one map for finance first — and, eventually, perhaps a much bigger map of how jobs across industries fit together. 🌍
+
 
 ## Project Status
 
