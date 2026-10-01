@@ -2,7 +2,8 @@
 
 **Finance Jobs Map** is an interactive visual map designed to show where financial roles sit within the broader financial system — and how institutions, markets, infrastructure, functions, and jobs connect with one another.
 
-🌐 **[Explore the Live Finance Jobs Map](https://sellina95.github.io/Finace-jobs-map/)**
+🌐 **Open the Live Finance Jobs Map**
+https://sellina95.github.io/Finance-jobs-map/
 
 ## Why I Built This
 
