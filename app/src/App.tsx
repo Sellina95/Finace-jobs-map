@@ -784,6 +784,14 @@ function GlobalMarketsMap({
 }
 
 
+const equitiesTradingAreas: Item[] = [
+  { id: "equities-cash", emoji: "📊", label: "Cash Equities" },
+  { id: "equities-derivatives", emoji: "🧩", label: "Equity Derivatives" },
+  { id: "equities-index-etf", emoji: "🧺", label: "Index / ETF Trading" },
+  { id: "equities-electronic", emoji: "⚡", label: "Electronic Equities" },
+  { id: "equities-em", emoji: "🌍", label: "Emerging Markets Equities" },
+];
+
 const creditTradingAreas: Item[] = [
   { id: "credit-ig", emoji: "🏢", label: "Investment Grade Credit" },
   { id: "credit-hy", emoji: "⚡", label: "High Yield Credit" },
@@ -813,11 +821,13 @@ function TradingMap({
   openFX,
   openRates,
   openCredit,
+  openEquities,
 }: {
   goBack: () => void;
   openFX: () => void;
   openRates: () => void;
   openCredit: () => void;
+  openEquities: () => void;
 }) {
   return (
     <main className="world">
@@ -860,6 +870,8 @@ function TradingMap({
                   openRates();
                 } else if (item.id === "credit") {
                   openCredit();
+                } else if (item.id === "equities") {
+                  openEquities();
                 }
               }}
             >
@@ -880,6 +892,941 @@ function TradingMap({
 
 
 
+
+
+
+
+
+
+
+function EmergingMarketsEquitiesMap({
+  goBack,
+  openTrader,
+}: {
+  goBack: () => void;
+  openTrader: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Equities Trading
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">🌍</div>
+        <div>
+          <p className="eyebrow">EQUITIES TRADING</p>
+          <h1>Emerging Markets Equities</h1>
+          <p className="intro">
+            Explore trading roles focused on listed equities across emerging markets.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🌍</span>
+          <div>
+            <h2>Emerging Markets Equities Roles</h2>
+            <p>Explore a core trading role across emerging-market equity markets.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openTrader}>
+            <span>👤</span>
+            <strong>EM Equity Trader</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const emEquityTraderSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Trading"],
+      ["🌍", "Equities Trading", "Emerging Markets Equities → EM Equity Trader"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The markets in which this role primarily operates.",
+    cards: [
+      [
+        "🌍",
+        "Emerging Markets Equities",
+        "Equity markets across supported emerging-market countries and regions.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core instruments associated with this role.",
+    cards: [
+      [
+        "🏢",
+        "Emerging-Market Listed Equities",
+        "Shares of publicly listed companies across supported emerging markets.",
+      ],
+      [
+        "🧺",
+        "EM Equity ETFs",
+        "Exchange-traded funds providing exposure to emerging-market countries, regions or indices.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities on an institutional emerging-markets equities desk.",
+    cards: [
+      [
+        "💱",
+        "Provide Liquidity",
+        "Facilitate institutional transactions and provide liquidity across supported EM equities.",
+      ],
+      [
+        "📊",
+        "Manage Trading Risk",
+        "Monitor inventory, price, liquidity and market exposures across supported markets.",
+      ],
+      [
+        "⚡",
+        "Execute Flow",
+        "Execute institutional client and market transactions across EM equity markets.",
+      ],
+      [
+        "🌍",
+        "Monitor Countries & Markets",
+        "Track companies, local markets, capital flows, currencies, liquidity and country-level developments.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to an emerging-markets equities desk.",
+    cards: [
+      ["🤝", "Equity Sales", "Connects institutional client activity with the trading desk."],
+      ["🔬", "Equity Research", "Provides company and sector analysis across supported markets."],
+      ["🌍", "EM Research / Strategy", "Provides country, macro and cross-market context."],
+      ["⚡", "Electronic Trading", "Supports electronic execution and liquidity workflows where applicable."],
+      ["🛡️", "Market Risk", "Monitors market-risk exposures and risk limits."],
+      ["⚙️", "Middle Office", "Supports trade control, monitoring and exception management."],
+      ["💸", "Operations / Settlement", "Supports post-trade processing and local-market settlement workflows."],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Trades?",
+    description: "Market and post-trade infrastructure supporting emerging-market equity trading.",
+    cards: [
+      [
+        "🏛️",
+        "Local Stock Exchanges & Trading Venues",
+        "Provide markets and execution venues for listed equities across supported countries.",
+      ],
+      [
+        "🔌",
+        "Market Connectivity",
+        "Connects trading systems with local exchanges, venues and liquidity sources.",
+      ],
+      [
+        "📡",
+        "Market & Reference Data",
+        "Local prices, company information, security data and market data support trading decisions.",
+      ],
+      [
+        "🔗",
+        "Local Clearing & Settlement Infrastructure",
+        "Supports clearing, securities settlement and post-trade processing across supported markets.",
+      ],
+    ],
+  },
+];
+
+function EMEquityTraderMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Emerging Markets Equities"
+      title="EM Equity Trader"
+      intro="Trades emerging-market equities, provides institutional liquidity and manages market, liquidity and country-related risk across supported markets."
+      sections={emEquityTraderSections}
+    />
+  );
+}
+
+function ElectronicEquitiesMap({
+  goBack,
+  openTrader,
+}: {
+  goBack: () => void;
+  openTrader: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Equities Trading
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">⚡</div>
+        <div>
+          <p className="eyebrow">EQUITIES TRADING</p>
+          <h1>Electronic Equities</h1>
+          <p className="intro">
+            Explore trading roles focused on electronic pricing, execution,
+            liquidity and market connectivity across equity markets.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">⚡</span>
+          <div>
+            <h2>Electronic Equities Roles</h2>
+            <p>Explore a core trading role in electronic equity markets.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openTrader}>
+            <span>👤</span>
+            <strong>Electronic Equity Trader</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const electronicEquityTraderSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Trading"],
+      ["⚡", "Equities Trading", "Electronic Equities → Electronic Equity Trader"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The markets in which this role primarily operates.",
+    cards: [
+      [
+        "⚡",
+        "Electronic Equity Markets",
+        "Electronic markets where equities and related products are priced and executed across exchanges and other supported venues.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core instruments associated with this role.",
+    cards: [
+      [
+        "🏢",
+        "Listed Equities",
+        "Shares of publicly listed companies traded through electronic markets.",
+      ],
+      [
+        "🧺",
+        "Equity ETFs",
+        "Exchange-traded funds executed through supported electronic venues and workflows.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities in institutional electronic equity trading.",
+    cards: [
+      [
+        "⚡",
+        "Manage Electronic Execution",
+        "Monitor and support electronic execution across exchanges and other supported venues.",
+      ],
+      [
+        "💱",
+        "Manage Pricing & Liquidity",
+        "Monitor prices, liquidity and trading conditions across electronic equity markets.",
+      ],
+      [
+        "📊",
+        "Manage Trading Risk",
+        "Monitor inventory, price, liquidity and market exposures generated by electronic trading.",
+      ],
+      [
+        "🔧",
+        "Improve Trading Workflows",
+        "Work with quantitative and technology teams on execution, analytics and automation.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to electronic equity trading.",
+    cards: [
+      ["🤝", "Equity Sales", "Connects institutional client activity and execution needs with the desk."],
+      ["📊", "Cash Equity Trading", "Provides market context and liquidity across underlying equities."],
+      ["🧮", "Quantitative Trading / Research", "Supports execution models, analytics and automated trading workflows."],
+      ["💻", "Technology", "Builds and maintains trading systems, connectivity and automation."],
+      ["🛡️", "Market Risk", "Monitors market-risk exposures and risk limits."],
+      ["⚙️", "Middle Office", "Supports trade control, monitoring and exception management."],
+      ["💸", "Operations / Settlement", "Supports post-trade processing and securities settlement."],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Trades?",
+    description: "Electronic market and post-trade infrastructure supporting equity trading.",
+    cards: [
+      [
+        "🏛️",
+        "Exchanges & Electronic Trading Venues",
+        "Provide electronic markets and execution venues for supported equity products.",
+      ],
+      [
+        "🔌",
+        "Market Connectivity",
+        "Connects trading systems with exchanges, venues, clients and liquidity sources.",
+      ],
+      [
+        "📡",
+        "Real-Time Market Data",
+        "Prices, quotes, order-book and reference data support execution and risk decisions.",
+      ],
+      [
+        "🔗",
+        "Clearing & Settlement Infrastructure",
+        "Supports trade clearing, securities settlement and post-trade processing.",
+      ],
+    ],
+  },
+];
+
+function ElectronicEquityTraderMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Electronic Equities"
+      title="Electronic Equity Trader"
+      intro="Supports electronic equity execution and liquidity, manages trading risk and works with quantitative and technology teams across electronic markets."
+      sections={electronicEquityTraderSections}
+    />
+  );
+}
+
+function IndexETFTradingMap({
+  goBack,
+  openTrader,
+}: {
+  goBack: () => void;
+  openTrader: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Equities Trading
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">🧺</div>
+        <div>
+          <p className="eyebrow">EQUITIES TRADING</p>
+          <h1>Index / ETF Trading</h1>
+          <p className="intro">
+            Explore trading roles focused on equity indices, ETFs and related
+            market exposures.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🧺</span>
+          <div>
+            <h2>Index / ETF Trading Roles</h2>
+            <p>Explore a core trading role in index and ETF markets.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openTrader}>
+            <span>👤</span>
+            <strong>Index / ETF Trader</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const indexETFTraderSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Trading"],
+      ["🧺", "Equities Trading", "Index / ETF Trading → Index / ETF Trader"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The markets in which this role primarily operates.",
+    cards: [
+      [
+        "🧺",
+        "Equity Index & ETF Markets",
+        "Markets for exchange-traded funds and instruments linked to broad or specialized equity indices.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core instruments associated with this role.",
+    cards: [
+      [
+        "🧺",
+        "Equity ETFs",
+        "Exchange-traded funds providing exposure to equity indices, sectors, regions or investment themes.",
+      ],
+      [
+        "📊",
+        "Equity Index Products",
+        "Tradable instruments and exposures linked to equity-market indices.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities on an institutional index and ETF trading desk.",
+    cards: [
+      [
+        "💱",
+        "Provide Liquidity",
+        "Quote and facilitate institutional transactions in supported ETFs and index products.",
+      ],
+      [
+        "⚖️",
+        "Manage Relative-Value Risk",
+        "Monitor relationships between ETFs, underlying baskets and related index exposures.",
+      ],
+      [
+        "📊",
+        "Manage Trading Risk",
+        "Monitor inventory, basis, price, liquidity and market exposures.",
+      ],
+      [
+        "🌍",
+        "Monitor Index & ETF Markets",
+        "Track flows, index moves, underlying equities, liquidity and market developments.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to an index and ETF trading desk.",
+    cards: [
+      ["🤝", "Equity Sales", "Connects institutional client activity with the trading desk."],
+      ["📊", "Cash Equity Trading", "Provides liquidity and market context across underlying equities."],
+      ["🧩", "Equity Derivatives Trading", "Connects related index and derivative exposures."],
+      ["🧮", "Quantitative Trading / Research", "Supports pricing, basket and execution analytics."],
+      ["🛡️", "Market Risk", "Monitors market-risk exposures and risk limits."],
+      ["⚙️", "Middle Office", "Supports trade control, monitoring and exception management."],
+      ["💸", "Operations / Settlement", "Supports post-trade processing and securities settlement."],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Trades?",
+    description: "Market and post-trade infrastructure supporting index and ETF trading.",
+    cards: [
+      [
+        "🏛️",
+        "Stock Exchanges & Trading Venues",
+        "Provide execution venues for ETFs and related listed instruments.",
+      ],
+      [
+        "🔌",
+        "Market Connectivity",
+        "Connects trading systems with exchanges, venues and liquidity sources.",
+      ],
+      [
+        "📡",
+        "Market, Index & Reference Data",
+        "Prices, index composition, security data and underlying-market information support trading decisions.",
+      ],
+      [
+        "🔗",
+        "Clearing & Settlement Infrastructure",
+        "Supports trade clearing, securities settlement and post-trade processing.",
+      ],
+    ],
+  },
+];
+
+function IndexETFTraderMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Index / ETF Trading"
+      title="Index / ETF Trader"
+      intro="Trades equity ETFs and index-linked exposures, provides liquidity and manages relative-value and market risk across supported products."
+      sections={indexETFTraderSections}
+    />
+  );
+}
+
+function EquityDerivativesMap({
+  goBack,
+  openTrader,
+}: {
+  goBack: () => void;
+  openTrader: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Equities Trading
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">🧩</div>
+        <div>
+          <p className="eyebrow">EQUITIES TRADING</p>
+          <h1>Equity Derivatives</h1>
+          <p className="intro">
+            Explore trading roles in derivatives linked to individual equities
+            and equity indices.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🧩</span>
+          <div>
+            <h2>Equity Derivatives Roles</h2>
+            <p>Explore a core trading role in equity derivatives.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openTrader}>
+            <span>👤</span>
+            <strong>Equity Derivatives Trader</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const equityDerivativesTraderSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Trading"],
+      ["🧩", "Equities Trading", "Equity Derivatives → Equity Derivatives Trader"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The market in which this role primarily operates.",
+    cards: [
+      [
+        "🧩",
+        "Equity Derivatives Market",
+        "The market for derivatives whose value is linked to individual equities, equity indices or related equity exposures.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core instruments associated with this role.",
+    cards: [
+      [
+        "🏢",
+        "Single-Stock Options",
+        "Options whose underlying asset is the share of an individual company.",
+      ],
+      [
+        "📊",
+        "Index Options",
+        "Options whose value is linked to an equity-market index.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities on an institutional equity derivatives desk.",
+    cards: [
+      [
+        "💱",
+        "Price Derivatives",
+        "Price supported equity-derivative instruments and provide liquidity.",
+      ],
+      [
+        "📊",
+        "Manage Option Risk",
+        "Monitor volatility, directional and other option-related market exposures.",
+      ],
+      [
+        "⚡",
+        "Execute Flow",
+        "Execute institutional client and interdealer equity-derivatives transactions.",
+      ],
+      [
+        "🌍",
+        "Monitor Equity & Volatility Markets",
+        "Track equities, indices, volatility, events, liquidity and broader market conditions.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to an equity derivatives trading desk.",
+    cards: [
+      ["🤝", "Equity Derivatives Sales", "Connects institutional client activity with the trading desk."],
+      ["🧩", "Structuring", "Designs and supports customized equity-derivative solutions."],
+      ["🧮", "Quantitative Research / Trading", "Supports models, pricing and risk analytics."],
+      ["🔬", "Equity Research / Strategy", "Provides company, sector and market context."],
+      ["🛡️", "Market Risk", "Monitors market-risk exposures and risk limits."],
+      ["⚙️", "Middle Office", "Supports trade control, monitoring and exception management."],
+      ["🧾", "Product Control", "Supports valuation control and trading P&L oversight."],
+      ["💸", "Operations", "Supports confirmations, lifecycle events and post-trade processing."],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Trades?",
+    description: "Trading and post-trade infrastructure supporting equity derivatives.",
+    cards: [
+      [
+        "🖥️",
+        "Trading & Pricing Systems",
+        "Support pricing, execution and risk management across equity derivatives.",
+      ],
+      [
+        "📡",
+        "Market & Reference Data",
+        "Equity prices, volatility data, curves and reference information support pricing and risk decisions.",
+      ],
+      [
+        "🏛️",
+        "Exchanges & Trading Venues",
+        "Support execution of listed equity derivatives and other applicable trading workflows.",
+      ],
+      [
+        "🔗",
+        "Clearing & Post-Trade Infrastructure",
+        "Supports clearing where applicable, lifecycle processing and settlement.",
+      ],
+    ],
+  },
+];
+
+function EquityDerivativesTraderMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Equity Derivatives"
+      title="Equity Derivatives Trader"
+      intro="Prices and trades equity derivatives, provides liquidity and manages option and market risk across supported stocks and indices."
+      sections={equityDerivativesTraderSections}
+    />
+  );
+}
+
+function CashEquitiesMap({
+  goBack,
+  openTrader,
+}: {
+  goBack: () => void;
+  openTrader: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Equities Trading
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">📊</div>
+        <div>
+          <p className="eyebrow">EQUITIES TRADING</p>
+          <h1>Cash Equities</h1>
+          <p className="intro">
+            Explore trading roles in listed shares and institutional cash equity markets.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">📊</span>
+          <div>
+            <h2>Cash Equities Roles</h2>
+            <p>Explore a core trading role in institutional cash equities.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openTrader}>
+            <span>👤</span>
+            <strong>Cash Equity Trader</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const cashEquityTraderSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Trading"],
+      ["📊", "Equities Trading", "Cash Equities → Cash Equity Trader"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The market in which this role primarily operates.",
+    cards: [
+      [
+        "📊",
+        "Cash Equity Market",
+        "The market where listed shares of companies are bought and sold.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core instruments associated with this role.",
+    cards: [
+      [
+        "🏢",
+        "Listed Equities",
+        "Shares of publicly listed companies traded on supported equity markets.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities on an institutional cash equities desk.",
+    cards: [
+      [
+        "💱",
+        "Provide Liquidity",
+        "Facilitate institutional equity transactions and provide liquidity in supported stocks.",
+      ],
+      [
+        "📊",
+        "Manage Trading Risk",
+        "Monitor inventory, price, liquidity and market exposures.",
+      ],
+      [
+        "⚡",
+        "Execute Flow",
+        "Execute institutional client and market transactions across supported equities.",
+      ],
+      [
+        "🌍",
+        "Monitor Equity Markets",
+        "Track company news, market moves, liquidity, flows and broader equity-market developments.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to a cash equities trading desk.",
+    cards: [
+      ["🤝", "Equity Sales", "Connects institutional client activity with the trading desk."],
+      ["🔬", "Equity Research", "Provides company, sector and market analysis."],
+      ["⚡", "Electronic Trading", "Supports electronic execution and liquidity workflows."],
+      ["🛡️", "Market Risk", "Monitors market-risk exposures and risk limits."],
+      ["⚙️", "Middle Office", "Supports trade control, monitoring and exception management."],
+      ["🧮", "Product Control", "Supports valuation control and trading P&L oversight."],
+      ["💸", "Operations / Settlement", "Supports post-trade processing and securities settlement."],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Trades?",
+    description: "Market and post-trade infrastructure supporting cash equity trading.",
+    cards: [
+      [
+        "🏛️",
+        "Stock Exchanges & Trading Venues",
+        "Provide markets and execution venues for listed equities.",
+      ],
+      [
+        "🔌",
+        "Market Connectivity",
+        "Connects trading systems with exchanges, venues and liquidity sources.",
+      ],
+      [
+        "📡",
+        "Market & Reference Data",
+        "Prices, order-book information, company and security data support trading decisions.",
+      ],
+      [
+        "🔗",
+        "Clearing & Settlement Infrastructure",
+        "Supports trade clearing, securities settlement and post-trade processing.",
+      ],
+    ],
+  },
+];
+
+function CashEquityTraderMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Cash Equities"
+      title="Cash Equity Trader"
+      intro="Trades listed equities, facilitates institutional flow and manages trading risk across supported stocks and markets."
+      sections={cashEquityTraderSections}
+    />
+  );
+}
+
+function EquitiesTradingMap({
+  goBack,
+  openCash,
+  openDerivatives,
+  openIndexETF,
+  openElectronic,
+  openEM,
+}: {
+  goBack: () => void;
+  openCash: () => void;
+  openDerivatives: () => void;
+  openIndexETF: () => void;
+  openElectronic: () => void;
+  openEM: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Trading
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">📈</div>
+        <div>
+          <p className="eyebrow">TRADING</p>
+          <h1>Equities Trading</h1>
+          <p className="intro">
+            Explore major trading areas across cash equities, equity derivatives
+            and electronic equity markets.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">📈</span>
+          <div>
+            <h2>Equities Trading Areas</h2>
+            <p>
+              Explore major product and trading areas commonly found across
+              institutional equities businesses.
+            </p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          {equitiesTradingAreas.map((item) => (
+            <button
+              className="finance-card"
+              key={item.id}
+              onClick={() => {
+                if (item.id === "equities-cash") {
+                  openCash();
+                } else if (item.id === "equities-derivatives") {
+                  openDerivatives();
+                } else if (item.id === "equities-index-etf") {
+                  openIndexETF();
+                } else if (item.id === "equities-electronic") {
+                  openElectronic();
+                } else if (item.id === "equities-em") {
+                  openEM();
+                }
+              }}
+            >
+              <span>{item.emoji}</span>
+              <strong>{item.label}</strong>
+              <span className="card-arrow">→</span>
+            </button>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
+}
 
 function ElectronicCreditMap({
   goBack,
@@ -4613,7 +5560,7 @@ function FunctionMap({
 }
 
 function App() {
-  const [page, setPage] = useState<"system" | "central-bank" | "banks" | "global-markets" | "trading" | "credit-trading" | "credit-ig" | "credit-ig-trader" | "credit-hy" | "credit-hy-trader" | "credit-em" | "credit-em-trader" | "credit-derivatives" | "credit-derivatives-trader" | "credit-electronic" | "credit-electronic-trader" | "rates-trading" | "rates-government-bonds" | "rates-government-bond-trader" | "rates-swaps" | "rates-swap-trader" | "rates-futures-stir" | "rates-futures-trader" | "rates-options" | "rates-options-trader" | "rates-electronic" | "rates-electronic-trader" | "fx-trading" | "fx-spot" | "fx-spot-trader" | "fx-forwards-swaps" | "fx-forward-swap-trader" | "fx-options" | "fx-options-trader" | "fx-em-ndf" | "fx-em-ndf-trader" | "fx-electronic" | "fx-electronic-trader" | "function">(
+  const [page, setPage] = useState<"system" | "central-bank" | "banks" | "global-markets" | "trading" | "credit-trading" | "credit-ig" | "credit-ig-trader" | "credit-hy" | "credit-hy-trader" | "credit-em" | "credit-em-trader" | "credit-derivatives" | "credit-derivatives-trader" | "credit-electronic" | "credit-electronic-trader" | "equities-trading" | "equities-cash" | "equities-cash-trader" | "equities-derivatives" | "equities-derivatives-trader" | "equities-index-etf" | "equities-index-etf-trader" | "equities-electronic" | "equities-electronic-trader" | "equities-em" | "equities-em-trader" | "rates-trading" | "rates-government-bonds" | "rates-government-bond-trader" | "rates-swaps" | "rates-swap-trader" | "rates-futures-stir" | "rates-futures-trader" | "rates-options" | "rates-options-trader" | "rates-electronic" | "rates-electronic-trader" | "fx-trading" | "fx-spot" | "fx-spot-trader" | "fx-forwards-swaps" | "fx-forward-swap-trader" | "fx-options" | "fx-options-trader" | "fx-em-ndf" | "fx-em-ndf-trader" | "fx-electronic" | "fx-electronic-trader" | "function">(
     "system"
   );
 
@@ -4809,6 +5756,104 @@ function App() {
     );
   }
 
+  if (page === "equities-em-trader") {
+    return (
+      <EMEquityTraderMap
+        goBack={() => setPage("equities-em")}
+      />
+    );
+  }
+
+  if (page === "equities-em") {
+    return (
+      <EmergingMarketsEquitiesMap
+        goBack={() => setPage("equities-trading")}
+        openTrader={() => setPage("equities-em-trader")}
+      />
+    );
+  }
+
+  if (page === "equities-electronic-trader") {
+    return (
+      <ElectronicEquityTraderMap
+        goBack={() => setPage("equities-electronic")}
+      />
+    );
+  }
+
+  if (page === "equities-electronic") {
+    return (
+      <ElectronicEquitiesMap
+        goBack={() => setPage("equities-trading")}
+        openTrader={() => setPage("equities-electronic-trader")}
+      />
+    );
+  }
+
+  if (page === "equities-index-etf-trader") {
+    return (
+      <IndexETFTraderMap
+        goBack={() => setPage("equities-index-etf")}
+      />
+    );
+  }
+
+  if (page === "equities-index-etf") {
+    return (
+      <IndexETFTradingMap
+        goBack={() => setPage("equities-trading")}
+        openTrader={() => setPage("equities-index-etf-trader")}
+      />
+    );
+  }
+
+  if (page === "equities-derivatives-trader") {
+    return (
+      <EquityDerivativesTraderMap
+        goBack={() => setPage("equities-derivatives")}
+      />
+    );
+  }
+
+  if (page === "equities-derivatives") {
+    return (
+      <EquityDerivativesMap
+        goBack={() => setPage("equities-trading")}
+        openTrader={() => setPage("equities-derivatives-trader")}
+      />
+    );
+  }
+
+  if (page === "equities-cash-trader") {
+    return (
+      <CashEquityTraderMap
+        goBack={() => setPage("equities-cash")}
+      />
+    );
+  }
+
+  if (page === "equities-cash") {
+    return (
+      <CashEquitiesMap
+        goBack={() => setPage("equities-trading")}
+        openTrader={() => setPage("equities-cash-trader")}
+      />
+    );
+  }
+
+  if (page === "equities-trading") {
+    return (
+      <EquitiesTradingMap
+        goBack={() => setPage("trading")}
+        openCash={() => setPage("equities-cash")}
+        openDerivatives={() => setPage("equities-derivatives")}
+        openIndexETF={() => setPage("equities-index-etf")}
+        openElectronic={() => setPage("equities-electronic")}
+        openEM={() => setPage("equities-em")}
+      />
+    );
+  }
+
   if (page === "credit-electronic-trader") {
     return (
       <ElectronicCreditTraderMap
@@ -4914,6 +5959,7 @@ function App() {
         openFX={() => setPage("fx-trading")}
         openRates={() => setPage("rates-trading")}
         openCredit={() => setPage("credit-trading")}
+        openEquities={() => setPage("equities-trading")}
       />
     );
   }
