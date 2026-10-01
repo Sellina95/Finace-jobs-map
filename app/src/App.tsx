@@ -716,6 +716,15 @@ function BanksMap({
   );
 }
 
+const salesDesks: Item[] = [
+  { id: "sales-fx", emoji: "💱", label: "FX Sales" },
+  { id: "sales-rates", emoji: "📉", label: "Rates Sales" },
+  { id: "sales-credit", emoji: "💳", label: "Credit Sales" },
+  { id: "sales-equities", emoji: "📈", label: "Equities Sales" },
+  { id: "sales-commodities", emoji: "🛢️", label: "Commodities Sales" },
+  { id: "sales-cross-asset", emoji: "🧩", label: "Cross-Asset / Solutions Sales" },
+];
+
 const tradingDesks: Item[] = [
   { id: "fx", emoji: "💱", label: "FX" },
   { id: "rates", emoji: "📉", label: "Rates" },
@@ -728,9 +737,11 @@ const tradingDesks: Item[] = [
 function GlobalMarketsMap({
   goBack,
   openTrading,
+  openSales,
 }: {
   goBack: () => void;
   openTrading: () => void;
+  openSales: () => void;
 }) {
   return (
     <main className="world">
@@ -767,7 +778,9 @@ function GlobalMarketsMap({
               className="finance-card"
               key={item.id}
               onClick={() => {
-                if (item.id === "trading") {
+                if (item.id === "sales") {
+                  openSales();
+                } else if (item.id === "trading") {
                   openTrading();
                 }
               }}
@@ -823,6 +836,1340 @@ const fxTradingAreas: Item[] = [
   { id: "fx-em-ndf", emoji: "🌏", label: "EM / NDF" },
   { id: "fx-electronic", emoji: "⚡", label: "Electronic FX" },
 ];
+
+
+
+
+
+
+
+
+function CrossAssetSalesMap({
+  goBack,
+  openSalesperson,
+}: {
+  goBack: () => void;
+  openSalesperson: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Sales
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">🧩</div>
+        <div>
+          <p className="eyebrow">GLOBAL MARKETS SALES</p>
+          <h1>Cross-Asset / Solutions Sales</h1>
+          <p className="intro">
+            Explore client-facing roles connecting customers with products,
+            trading desks and solutions across multiple asset classes.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🧩</span>
+          <div>
+            <h2>Cross-Asset / Solutions Sales Roles</h2>
+            <p>
+              Explore a representative client-facing role spanning multiple
+              markets and product areas.
+            </p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openSalesperson}>
+            <span>👤</span>
+            <strong>Cross-Asset / Solutions Salesperson</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const crossAssetSalespersonSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Sales"],
+      [
+        "🧩",
+        "Cross-Asset / Solutions Sales",
+        "Cross-Asset / Solutions Salesperson",
+      ],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The markets this role may serve.",
+    cards: [
+      [
+        "🌍",
+        "Multiple Financial Markets",
+        "Coverage may span rates, FX, credit, equities, commodities and related derivatives depending on the desk mandate.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Product coverage may span multiple asset classes.",
+    cards: [
+      [
+        "📉",
+        "Rates",
+        "Government bonds, interest-rate derivatives and other supported rates products.",
+      ],
+      [
+        "💱",
+        "FX",
+        "Currencies and related FX derivatives.",
+      ],
+      [
+        "💳",
+        "Credit",
+        "Credit instruments and related derivatives where included.",
+      ],
+      [
+        "📈",
+        "Equities",
+        "Equities, equity-linked products and related derivatives where included.",
+      ],
+      [
+        "🛢️",
+        "Commodities",
+        "Commodity products and related derivatives where supported.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities in a cross-asset or solutions sales role.",
+    cards: [
+      [
+        "🤝",
+        "Understand Client Objectives",
+        "Develop a broad view of client investment, financing or risk-management needs across relevant markets.",
+      ],
+      [
+        "🧩",
+        "Connect Products & Solutions",
+        "Bring together relevant products and internal specialists across multiple asset classes.",
+      ],
+      [
+        "📊",
+        "Coordinate Pricing & Execution",
+        "Work with product trading desks and other specialists to facilitate pricing and execution.",
+      ],
+      [
+        "🌍",
+        "Discuss Cross-Market Themes",
+        "Communicate relevant market developments and relationships across asset classes within the role's mandate.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to a Cross-Asset / Solutions Sales role.",
+    cards: [
+      [
+        "📊",
+        "Product Trading Desks",
+        "Provide pricing, liquidity and execution across relevant asset classes.",
+      ],
+      [
+        "🧩",
+        "Structuring",
+        "Supports customized and multi-product solutions where applicable.",
+      ],
+      [
+        "🔬",
+        "Research / Strategy",
+        "Provides macro, market and cross-asset analysis.",
+      ],
+      [
+        "🤝",
+        "Product Sales Teams",
+        "Provide specialized client and product expertise across individual markets.",
+      ],
+      [
+        "🛡️",
+        "Risk & Compliance",
+        "Supports applicable risk, conduct and regulatory controls.",
+      ],
+      [
+        "⚙️",
+        "Middle Office / Operations",
+        "Supports trade control, booking, settlement and post-trade processes.",
+      ],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Work?",
+    description: "Systems and infrastructure supporting cross-asset sales activity.",
+    cards: [
+      [
+        "💻",
+        "Sales & Trading Platforms",
+        "Support pricing, execution, trade capture and coordination across product desks.",
+      ],
+      [
+        "📡",
+        "Market & Reference Data",
+        "Provides prices, curves, volatility, fundamentals and other information across asset classes.",
+      ],
+      [
+        "🌐",
+        "Trading Venues & Exchanges",
+        "Support price discovery and execution across applicable cash and derivatives markets.",
+      ],
+      [
+        "🔗",
+        "Clearing, Settlement & Post-Trade",
+        "Supports applicable clearing, confirmations, settlement and post-trade processing across products.",
+      ],
+    ],
+  },
+];
+
+function CrossAssetSalespersonMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Cross-Asset / Solutions Sales"
+      title="Cross-Asset / Solutions Salesperson"
+      intro="Works with clients across multiple markets, connects broader investment or risk-management objectives with relevant products and coordinates specialists across Global Markets."
+      sections={crossAssetSalespersonSections}
+    />
+  );
+}
+
+function CommoditiesSalesMap({
+  goBack,
+  openSalesperson,
+}: {
+  goBack: () => void;
+  openSalesperson: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Sales
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">🛢️</div>
+        <div>
+          <p className="eyebrow">GLOBAL MARKETS SALES</p>
+          <h1>Commodities Sales</h1>
+          <p className="intro">
+            Explore client-facing roles connecting customers with commodity
+            markets, derivatives and trading desks.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🛢️</span>
+          <div>
+            <h2>Commodities Sales Roles</h2>
+            <p>
+              Explore a core client-facing role across institutional commodity
+              markets.
+            </p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openSalesperson}>
+            <span>👤</span>
+            <strong>Commodities Salesperson</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const commoditiesSalespersonSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Sales"],
+      ["🛢️", "Commodities Sales", "Commodities Salesperson"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The markets this role primarily serves.",
+    cards: [
+      [
+        "🛢️",
+        "Commodity Markets",
+        "Markets for energy, metals, agricultural commodities and related derivatives.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core commodity products that may be covered by the role.",
+    cards: [
+      [
+        "🛢️",
+        "Oil & Energy",
+        "Crude oil, refined products and related futures, swaps and other supported derivatives.",
+      ],
+      [
+        "🔥",
+        "Natural Gas & Power",
+        "Natural-gas and electricity exposures and related derivatives across supported markets.",
+      ],
+      [
+        "🥇",
+        "Metals",
+        "Precious and base metals and related futures, swaps and other supported products.",
+      ],
+      [
+        "🌾",
+        "Agricultural Commodities",
+        "Grains, soft commodities and related derivatives across supported markets.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities in a Commodities Sales role.",
+    cards: [
+      [
+        "🤝",
+        "Manage Client Relationships",
+        "Understand client objectives, commodity exposures and market activity across the covered client base.",
+      ],
+      [
+        "💬",
+        "Discuss Markets & Products",
+        "Communicate relevant commodity-market developments, product features and trading ideas within the role's mandate.",
+      ],
+      [
+        "📊",
+        "Coordinate Pricing & Execution",
+        "Work with commodity trading desks to obtain pricing and facilitate client transactions.",
+      ],
+      [
+        "🔎",
+        "Identify Client Needs",
+        "Connect investment, financing or risk-management needs with relevant commodity products and internal specialists.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to a Commodities Sales role.",
+    cards: [
+      [
+        "📊",
+        "Commodity Trading",
+        "Provides liquidity, pricing and execution across supported commodity products.",
+      ],
+      [
+        "🧩",
+        "Structuring",
+        "Supports customized commodity and risk-management solutions where applicable.",
+      ],
+      [
+        "🔬",
+        "Commodity Research / Strategy",
+        "Provides fundamental, macro and commodity-market analysis.",
+      ],
+      [
+        "🛡️",
+        "Risk & Compliance",
+        "Supports applicable risk, conduct and regulatory controls.",
+      ],
+      [
+        "⚙️",
+        "Middle Office",
+        "Supports trade control, booking and exception-management processes.",
+      ],
+      [
+        "💸",
+        "Operations",
+        "Supports confirmations, settlement and other post-trade processes.",
+      ],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Work?",
+    description: "Systems and infrastructure supporting Commodities Sales activity.",
+    cards: [
+      [
+        "💻",
+        "Sales & Trading Platforms",
+        "Support pricing, execution, trade capture and communication with trading desks.",
+      ],
+      [
+        "📡",
+        "Market & Reference Data",
+        "Provides commodity prices, curves, fundamentals and other market information.",
+      ],
+      [
+        "🏛️",
+        "Commodity Exchanges & Trading Venues",
+        "Support price discovery and execution across applicable commodity markets.",
+      ],
+      [
+        "🔗",
+        "Clearing, Post-Trade & Physical Infrastructure",
+        "Supports clearing and post-trade processes, alongside relevant delivery, storage or transportation infrastructure where applicable.",
+      ],
+    ],
+  },
+];
+
+function CommoditiesSalespersonMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Commodities Sales"
+      title="Commodities Salesperson"
+      intro="Works with clients across commodity markets, connects their investment or risk-management needs with relevant products and coordinates pricing and execution with commodity trading desks."
+      sections={commoditiesSalespersonSections}
+    />
+  );
+}
+
+function EquitiesSalesMap({
+  goBack,
+  openSalesperson,
+}: {
+  goBack: () => void;
+  openSalesperson: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Sales
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">📈</div>
+        <div>
+          <p className="eyebrow">GLOBAL MARKETS SALES</p>
+          <h1>Equities Sales</h1>
+          <p className="intro">
+            Explore client-facing roles connecting customers with equity
+            markets, equity products and trading desks.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">📈</span>
+          <div>
+            <h2>Equities Sales Roles</h2>
+            <p>Explore a core client-facing role in institutional equity markets.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openSalesperson}>
+            <span>👤</span>
+            <strong>Equities Salesperson</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const equitiesSalespersonSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Sales"],
+      ["📈", "Equities Sales", "Equities Salesperson"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The markets this role primarily serves.",
+    cards: [
+      [
+        "📈",
+        "Equity Markets",
+        "Markets for listed equities, equity-linked instruments and related derivatives.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core equity products that may be covered by the role.",
+    cards: [
+      [
+        "📊",
+        "Listed Equities",
+        "Shares of publicly traded companies across supported markets.",
+      ],
+      [
+        "🧺",
+        "ETFs & Index Products",
+        "Exchange-traded funds and products linked to equity indices.",
+      ],
+      [
+        "🧩",
+        "Equity Derivatives",
+        "Options and other equity-linked derivatives where covered by the desk.",
+      ],
+      [
+        "🌍",
+        "Emerging Markets Equities",
+        "Listed equities and related products across supported emerging markets.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities in an Equities Sales role.",
+    cards: [
+      [
+        "🤝",
+        "Manage Client Relationships",
+        "Understand client portfolios, investment objectives and equity-market activity across the covered client base.",
+      ],
+      [
+        "💬",
+        "Discuss Markets & Ideas",
+        "Communicate relevant market developments, research, product information and investment ideas within the role's mandate.",
+      ],
+      [
+        "📊",
+        "Coordinate Execution",
+        "Work with equity trading and execution teams to facilitate client transactions.",
+      ],
+      [
+        "🔎",
+        "Identify Client Needs",
+        "Connect client objectives with relevant equity products, research and internal specialists.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to an Equities Sales role.",
+    cards: [
+      [
+        "📊",
+        "Equity Trading",
+        "Provides liquidity and execution across supported equity products.",
+      ],
+      [
+        "🔬",
+        "Equity Research / Strategy",
+        "Provides company, sector and broader equity-market analysis.",
+      ],
+      [
+        "🧩",
+        "Structuring",
+        "Supports equity-linked and customized solutions where applicable.",
+      ],
+      [
+        "⚡",
+        "Electronic Trading",
+        "Supports electronic execution and trading workflows.",
+      ],
+      [
+        "🛡️",
+        "Risk & Compliance",
+        "Supports applicable risk, conduct and regulatory controls.",
+      ],
+      [
+        "⚙️",
+        "Middle Office / Operations",
+        "Supports trade control, settlement and post-trade processes.",
+      ],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Work?",
+    description: "Systems and market infrastructure supporting Equities Sales activity.",
+    cards: [
+      [
+        "💻",
+        "Sales & Trading Platforms",
+        "Support execution, order workflows, trade capture and communication with trading desks.",
+      ],
+      [
+        "📡",
+        "Market & Reference Data",
+        "Provides equity prices, company information, index data and other market information.",
+      ],
+      [
+        "🏛️",
+        "Stock Exchanges & Trading Venues",
+        "Support price discovery and execution across applicable equity markets.",
+      ],
+      [
+        "🔗",
+        "Clearing & Settlement Infrastructure",
+        "Supports clearing, settlement and post-trade processing of equity transactions.",
+      ],
+    ],
+  },
+];
+
+function EquitiesSalespersonMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Equities Sales"
+      title="Equities Salesperson"
+      intro="Works with clients across equity markets, connects their investment and execution needs with relevant products, research and trading capabilities."
+      sections={equitiesSalespersonSections}
+    />
+  );
+}
+
+function CreditSalesMap({
+  goBack,
+  openSalesperson,
+}: {
+  goBack: () => void;
+  openSalesperson: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Sales
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">💳</div>
+        <div>
+          <p className="eyebrow">GLOBAL MARKETS SALES</p>
+          <h1>Credit Sales</h1>
+          <p className="intro">
+            Explore client-facing roles connecting customers with credit
+            markets, fixed-income products and credit trading desks.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">💳</span>
+          <div>
+            <h2>Credit Sales Roles</h2>
+            <p>Explore a core client-facing role in institutional credit markets.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openSalesperson}>
+            <span>👤</span>
+            <strong>Credit Salesperson</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const creditSalespersonSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Sales"],
+      ["💳", "Credit Sales", "Credit Salesperson"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The markets this role primarily serves.",
+    cards: [
+      [
+        "💳",
+        "Credit Markets",
+        "Markets for corporate, sovereign and other supported credit instruments and derivatives.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core credit products that may be covered by the role.",
+    cards: [
+      [
+        "🏢",
+        "Investment Grade Credit",
+        "Higher-rated corporate bonds and related credit exposures.",
+      ],
+      [
+        "⚡",
+        "High Yield Credit",
+        "Below-investment-grade corporate bonds and related credit exposures.",
+      ],
+      [
+        "🌍",
+        "Emerging Markets Credit",
+        "Sovereign and corporate credit instruments across supported emerging markets.",
+      ],
+      [
+        "🧩",
+        "Credit Derivatives",
+        "Products such as single-name CDS and credit indices used to trade or manage credit exposure.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities in a Credit Sales role.",
+    cards: [
+      [
+        "🤝",
+        "Manage Client Relationships",
+        "Understand client portfolios, investment objectives and credit-market activity across the covered client base.",
+      ],
+      [
+        "💬",
+        "Discuss Markets & Products",
+        "Communicate relevant credit-market developments, product information and trading ideas within the role's mandate.",
+      ],
+      [
+        "📊",
+        "Coordinate Pricing & Execution",
+        "Work with credit trading desks to obtain pricing and facilitate client transactions.",
+      ],
+      [
+        "🔎",
+        "Identify Client Needs",
+        "Connect client investment or risk-management objectives with relevant credit products and internal specialists.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to a Credit Sales role.",
+    cards: [
+      [
+        "📊",
+        "Credit Trading",
+        "Provides liquidity, pricing and execution across supported credit products.",
+      ],
+      [
+        "🧩",
+        "Structuring",
+        "Supports customized or more complex credit solutions where applicable.",
+      ],
+      [
+        "🔬",
+        "Credit Research / Strategy",
+        "Provides issuer, sector, macro and credit-market analysis.",
+      ],
+      [
+        "🛡️",
+        "Risk & Compliance",
+        "Supports applicable risk, conduct and regulatory controls.",
+      ],
+      [
+        "⚙️",
+        "Middle Office",
+        "Supports trade control, booking and exception-management processes.",
+      ],
+      [
+        "💸",
+        "Operations / Settlement",
+        "Supports confirmations, settlement and post-trade processing.",
+      ],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Work?",
+    description: "Systems and market infrastructure supporting Credit Sales activity.",
+    cards: [
+      [
+        "💻",
+        "Sales & Trading Platforms",
+        "Support pricing, execution, trade capture and communication with trading desks.",
+      ],
+      [
+        "📡",
+        "Market & Reference Data",
+        "Provides bond prices, spreads, curves, issuer data and other credit-market information.",
+      ],
+      [
+        "🌐",
+        "Trading Venues",
+        "Support electronic and other forms of execution across applicable credit products.",
+      ],
+      [
+        "🔗",
+        "Clearing, Settlement & Post-Trade",
+        "Supports applicable clearing, confirmations, settlement and post-trade processing.",
+      ],
+    ],
+  },
+];
+
+function CreditSalespersonMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Credit Sales"
+      title="Credit Salesperson"
+      intro="Works with clients across credit markets, connects their investment or risk-management needs with relevant products and coordinates pricing and execution with credit trading desks."
+      sections={creditSalespersonSections}
+    />
+  );
+}
+
+function RatesSalesMap({
+  goBack,
+  openSalesperson,
+}: {
+  goBack: () => void;
+  openSalesperson: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Sales
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">📉</div>
+        <div>
+          <p className="eyebrow">GLOBAL MARKETS SALES</p>
+          <h1>Rates Sales</h1>
+          <p className="intro">
+            Explore client-facing roles connecting customers with interest-rate
+            markets, fixed-income products and rates trading desks.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">📉</span>
+          <div>
+            <h2>Rates Sales Roles</h2>
+            <p>Explore a core client-facing role in institutional rates markets.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openSalesperson}>
+            <span>👤</span>
+            <strong>Rates Salesperson</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const ratesSalespersonSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Sales"],
+      ["📉", "Rates Sales", "Rates Salesperson"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The markets this role primarily serves.",
+    cards: [
+      [
+        "📉",
+        "Interest Rate Markets",
+        "Markets for government debt, interest-rate derivatives and other rates exposures.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core rates products that may be covered by the role.",
+    cards: [
+      [
+        "🏛️",
+        "Government Bonds",
+        "Sovereign debt instruments traded across supported government bond markets.",
+      ],
+      [
+        "🔁",
+        "Interest Rate Swaps",
+        "Derivatives used to exchange interest-rate cash flows and manage rate exposures.",
+      ],
+      [
+        "📅",
+        "Rates Futures",
+        "Exchange-traded contracts linked to government bonds or short-term interest rates.",
+      ],
+      [
+        "🧩",
+        "Rates Options",
+        "Options and option-linked instruments providing customized interest-rate exposure.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities in a Rates Sales role.",
+    cards: [
+      [
+        "🤝",
+        "Manage Client Relationships",
+        "Understand client objectives, portfolio activity and interest-rate needs across the covered client base.",
+      ],
+      [
+        "💬",
+        "Discuss Markets & Products",
+        "Communicate relevant rates-market developments, product features and trading ideas within the role's mandate.",
+      ],
+      [
+        "📊",
+        "Coordinate Pricing & Execution",
+        "Work with rates trading desks to obtain pricing and facilitate client transactions.",
+      ],
+      [
+        "🔎",
+        "Identify Client Needs",
+        "Connect client objectives and rate exposures with relevant products and internal specialists.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to a Rates Sales role.",
+    cards: [
+      [
+        "📊",
+        "Rates Trading",
+        "Provides liquidity, pricing and execution across supported rates products.",
+      ],
+      [
+        "🧩",
+        "Structuring",
+        "Supports customized or more complex interest-rate solutions where applicable.",
+      ],
+      [
+        "🔬",
+        "Research / Strategy",
+        "Provides macroeconomic, fixed-income and rates-market analysis.",
+      ],
+      [
+        "🛡️",
+        "Risk & Compliance",
+        "Supports applicable risk, conduct and regulatory controls.",
+      ],
+      [
+        "⚙️",
+        "Middle Office",
+        "Supports trade control, booking and exception-management processes.",
+      ],
+      [
+        "💸",
+        "Operations / Settlement",
+        "Supports confirmations, settlement and post-trade processing.",
+      ],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Work?",
+    description: "Systems and market infrastructure supporting Rates Sales activity.",
+    cards: [
+      [
+        "💻",
+        "Sales & Trading Platforms",
+        "Support pricing, execution, trade capture and communication with trading desks.",
+      ],
+      [
+        "📡",
+        "Market & Reference Data",
+        "Provides bond prices, yield curves, rates, volatility and economic data.",
+      ],
+      [
+        "🏛️",
+        "Trading Venues & Exchanges",
+        "Support execution and price discovery across applicable cash and derivatives markets.",
+      ],
+      [
+        "🔗",
+        "Clearing, Settlement & Post-Trade",
+        "Supports applicable clearing, confirmations, settlement and post-trade processing.",
+      ],
+    ],
+  },
+];
+
+function RatesSalespersonMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Rates Sales"
+      title="Rates Salesperson"
+      intro="Works with clients across interest-rate markets, connects their investment or risk-management needs with relevant products and coordinates pricing and execution with rates trading desks."
+      sections={ratesSalespersonSections}
+    />
+  );
+}
+
+function FXSalesMap({
+  goBack,
+  openSalesperson,
+}: {
+  goBack: () => void;
+  openSalesperson: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Sales
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">💱</div>
+        <div>
+          <p className="eyebrow">GLOBAL MARKETS SALES</p>
+          <h1>FX Sales</h1>
+          <p className="intro">
+            Explore client-facing roles connecting customers with currency
+            markets, FX products and trading desks.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">💱</span>
+          <div>
+            <h2>FX Sales Roles</h2>
+            <p>Explore a core client-facing role in institutional FX markets.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openSalesperson}>
+            <span>👤</span>
+            <strong>FX Salesperson</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const fxSalespersonSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Sales"],
+      ["💱", "FX Sales", "FX Salesperson"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The market this role primarily serves.",
+    cards: [
+      [
+        "💱",
+        "Foreign Exchange Market",
+        "The global market for currencies and related FX instruments.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core FX products that may be covered by the role.",
+    cards: [
+      [
+        "💵",
+        "FX Spot",
+        "Currency transactions exchanging one currency for another at prevailing spot-market terms.",
+      ],
+      [
+        "🔁",
+        "Forwards & FX Swaps",
+        "Products used to manage future currency exposures, funding and liquidity needs.",
+      ],
+      [
+        "🧩",
+        "FX Options",
+        "Option products providing customized currency exposure and risk-management profiles.",
+      ],
+      [
+        "🌏",
+        "EM FX / NDFs",
+        "Emerging-market currency products including deliverable FX and non-deliverable forwards where applicable.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities in an FX Sales role.",
+    cards: [
+      [
+        "🤝",
+        "Manage Client Relationships",
+        "Understand client objectives, market activity and currency-related needs across the covered client base.",
+      ],
+      [
+        "💬",
+        "Discuss Markets & Products",
+        "Communicate relevant FX market developments, product features and trading ideas within the role's mandate.",
+      ],
+      [
+        "📊",
+        "Coordinate Pricing & Execution",
+        "Work with FX trading desks to obtain pricing and facilitate client transactions.",
+      ],
+      [
+        "🔎",
+        "Identify Client Needs",
+        "Connect client objectives and exposures with relevant FX products and internal specialists.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to an FX Sales role.",
+    cards: [
+      [
+        "📊",
+        "FX Trading",
+        "Provides market liquidity, pricing and execution across supported FX products.",
+      ],
+      [
+        "🧩",
+        "Structuring",
+        "Supports customized or more complex FX solutions where applicable.",
+      ],
+      [
+        "🔬",
+        "Research / Strategy",
+        "Provides macroeconomic, currency and market analysis.",
+      ],
+      [
+        "🛡️",
+        "Risk & Compliance",
+        "Supports applicable risk, conduct and regulatory controls.",
+      ],
+      [
+        "⚙️",
+        "Middle Office",
+        "Supports trade control, booking and exception-management processes.",
+      ],
+      [
+        "💸",
+        "Operations / Settlement",
+        "Supports confirmations, settlement and post-trade processing.",
+      ],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Work?",
+    description: "Systems and market infrastructure supporting FX Sales activity.",
+    cards: [
+      [
+        "💻",
+        "Sales & Trading Platforms",
+        "Support pricing, execution, trade capture and communication with trading desks.",
+      ],
+      [
+        "📡",
+        "Market & Reference Data",
+        "Provides FX prices, curves, volatility, economic data and other market information.",
+      ],
+      [
+        "🌐",
+        "Electronic Trading Venues",
+        "Support electronic FX price discovery and execution where applicable.",
+      ],
+      [
+        "🔗",
+        "Settlement & Post-Trade Infrastructure",
+        "Supports confirmations, payment flows, settlement and post-trade processing.",
+      ],
+    ],
+  },
+];
+
+function FXSalespersonMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="FX Sales"
+      title="FX Salesperson"
+      intro="Works with clients across currency markets, connects their FX needs with relevant products and coordinates pricing and execution with trading desks."
+      sections={fxSalespersonSections}
+    />
+  );
+}
+
+function SalesMap({
+  goBack,
+  openFXSales,
+  openRatesSales,
+  openCreditSales,
+  openEquitiesSales,
+  openCommoditiesSales,
+  openCrossAssetSales,
+}: {
+  goBack: () => void;
+  openFXSales: () => void;
+  openRatesSales: () => void;
+  openCreditSales: () => void;
+  openEquitiesSales: () => void;
+  openCommoditiesSales: () => void;
+  openCrossAssetSales: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Global Markets
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">🤝</div>
+
+        <div>
+          <p className="eyebrow">GLOBAL MARKETS</p>
+          <h1>Sales</h1>
+
+          <p className="intro">
+            Explore client-facing sales roles across institutional markets,
+            products and cross-asset solutions.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🤝</span>
+
+          <div>
+            <h2>Sales Desks</h2>
+            <p>
+              Select a market or product area to explore its client-facing
+              sales roles.
+            </p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          {salesDesks.map((item) => (
+            <button
+              className="finance-card"
+              key={item.id}
+              onClick={() => {
+                if (item.id === "sales-fx") {
+                  openFXSales();
+                } else if (item.id === "sales-rates") {
+                  openRatesSales();
+                } else if (item.id === "sales-credit") {
+                  openCreditSales();
+                } else if (item.id === "sales-equities") {
+                  openEquitiesSales();
+                } else if (item.id === "sales-commodities") {
+                  openCommoditiesSales();
+                } else if (item.id === "sales-cross-asset") {
+                  openCrossAssetSales();
+                }
+              }}
+            >
+              <span>{item.emoji}</span>
+              <strong>{item.label}</strong>
+              <span className="card-arrow">→</span>
+            </button>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
+}
 
 function TradingMap({
   goBack,
@@ -6761,7 +8108,7 @@ function FunctionMap({
 }
 
 function App() {
-  const [page, setPage] = useState<"system" | "central-bank" | "banks" | "global-markets" | "trading" | "credit-trading" | "credit-ig" | "credit-ig-trader" | "credit-hy" | "credit-hy-trader" | "credit-em" | "credit-em-trader" | "credit-derivatives" | "credit-derivatives-trader" | "credit-electronic" | "credit-electronic-trader" | "cross-asset-trading" | "cross-asset-trader" | "commodities-trading" | "commodities-oil-energy" | "commodities-oil-energy-trader" | "commodities-natural-gas" | "commodities-natural-gas-trader" | "commodities-power" | "commodities-power-trader" | "commodities-metals" | "commodities-metals-trader" | "commodities-agriculture" | "commodities-agriculture-trader" | "equities-trading" | "equities-cash" | "equities-cash-trader" | "equities-derivatives" | "equities-derivatives-trader" | "equities-index-etf" | "equities-index-etf-trader" | "equities-electronic" | "equities-electronic-trader" | "equities-em" | "equities-em-trader" | "rates-trading" | "rates-government-bonds" | "rates-government-bond-trader" | "rates-swaps" | "rates-swap-trader" | "rates-futures-stir" | "rates-futures-trader" | "rates-options" | "rates-options-trader" | "rates-electronic" | "rates-electronic-trader" | "fx-trading" | "fx-spot" | "fx-spot-trader" | "fx-forwards-swaps" | "fx-forward-swap-trader" | "fx-options" | "fx-options-trader" | "fx-em-ndf" | "fx-em-ndf-trader" | "fx-electronic" | "fx-electronic-trader" | "function">(
+  const [page, setPage] = useState<"system" | "central-bank" | "banks" | "global-markets" | "sales" | "sales-fx" | "sales-fx-salesperson" | "sales-rates" | "sales-rates-salesperson" | "sales-credit" | "sales-credit-salesperson" | "sales-equities" | "sales-equities-salesperson" | "sales-commodities" | "sales-commodities-salesperson" | "sales-cross-asset" | "sales-cross-asset-salesperson" | "trading" | "credit-trading" | "credit-ig" | "credit-ig-trader" | "credit-hy" | "credit-hy-trader" | "credit-em" | "credit-em-trader" | "credit-derivatives" | "credit-derivatives-trader" | "credit-electronic" | "credit-electronic-trader" | "cross-asset-trading" | "cross-asset-trader" | "commodities-trading" | "commodities-oil-energy" | "commodities-oil-energy-trader" | "commodities-natural-gas" | "commodities-natural-gas-trader" | "commodities-power" | "commodities-power-trader" | "commodities-metals" | "commodities-metals-trader" | "commodities-agriculture" | "commodities-agriculture-trader" | "equities-trading" | "equities-cash" | "equities-cash-trader" | "equities-derivatives" | "equities-derivatives-trader" | "equities-index-etf" | "equities-index-etf-trader" | "equities-electronic" | "equities-electronic-trader" | "equities-em" | "equities-em-trader" | "rates-trading" | "rates-government-bonds" | "rates-government-bond-trader" | "rates-swaps" | "rates-swap-trader" | "rates-futures-stir" | "rates-futures-trader" | "rates-options" | "rates-options-trader" | "rates-electronic" | "rates-electronic-trader" | "fx-trading" | "fx-spot" | "fx-spot-trader" | "fx-forwards-swaps" | "fx-forward-swap-trader" | "fx-options" | "fx-options-trader" | "fx-em-ndf" | "fx-em-ndf-trader" | "fx-electronic" | "fx-electronic-trader" | "function">(
     "system"
   );
 
@@ -7268,6 +8615,122 @@ function App() {
     );
   }
 
+  if (page === "sales-cross-asset-salesperson") {
+    return (
+      <CrossAssetSalespersonMap
+        goBack={() => setPage("sales-cross-asset")}
+      />
+    );
+  }
+
+  if (page === "sales-cross-asset") {
+    return (
+      <CrossAssetSalesMap
+        goBack={() => setPage("sales")}
+        openSalesperson={() => setPage("sales-cross-asset-salesperson")}
+      />
+    );
+  }
+
+  if (page === "sales-commodities-salesperson") {
+    return (
+      <CommoditiesSalespersonMap
+        goBack={() => setPage("sales-commodities")}
+      />
+    );
+  }
+
+  if (page === "sales-commodities") {
+    return (
+      <CommoditiesSalesMap
+        goBack={() => setPage("sales")}
+        openSalesperson={() => setPage("sales-commodities-salesperson")}
+      />
+    );
+  }
+
+  if (page === "sales-equities-salesperson") {
+    return (
+      <EquitiesSalespersonMap
+        goBack={() => setPage("sales-equities")}
+      />
+    );
+  }
+
+  if (page === "sales-equities") {
+    return (
+      <EquitiesSalesMap
+        goBack={() => setPage("sales")}
+        openSalesperson={() => setPage("sales-equities-salesperson")}
+      />
+    );
+  }
+
+  if (page === "sales-credit-salesperson") {
+    return (
+      <CreditSalespersonMap
+        goBack={() => setPage("sales-credit")}
+      />
+    );
+  }
+
+  if (page === "sales-credit") {
+    return (
+      <CreditSalesMap
+        goBack={() => setPage("sales")}
+        openSalesperson={() => setPage("sales-credit-salesperson")}
+      />
+    );
+  }
+
+  if (page === "sales-rates-salesperson") {
+    return (
+      <RatesSalespersonMap
+        goBack={() => setPage("sales-rates")}
+      />
+    );
+  }
+
+  if (page === "sales-rates") {
+    return (
+      <RatesSalesMap
+        goBack={() => setPage("sales")}
+        openSalesperson={() => setPage("sales-rates-salesperson")}
+      />
+    );
+  }
+
+  if (page === "sales-fx-salesperson") {
+    return (
+      <FXSalespersonMap
+        goBack={() => setPage("sales-fx")}
+      />
+    );
+  }
+
+  if (page === "sales-fx") {
+    return (
+      <FXSalesMap
+        goBack={() => setPage("sales")}
+        openSalesperson={() => setPage("sales-fx-salesperson")}
+      />
+    );
+  }
+
+  if (page === "sales") {
+    return (
+      <SalesMap
+        goBack={() => setPage("global-markets")}
+        openFXSales={() => setPage("sales-fx")}
+        openRatesSales={() => setPage("sales-rates")}
+        openCreditSales={() => setPage("sales-credit")}
+        openEquitiesSales={() => setPage("sales-equities")}
+        openCommoditiesSales={() => setPage("sales-commodities")}
+        openCrossAssetSales={() => setPage("sales-cross-asset")}
+      />
+    );
+  }
+
   if (page === "trading") {
     return (
       <TradingMap
@@ -7287,6 +8750,7 @@ function App() {
       <GlobalMarketsMap
         goBack={() => setPage("banks")}
         openTrading={() => setPage("trading")}
+        openSales={() => setPage("sales")}
       />
     );
   }
