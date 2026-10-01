@@ -716,6 +716,15 @@ function BanksMap({
   );
 }
 
+const structuringDesks: Item[] = [
+  { id: "structuring-fx", emoji: "💱", label: "FX Structuring" },
+  { id: "structuring-rates", emoji: "📉", label: "Rates Structuring" },
+  { id: "structuring-credit", emoji: "💳", label: "Credit Structuring" },
+  { id: "structuring-equity", emoji: "📈", label: "Equity Derivatives Structuring" },
+  { id: "structuring-commodities", emoji: "🛢️", label: "Commodities Structuring" },
+  { id: "structuring-cross-asset", emoji: "🧩", label: "Cross-Asset / Solutions Structuring" },
+];
+
 const salesDesks: Item[] = [
   { id: "sales-fx", emoji: "💱", label: "FX Sales" },
   { id: "sales-rates", emoji: "📉", label: "Rates Sales" },
@@ -738,10 +747,12 @@ function GlobalMarketsMap({
   goBack,
   openTrading,
   openSales,
+  openStructuring,
 }: {
   goBack: () => void;
   openTrading: () => void;
   openSales: () => void;
+  openStructuring: () => void;
 }) {
   return (
     <main className="world">
@@ -782,6 +793,8 @@ function GlobalMarketsMap({
                   openSales();
                 } else if (item.id === "trading") {
                   openTrading();
+                } else if (item.id === "structuring") {
+                  openStructuring();
                 }
               }}
             >
@@ -843,6 +856,1337 @@ const fxTradingAreas: Item[] = [
 
 
 
+
+
+
+
+
+
+
+
+function CrossAssetStructuringMap({
+  goBack,
+  openStructurer,
+}: {
+  goBack: () => void;
+  openStructurer: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Structuring
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">🧩</div>
+        <div>
+          <p className="eyebrow">GLOBAL MARKETS STRUCTURING</p>
+          <h1>Cross-Asset / Solutions Structuring</h1>
+          <p className="intro">
+            Explore roles that design solutions spanning multiple asset classes,
+            products and Global Markets capabilities.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🧩</span>
+          <div>
+            <h2>Cross-Asset / Solutions Structuring Roles</h2>
+            <p>
+              Explore a representative structuring role spanning multiple
+              markets and product areas.
+            </p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openStructurer}>
+            <span>👤</span>
+            <strong>Cross-Asset Structurer</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const crossAssetStructurerSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Structuring"],
+      [
+        "🧩",
+        "Cross-Asset / Solutions Structuring",
+        "Cross-Asset Structurer",
+      ],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The markets this role may support.",
+    cards: [
+      [
+        "🌍",
+        "Multiple Financial Markets",
+        "Structuring activity may span rates, FX, credit, equities, commodities and related derivatives depending on the desk mandate.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Product coverage may span multiple asset classes.",
+    cards: [
+      [
+        "📉",
+        "Rates",
+        "Interest-rate instruments and derivatives used within supported structures.",
+      ],
+      [
+        "💱",
+        "FX",
+        "Currencies and FX derivatives used within supported structures.",
+      ],
+      [
+        "💳",
+        "Credit",
+        "Credit instruments and derivatives where included in the desk mandate.",
+      ],
+      [
+        "📈",
+        "Equity-Linked Products",
+        "Equity and index-linked derivatives used within supported structures.",
+      ],
+      [
+        "🛢️",
+        "Commodities",
+        "Commodity-linked products and derivatives where supported.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities in a cross-asset structuring role.",
+    cards: [
+      [
+        "🧩",
+        "Design Multi-Asset Structures",
+        "Translate broader client objectives into structures that may combine exposures across multiple markets.",
+      ],
+      [
+        "📐",
+        "Analyze Payoffs & Scenarios",
+        "Evaluate how proposed structures behave across different market, volatility and cross-asset scenarios.",
+      ],
+      [
+        "🤝",
+        "Develop Client Solutions",
+        "Work with Sales and product specialists to connect client objectives with relevant market capabilities.",
+      ],
+      [
+        "⚙️",
+        "Coordinate Across Desks",
+        "Work with multiple Trading, Quant and control teams to ensure structures can be priced, hedged, executed and supported.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to a Cross-Asset Structuring role.",
+    cards: [
+      [
+        "🤝",
+        "Sales",
+        "Brings client objectives, constraints and cross-market needs into the structuring process.",
+      ],
+      [
+        "📊",
+        "Product Trading Desks",
+        "Provide pricing, liquidity, hedging input and execution capability across relevant markets.",
+      ],
+      [
+        "🔢",
+        "Quantitative Teams",
+        "Support valuation models, analytics and quantitative methods across applicable products.",
+      ],
+      [
+        "🔬",
+        "Research / Strategy",
+        "Provides macro, market and cross-asset analysis where relevant.",
+      ],
+      [
+        "⚖️",
+        "Legal, Risk & Compliance",
+        "Support documentation, product governance, risk review and applicable regulatory requirements.",
+      ],
+      [
+        "⚙️",
+        "Operations / Middle Office",
+        "Supports booking, controls and lifecycle processes across applicable products.",
+      ],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Work?",
+    description: "Systems and infrastructure supporting cross-asset structuring activity.",
+    cards: [
+      [
+        "💻",
+        "Pricing & Analytics Systems",
+        "Support valuation, payoff modeling, scenario analysis and product design across multiple asset classes.",
+      ],
+      [
+        "📡",
+        "Cross-Asset Market Data",
+        "Provides prices, curves, volatility, correlations and other market inputs across relevant asset classes.",
+      ],
+      [
+        "📚",
+        "Product & Documentation Systems",
+        "Support product terms, approvals, documentation and lifecycle information.",
+      ],
+      [
+        "🔗",
+        "Trading & Post-Trade Infrastructure",
+        "Supports execution, trade capture, clearing where applicable, settlement and lifecycle processing across products.",
+      ],
+    ],
+  },
+];
+
+function CrossAssetStructurerMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Cross-Asset / Solutions Structuring"
+      title="Cross-Asset Structurer"
+      intro="Designs solutions spanning multiple asset classes, analyzes their payoff and risk characteristics and coordinates Sales, Trading, Quant and control functions to turn broader client objectives into executable structures."
+      sections={crossAssetStructurerSections}
+    />
+  );
+}
+
+function CommoditiesStructuringMap({
+  goBack,
+  openStructurer,
+}: {
+  goBack: () => void;
+  openStructurer: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Structuring
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">🛢️</div>
+        <div>
+          <p className="eyebrow">GLOBAL MARKETS STRUCTURING</p>
+          <h1>Commodities Structuring</h1>
+          <p className="intro">
+            Explore roles that design commodity-linked products and solutions
+            across energy, metals and agricultural markets.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🛢️</span>
+          <div>
+            <h2>Commodities Structuring Roles</h2>
+            <p>Explore a core structuring role across commodity markets.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openStructurer}>
+            <span>👤</span>
+            <strong>Commodities Structurer</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const commoditiesStructurerSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Structuring"],
+      ["🛢️", "Commodities Structuring", "Commodities Structurer"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The markets this role primarily supports.",
+    cards: [
+      [
+        "🛢️",
+        "Commodity Markets",
+        "Markets for energy, metals, agricultural commodities and related derivatives.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core products and structures that may be covered by the role.",
+    cards: [
+      [
+        "🔥",
+        "Energy Structures",
+        "Structures linked to oil, natural gas, power and related energy exposures.",
+      ],
+      [
+        "🥇",
+        "Metals Structures",
+        "Products linked to precious metals, base metals and related derivatives.",
+      ],
+      [
+        "🌾",
+        "Agricultural Structures",
+        "Products linked to grains, soft commodities and other supported agricultural exposures.",
+      ],
+      [
+        "🎯",
+        "Customized Commodity Solutions",
+        "Structures combining relevant commodity instruments to address specific client objectives or constraints.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities in a Commodities Structuring role.",
+    cards: [
+      [
+        "🧩",
+        "Design Product Structures",
+        "Translate client or market objectives into suitable commodity-linked payoffs and structures.",
+      ],
+      [
+        "📐",
+        "Analyze Payoffs & Scenarios",
+        "Evaluate structures across price, curve, volatility, basis and other relevant commodity-market scenarios.",
+      ],
+      [
+        "🤝",
+        "Support Client Solutions",
+        "Work with Sales to develop structures relevant to investment, financing or commodity risk-management objectives.",
+      ],
+      [
+        "⚙️",
+        "Coordinate Execution",
+        "Work with Trading and control functions to ensure proposed structures can be priced, hedged, executed and supported.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to a Commodities Structuring role.",
+    cards: [
+      [
+        "🤝",
+        "Commodities Sales",
+        "Brings client objectives, constraints and commodity exposures into the structuring process.",
+      ],
+      [
+        "📊",
+        "Commodity Trading",
+        "Provides pricing, hedging input, liquidity and execution capability.",
+      ],
+      [
+        "🔢",
+        "Quantitative Teams",
+        "Support valuation models, analytics and applicable commodity pricing methods.",
+      ],
+      [
+        "🔬",
+        "Commodity Research / Strategy",
+        "Provides fundamental, macro and commodity-market analysis where relevant.",
+      ],
+      [
+        "⚖️",
+        "Legal, Risk & Compliance",
+        "Support documentation, product governance, risk review and applicable regulatory requirements.",
+      ],
+      [
+        "⚙️",
+        "Operations / Middle Office",
+        "Supports booking, controls and lifecycle processes for executable structures.",
+      ],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Work?",
+    description: "Systems and infrastructure supporting Commodities Structuring activity.",
+    cards: [
+      [
+        "💻",
+        "Pricing & Analytics Systems",
+        "Support valuation, curve analysis, payoff modeling, scenario testing and product design.",
+      ],
+      [
+        "📡",
+        "Market & Reference Data",
+        "Provides commodity prices, curves, volatility, fundamentals and other relevant market inputs.",
+      ],
+      [
+        "📚",
+        "Product & Documentation Systems",
+        "Support product terms, approvals, documentation and lifecycle information.",
+      ],
+      [
+        "🔗",
+        "Trading, Post-Trade & Physical Infrastructure",
+        "Supports execution and lifecycle processing alongside relevant delivery or physical-market infrastructure where applicable.",
+      ],
+    ],
+  },
+];
+
+function CommoditiesStructurerMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Commodities Structuring"
+      title="Commodities Structurer"
+      intro="Designs commodity-linked products and solutions, analyzes their payoff and risk characteristics and works across Sales, Trading and specialist functions to turn client objectives into executable structures."
+      sections={commoditiesStructurerSections}
+    />
+  );
+}
+
+function EquityStructuringMap({
+  goBack,
+  openStructurer,
+}: {
+  goBack: () => void;
+  openStructurer: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Structuring
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">📈</div>
+        <div>
+          <p className="eyebrow">GLOBAL MARKETS STRUCTURING</p>
+          <h1>Equity Derivatives Structuring</h1>
+          <p className="intro">
+            Explore roles that design equity-linked products and solutions
+            across institutional derivatives markets.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">📈</span>
+          <div>
+            <h2>Equity Derivatives Structuring Roles</h2>
+            <p>Explore a core structuring role in equity derivatives.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openStructurer}>
+            <span>👤</span>
+            <strong>Equity Derivatives Structurer</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const equityStructurerSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Structuring"],
+      [
+        "📈",
+        "Equity Derivatives Structuring",
+        "Equity Derivatives Structurer",
+      ],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The market this role primarily supports.",
+    cards: [
+      [
+        "📈",
+        "Equity Derivatives Market",
+        "Markets for options and other derivatives linked to stocks, indices and equity exposures.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core products and structures that may be covered by the role.",
+    cards: [
+      [
+        "📊",
+        "Single-Stock Options",
+        "Option structures linked to individual listed equities.",
+      ],
+      [
+        "🧺",
+        "Index Options",
+        "Option structures linked to equity indices and broader market exposures.",
+      ],
+      [
+        "🔗",
+        "Equity-Linked Products",
+        "Products whose payoff is linked to equities, indices or baskets of underlying assets.",
+      ],
+      [
+        "🎯",
+        "Customized Equity Solutions",
+        "Structures combining relevant equity derivatives to address specific client objectives or constraints.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities in an Equity Derivatives Structuring role.",
+    cards: [
+      [
+        "🧩",
+        "Design Product Structures",
+        "Translate client or market objectives into suitable equity-linked payoffs and structures.",
+      ],
+      [
+        "📐",
+        "Analyze Payoffs & Scenarios",
+        "Evaluate structures across equity-price, volatility, correlation and other relevant market scenarios.",
+      ],
+      [
+        "🤝",
+        "Support Client Solutions",
+        "Work with Sales to develop and explain structures relevant to client investment or risk-management objectives.",
+      ],
+      [
+        "⚙️",
+        "Coordinate Execution",
+        "Work with Trading and control functions to ensure proposed structures can be priced, hedged, executed and supported.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to an Equity Derivatives Structuring role.",
+    cards: [
+      [
+        "🤝",
+        "Equities Sales",
+        "Brings client objectives, constraints and equity-market needs into the structuring process.",
+      ],
+      [
+        "📊",
+        "Equity Derivatives Trading",
+        "Provides pricing, hedging input, liquidity and execution capability.",
+      ],
+      [
+        "🔢",
+        "Quantitative Teams",
+        "Support valuation models, volatility analytics and other quantitative methods.",
+      ],
+      [
+        "🔬",
+        "Equity Research / Strategy",
+        "Provides company, sector and broader equity-market analysis where relevant.",
+      ],
+      [
+        "⚖️",
+        "Legal, Risk & Compliance",
+        "Support documentation, product governance, risk review and applicable regulatory requirements.",
+      ],
+      [
+        "⚙️",
+        "Operations / Middle Office",
+        "Supports booking, controls and lifecycle processes for executable structures.",
+      ],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Work?",
+    description: "Systems and infrastructure supporting Equity Derivatives Structuring activity.",
+    cards: [
+      [
+        "💻",
+        "Pricing & Analytics Systems",
+        "Support valuation, volatility analysis, payoff modeling, scenario testing and product design.",
+      ],
+      [
+        "📡",
+        "Market & Reference Data",
+        "Provides equity prices, volatility surfaces, index data and other relevant market inputs.",
+      ],
+      [
+        "📚",
+        "Product & Documentation Systems",
+        "Support product terms, approvals, documentation and lifecycle information.",
+      ],
+      [
+        "🔗",
+        "Trading & Post-Trade Infrastructure",
+        "Supports execution, trade capture, clearing where applicable and lifecycle processing.",
+      ],
+    ],
+  },
+];
+
+function EquityStructurerMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Equity Derivatives Structuring"
+      title="Equity Derivatives Structurer"
+      intro="Designs equity-linked products and solutions, analyzes their payoff and risk characteristics and works across Sales, Trading and specialist functions to turn client objectives into executable structures."
+      sections={equityStructurerSections}
+    />
+  );
+}
+
+function CreditStructuringMap({
+  goBack,
+  openStructurer,
+}: {
+  goBack: () => void;
+  openStructurer: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Structuring
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">💳</div>
+        <div>
+          <p className="eyebrow">GLOBAL MARKETS STRUCTURING</p>
+          <h1>Credit Structuring</h1>
+          <p className="intro">
+            Explore roles that design credit-linked products and solutions
+            across institutional credit markets.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">💳</span>
+          <div>
+            <h2>Credit Structuring Roles</h2>
+            <p>Explore a core structuring role in credit markets.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openStructurer}>
+            <span>👤</span>
+            <strong>Credit Structurer</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const creditStructurerSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Structuring"],
+      ["💳", "Credit Structuring", "Credit Structurer"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The market this role primarily supports.",
+    cards: [
+      [
+        "💳",
+        "Credit Markets",
+        "Markets for corporate, sovereign and other supported credit instruments and derivatives.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core products and structures that may be covered by the role.",
+    cards: [
+      [
+        "🏢",
+        "Corporate Credit",
+        "Credit exposures linked to corporate issuers across supported markets.",
+      ],
+      [
+        "🌍",
+        "Emerging Markets Credit",
+        "Sovereign and corporate credit exposures across supported emerging markets.",
+      ],
+      [
+        "🧩",
+        "Credit Derivatives",
+        "Single-name CDS, credit indices and other supported credit-linked derivatives.",
+      ],
+      [
+        "🎯",
+        "Customized Credit Solutions",
+        "Structures combining relevant credit instruments to address specific client objectives or constraints.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities in a Credit Structuring role.",
+    cards: [
+      [
+        "🧩",
+        "Design Product Structures",
+        "Translate client or market objectives into suitable credit-linked payoffs and structures.",
+      ],
+      [
+        "📐",
+        "Analyze Payoffs & Scenarios",
+        "Evaluate structures across spread, default, recovery and broader market scenarios.",
+      ],
+      [
+        "🤝",
+        "Support Client Solutions",
+        "Work with Sales to develop and explain structures relevant to client credit exposures and objectives.",
+      ],
+      [
+        "⚙️",
+        "Coordinate Execution",
+        "Work with Trading and control functions to ensure proposed structures can be priced, executed and supported.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to a Credit Structuring role.",
+    cards: [
+      [
+        "🤝",
+        "Credit Sales",
+        "Brings client objectives, constraints and credit-market needs into the structuring process.",
+      ],
+      [
+        "📊",
+        "Credit Trading",
+        "Provides pricing, liquidity, hedging input and execution capability.",
+      ],
+      [
+        "🔢",
+        "Quantitative Teams",
+        "Support valuation models, analytics and applicable credit-risk modeling.",
+      ],
+      [
+        "🔬",
+        "Credit Research",
+        "Provides issuer, sector and broader credit-market analysis.",
+      ],
+      [
+        "⚖️",
+        "Legal, Risk & Compliance",
+        "Support documentation, product governance, risk review and applicable regulatory requirements.",
+      ],
+      [
+        "⚙️",
+        "Operations / Middle Office",
+        "Supports booking, controls and lifecycle processes for executable structures.",
+      ],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Work?",
+    description: "Systems and infrastructure supporting Credit Structuring activity.",
+    cards: [
+      [
+        "💻",
+        "Pricing & Analytics Systems",
+        "Support valuation, spread analysis, scenario testing and product design.",
+      ],
+      [
+        "📡",
+        "Market & Reference Data",
+        "Provides credit spreads, curves, issuer data, ratings and other relevant market inputs.",
+      ],
+      [
+        "📚",
+        "Product & Documentation Systems",
+        "Support product terms, approvals, documentation and lifecycle information.",
+      ],
+      [
+        "🔗",
+        "Trading & Post-Trade Infrastructure",
+        "Supports execution, trade capture, clearing where applicable and lifecycle processing.",
+      ],
+    ],
+  },
+];
+
+function CreditStructurerMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Credit Structuring"
+      title="Credit Structurer"
+      intro="Designs credit-linked products and solutions, analyzes their risk and payoff characteristics and works across Sales, Trading and specialist functions to turn client objectives into executable structures."
+      sections={creditStructurerSections}
+    />
+  );
+}
+
+function RatesStructuringMap({
+  goBack,
+  openStructurer,
+}: {
+  goBack: () => void;
+  openStructurer: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Structuring
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">📉</div>
+        <div>
+          <p className="eyebrow">GLOBAL MARKETS STRUCTURING</p>
+          <h1>Rates Structuring</h1>
+          <p className="intro">
+            Explore roles that design interest-rate-linked products and
+            solutions across institutional rates markets.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">📉</span>
+          <div>
+            <h2>Rates Structuring Roles</h2>
+            <p>Explore a core structuring role in interest-rate markets.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openStructurer}>
+            <span>👤</span>
+            <strong>Rates Structurer</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const ratesStructurerSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Structuring"],
+      ["📉", "Rates Structuring", "Rates Structurer"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The market this role primarily supports.",
+    cards: [
+      [
+        "📉",
+        "Interest Rate Markets",
+        "Markets for government debt, interest-rate derivatives and related rates exposures.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core products and structures that may be covered by the role.",
+    cards: [
+      [
+        "🔁",
+        "Interest Rate Swaps",
+        "Swap structures used to transform or manage interest-rate exposures.",
+      ],
+      [
+        "🧩",
+        "Rates Options",
+        "Swaptions and other supported option structures linked to interest rates.",
+      ],
+      [
+        "🏛️",
+        "Government-Bond-Linked Products",
+        "Structures referencing sovereign bonds, yields or related rates exposures where applicable.",
+      ],
+      [
+        "🎯",
+        "Customized Rates Solutions",
+        "Structures combining relevant rates instruments to address specific client objectives or constraints.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities in a Rates Structuring role.",
+    cards: [
+      [
+        "🧩",
+        "Design Product Structures",
+        "Translate client or market objectives into suitable interest-rate payoffs and product structures.",
+      ],
+      [
+        "📐",
+        "Analyze Payoffs & Scenarios",
+        "Evaluate how structures behave across different yield-curve, volatility and rate scenarios.",
+      ],
+      [
+        "🤝",
+        "Support Client Solutions",
+        "Work with Sales to develop and explain structures relevant to client rate exposures and objectives.",
+      ],
+      [
+        "⚙️",
+        "Coordinate Execution",
+        "Work with Trading and control functions to ensure proposed structures can be priced, executed and supported.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to a Rates Structuring role.",
+    cards: [
+      [
+        "🤝",
+        "Rates Sales",
+        "Brings client objectives, constraints and interest-rate needs into the structuring process.",
+      ],
+      [
+        "📊",
+        "Rates Trading",
+        "Provides pricing, liquidity, hedging input and execution capability.",
+      ],
+      [
+        "🔢",
+        "Quantitative Teams",
+        "Support models, valuation methods and analytics for applicable rates products.",
+      ],
+      [
+        "⚖️",
+        "Legal & Compliance",
+        "Support documentation, product governance and applicable regulatory requirements.",
+      ],
+      [
+        "🛡️",
+        "Risk",
+        "Reviews relevant market, model, credit and product risks.",
+      ],
+      [
+        "⚙️",
+        "Operations / Middle Office",
+        "Supports booking, controls and lifecycle processes for executable structures.",
+      ],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Work?",
+    description: "Systems and infrastructure supporting Rates Structuring activity.",
+    cards: [
+      [
+        "💻",
+        "Pricing & Analytics Systems",
+        "Support valuation, curve analysis, payoff modeling, scenario testing and product design.",
+      ],
+      [
+        "📡",
+        "Market & Reference Data",
+        "Provides yields, curves, volatility, fixings and other relevant market inputs.",
+      ],
+      [
+        "📚",
+        "Product & Documentation Systems",
+        "Support product terms, approvals, documentation and lifecycle information.",
+      ],
+      [
+        "🔗",
+        "Trading & Post-Trade Infrastructure",
+        "Supports execution, trade capture, clearing where applicable and lifecycle processing.",
+      ],
+    ],
+  },
+];
+
+function RatesStructurerMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Rates Structuring"
+      title="Rates Structurer"
+      intro="Designs interest-rate-linked products and solutions, analyzes their payoffs and works across Sales, Trading and specialist functions to turn client objectives into executable rates structures."
+      sections={ratesStructurerSections}
+    />
+  );
+}
+
+function FXStructuringMap({
+  goBack,
+  openStructurer,
+}: {
+  goBack: () => void;
+  openStructurer: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Structuring
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">💱</div>
+        <div>
+          <p className="eyebrow">GLOBAL MARKETS STRUCTURING</p>
+          <h1>FX Structuring</h1>
+          <p className="intro">
+            Explore roles that design currency-linked products and solutions
+            across institutional FX markets.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">💱</span>
+          <div>
+            <h2>FX Structuring Roles</h2>
+            <p>Explore a core structuring role in foreign-exchange markets.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openStructurer}>
+            <span>👤</span>
+            <strong>FX Structurer</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const fxStructurerSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Structuring"],
+      ["💱", "FX Structuring", "FX Structurer"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The market this role primarily supports.",
+    cards: [
+      [
+        "💱",
+        "Foreign Exchange Market",
+        "The global market for currencies and related FX derivatives.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core products and structures that may be covered by the role.",
+    cards: [
+      [
+        "🔁",
+        "FX Forwards & Swaps",
+        "Forward and swap structures used to manage currency exposures and funding needs.",
+      ],
+      [
+        "🧩",
+        "FX Options",
+        "Vanilla and other supported option structures providing tailored currency exposures.",
+      ],
+      [
+        "🌏",
+        "EM FX / NDFs",
+        "Deliverable and non-deliverable currency products across supported emerging markets.",
+      ],
+      [
+        "🎯",
+        "Customized FX Solutions",
+        "Structures combining relevant FX instruments to address specific client objectives or constraints.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities in an FX Structuring role.",
+    cards: [
+      [
+        "🧩",
+        "Design Product Structures",
+        "Translate client or market objectives into suitable FX payoffs and product structures.",
+      ],
+      [
+        "📐",
+        "Analyze Payoffs & Scenarios",
+        "Evaluate how proposed structures behave across different currency and market scenarios.",
+      ],
+      [
+        "🤝",
+        "Support Client Solutions",
+        "Work with Sales to develop and explain structures relevant to client needs.",
+      ],
+      [
+        "⚙️",
+        "Coordinate Execution",
+        "Work with Trading and control functions to ensure proposed structures can be priced, executed and supported.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to an FX Structuring role.",
+    cards: [
+      [
+        "🤝",
+        "FX Sales",
+        "Brings client objectives, constraints and market needs into the structuring process.",
+      ],
+      [
+        "📊",
+        "FX Trading",
+        "Provides pricing, liquidity, hedging input and execution capability.",
+      ],
+      [
+        "🔢",
+        "Quantitative Teams",
+        "Support models, valuation methods and analytics for applicable products.",
+      ],
+      [
+        "⚖️",
+        "Legal & Compliance",
+        "Support documentation, product governance and applicable regulatory requirements.",
+      ],
+      [
+        "🛡️",
+        "Risk",
+        "Reviews relevant market, model, credit and product risks.",
+      ],
+      [
+        "⚙️",
+        "Operations / Middle Office",
+        "Supports booking, controls and post-trade processes for executable structures.",
+      ],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Work?",
+    description: "Systems and infrastructure supporting FX Structuring activity.",
+    cards: [
+      [
+        "💻",
+        "Pricing & Analytics Systems",
+        "Support valuation, payoff analysis, scenario testing and product design.",
+      ],
+      [
+        "📡",
+        "Market & Reference Data",
+        "Provides FX spot, forward, volatility, curve and other market inputs.",
+      ],
+      [
+        "📚",
+        "Product & Documentation Systems",
+        "Support product terms, approvals, documentation and lifecycle information.",
+      ],
+      [
+        "🔗",
+        "Trading & Post-Trade Infrastructure",
+        "Supports execution, trade capture, confirmations, settlement and lifecycle processing.",
+      ],
+    ],
+  },
+];
+
+function FXStructurerMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="FX Structuring"
+      title="FX Structurer"
+      intro="Designs currency-linked products and solutions, analyzes their payoffs and works across Sales, Trading and specialist functions to turn client objectives into executable FX structures."
+      sections={fxStructurerSections}
+    />
+  );
+}
+
+function StructuringMap({
+  goBack,
+  openFXStructuring,
+  openRatesStructuring,
+  openCreditStructuring,
+  openEquityStructuring,
+  openCommoditiesStructuring,
+  openCrossAssetStructuring,
+}: {
+  goBack: () => void;
+  openFXStructuring: () => void;
+  openRatesStructuring: () => void;
+  openCreditStructuring: () => void;
+  openEquityStructuring: () => void;
+  openCommoditiesStructuring: () => void;
+  openCrossAssetStructuring: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Global Markets
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">🧩</div>
+        <div>
+          <p className="eyebrow">GLOBAL MARKETS</p>
+          <h1>Structuring</h1>
+          <p className="intro">
+            Explore roles that design and coordinate financial products and
+            solutions across Global Markets.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🧩</span>
+          <div>
+            <h2>Structuring Areas</h2>
+            <p>
+              Select a market or product area to explore its structuring roles.
+            </p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          {structuringDesks.map((item) => (
+            <button
+              className="finance-card"
+              key={item.id}
+              onClick={() => {
+                if (item.id === "structuring-fx") {
+                  openFXStructuring();
+                } else if (item.id === "structuring-rates") {
+                  openRatesStructuring();
+                } else if (item.id === "structuring-credit") {
+                  openCreditStructuring();
+                } else if (item.id === "structuring-equity") {
+                  openEquityStructuring();
+                } else if (item.id === "structuring-commodities") {
+                  openCommoditiesStructuring();
+                } else if (item.id === "structuring-cross-asset") {
+                  openCrossAssetStructuring();
+                }
+              }}
+            >
+              <span>{item.emoji}</span>
+              <strong>{item.label}</strong>
+              <span className="card-arrow">→</span>
+            </button>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
+}
 
 function CrossAssetSalesMap({
   goBack,
@@ -8108,7 +9452,7 @@ function FunctionMap({
 }
 
 function App() {
-  const [page, setPage] = useState<"system" | "central-bank" | "banks" | "global-markets" | "sales" | "sales-fx" | "sales-fx-salesperson" | "sales-rates" | "sales-rates-salesperson" | "sales-credit" | "sales-credit-salesperson" | "sales-equities" | "sales-equities-salesperson" | "sales-commodities" | "sales-commodities-salesperson" | "sales-cross-asset" | "sales-cross-asset-salesperson" | "trading" | "credit-trading" | "credit-ig" | "credit-ig-trader" | "credit-hy" | "credit-hy-trader" | "credit-em" | "credit-em-trader" | "credit-derivatives" | "credit-derivatives-trader" | "credit-electronic" | "credit-electronic-trader" | "cross-asset-trading" | "cross-asset-trader" | "commodities-trading" | "commodities-oil-energy" | "commodities-oil-energy-trader" | "commodities-natural-gas" | "commodities-natural-gas-trader" | "commodities-power" | "commodities-power-trader" | "commodities-metals" | "commodities-metals-trader" | "commodities-agriculture" | "commodities-agriculture-trader" | "equities-trading" | "equities-cash" | "equities-cash-trader" | "equities-derivatives" | "equities-derivatives-trader" | "equities-index-etf" | "equities-index-etf-trader" | "equities-electronic" | "equities-electronic-trader" | "equities-em" | "equities-em-trader" | "rates-trading" | "rates-government-bonds" | "rates-government-bond-trader" | "rates-swaps" | "rates-swap-trader" | "rates-futures-stir" | "rates-futures-trader" | "rates-options" | "rates-options-trader" | "rates-electronic" | "rates-electronic-trader" | "fx-trading" | "fx-spot" | "fx-spot-trader" | "fx-forwards-swaps" | "fx-forward-swap-trader" | "fx-options" | "fx-options-trader" | "fx-em-ndf" | "fx-em-ndf-trader" | "fx-electronic" | "fx-electronic-trader" | "function">(
+  const [page, setPage] = useState<"system" | "central-bank" | "banks" | "global-markets" | "structuring" | "structuring-fx" | "structuring-fx-structurer" | "structuring-rates" | "structuring-rates-structurer" | "structuring-credit" | "structuring-credit-structurer" | "structuring-equity" | "structuring-equity-structurer" | "structuring-commodities" | "structuring-commodities-structurer" | "structuring-cross-asset" | "structuring-cross-asset-structurer" | "sales" | "sales-fx" | "sales-fx-salesperson" | "sales-rates" | "sales-rates-salesperson" | "sales-credit" | "sales-credit-salesperson" | "sales-equities" | "sales-equities-salesperson" | "sales-commodities" | "sales-commodities-salesperson" | "sales-cross-asset" | "sales-cross-asset-salesperson" | "trading" | "credit-trading" | "credit-ig" | "credit-ig-trader" | "credit-hy" | "credit-hy-trader" | "credit-em" | "credit-em-trader" | "credit-derivatives" | "credit-derivatives-trader" | "credit-electronic" | "credit-electronic-trader" | "cross-asset-trading" | "cross-asset-trader" | "commodities-trading" | "commodities-oil-energy" | "commodities-oil-energy-trader" | "commodities-natural-gas" | "commodities-natural-gas-trader" | "commodities-power" | "commodities-power-trader" | "commodities-metals" | "commodities-metals-trader" | "commodities-agriculture" | "commodities-agriculture-trader" | "equities-trading" | "equities-cash" | "equities-cash-trader" | "equities-derivatives" | "equities-derivatives-trader" | "equities-index-etf" | "equities-index-etf-trader" | "equities-electronic" | "equities-electronic-trader" | "equities-em" | "equities-em-trader" | "rates-trading" | "rates-government-bonds" | "rates-government-bond-trader" | "rates-swaps" | "rates-swap-trader" | "rates-futures-stir" | "rates-futures-trader" | "rates-options" | "rates-options-trader" | "rates-electronic" | "rates-electronic-trader" | "fx-trading" | "fx-spot" | "fx-spot-trader" | "fx-forwards-swaps" | "fx-forward-swap-trader" | "fx-options" | "fx-options-trader" | "fx-em-ndf" | "fx-em-ndf-trader" | "fx-electronic" | "fx-electronic-trader" | "function">(
     "system"
   );
 
@@ -8615,6 +9959,122 @@ function App() {
     );
   }
 
+  if (page === "structuring-cross-asset-structurer") {
+    return (
+      <CrossAssetStructurerMap
+        goBack={() => setPage("structuring-cross-asset")}
+      />
+    );
+  }
+
+  if (page === "structuring-cross-asset") {
+    return (
+      <CrossAssetStructuringMap
+        goBack={() => setPage("structuring")}
+        openStructurer={() => setPage("structuring-cross-asset-structurer")}
+      />
+    );
+  }
+
+  if (page === "structuring-commodities-structurer") {
+    return (
+      <CommoditiesStructurerMap
+        goBack={() => setPage("structuring-commodities")}
+      />
+    );
+  }
+
+  if (page === "structuring-commodities") {
+    return (
+      <CommoditiesStructuringMap
+        goBack={() => setPage("structuring")}
+        openStructurer={() => setPage("structuring-commodities-structurer")}
+      />
+    );
+  }
+
+  if (page === "structuring-equity-structurer") {
+    return (
+      <EquityStructurerMap
+        goBack={() => setPage("structuring-equity")}
+      />
+    );
+  }
+
+  if (page === "structuring-equity") {
+    return (
+      <EquityStructuringMap
+        goBack={() => setPage("structuring")}
+        openStructurer={() => setPage("structuring-equity-structurer")}
+      />
+    );
+  }
+
+  if (page === "structuring-credit-structurer") {
+    return (
+      <CreditStructurerMap
+        goBack={() => setPage("structuring-credit")}
+      />
+    );
+  }
+
+  if (page === "structuring-credit") {
+    return (
+      <CreditStructuringMap
+        goBack={() => setPage("structuring")}
+        openStructurer={() => setPage("structuring-credit-structurer")}
+      />
+    );
+  }
+
+  if (page === "structuring-rates-structurer") {
+    return (
+      <RatesStructurerMap
+        goBack={() => setPage("structuring-rates")}
+      />
+    );
+  }
+
+  if (page === "structuring-rates") {
+    return (
+      <RatesStructuringMap
+        goBack={() => setPage("structuring")}
+        openStructurer={() => setPage("structuring-rates-structurer")}
+      />
+    );
+  }
+
+  if (page === "structuring-fx-structurer") {
+    return (
+      <FXStructurerMap
+        goBack={() => setPage("structuring-fx")}
+      />
+    );
+  }
+
+  if (page === "structuring-fx") {
+    return (
+      <FXStructuringMap
+        goBack={() => setPage("structuring")}
+        openStructurer={() => setPage("structuring-fx-structurer")}
+      />
+    );
+  }
+
+  if (page === "structuring") {
+    return (
+      <StructuringMap
+        goBack={() => setPage("global-markets")}
+        openFXStructuring={() => setPage("structuring-fx")}
+        openRatesStructuring={() => setPage("structuring-rates")}
+        openCreditStructuring={() => setPage("structuring-credit")}
+        openEquityStructuring={() => setPage("structuring-equity")}
+        openCommoditiesStructuring={() => setPage("structuring-commodities")}
+        openCrossAssetStructuring={() => setPage("structuring-cross-asset")}
+      />
+    );
+  }
+
   if (page === "sales-cross-asset-salesperson") {
     return (
       <CrossAssetSalespersonMap
@@ -8751,6 +10211,7 @@ function App() {
         goBack={() => setPage("banks")}
         openTrading={() => setPage("trading")}
         openSales={() => setPage("sales")}
+        openStructuring={() => setPage("structuring")}
       />
     );
   }
