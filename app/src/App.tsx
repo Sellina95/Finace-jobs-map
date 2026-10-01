@@ -577,6 +577,24 @@ function FinancialSystemMap({
         <span>🏦 Institutions</span>
         <span>📈 Markets</span>
         <span>🔗 Infrastructure</span>
+        <a
+          className="footer-link"
+          href="https://github.com/Sellina95"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <span>🐙</span>
+          <strong>Sellina95</strong>
+        </a>
+        <a
+          className="footer-link"
+          href="https://github.com/Sellina95/Finace-jobs-map"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <span>💻</span>
+          <strong>GitHub Repository</strong>
+        </a>
       </footer>
     </main>
   );
@@ -716,6 +734,14 @@ function BanksMap({
   );
 }
 
+const financingDesks: Item[] = [
+  { id: "financing-repo", emoji: "🏦", label: "Repo / Secured Financing" },
+  { id: "financing-securities-lending", emoji: "🔄", label: "Securities Lending" },
+  { id: "financing-equity", emoji: "📈", label: "Equity Finance" },
+  { id: "financing-credit", emoji: "💳", label: "Credit Financing" },
+  { id: "financing-cross-asset", emoji: "🧩", label: "Cross-Asset Financing" },
+];
+
 const researchStrategyAreas: Item[] = [
   { id: "research-macro", emoji: "🌍", label: "Macro / Economics Research" },
   { id: "research-fx", emoji: "💱", label: "FX Strategy" },
@@ -758,12 +784,16 @@ function GlobalMarketsMap({
   openSales,
   openStructuring,
   openResearchStrategy,
+  openFinancing,
+  openMarketsCOO,
 }: {
   goBack: () => void;
   openTrading: () => void;
   openSales: () => void;
   openStructuring: () => void;
   openResearchStrategy: () => void;
+  openFinancing: () => void;
+  openMarketsCOO: () => void;
 }) {
   return (
     <main className="world">
@@ -808,6 +838,10 @@ function GlobalMarketsMap({
                   openStructuring();
                 } else if (item.id === "research-strategy") {
                   openResearchStrategy();
+                } else if (item.id === "financing") {
+                  openFinancing();
+                } else if (item.id === "markets-coo") {
+                  openMarketsCOO();
                 }
               }}
             >
@@ -877,6 +911,1313 @@ const fxTradingAreas: Item[] = [
 
 
 
+
+
+
+function MarketsCOOMap({
+  goBack,
+  openRole,
+}: {
+  goBack: () => void;
+  openRole: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Global Markets
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">⚙️</div>
+        <div>
+          <p className="eyebrow">GLOBAL MARKETS</p>
+          <h1>Markets COO / Business Management</h1>
+          <p className="intro">
+            Explore roles that support the management, governance, planning
+            and operating model of Global Markets businesses.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">⚙️</span>
+          <div>
+            <h2>Markets COO / Business Management Roles</h2>
+            <p>
+              Explore a representative role supporting the Global Markets business.
+            </p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openRole}>
+            <span>👤</span>
+            <strong>Markets Business Manager / COO</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const marketsBusinessManagerSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Markets COO / Business Management"],
+      ["⚙️", "Business Management", "Markets Business Manager / COO"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The business areas supported by this role.",
+    cards: [
+      [
+        "🌍",
+        "Multiple Financial Markets",
+        "Supports Global Markets businesses operating across rates, FX, credit, equities, commodities and related products depending on the institution.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "The product businesses typically covered by the role.",
+    cards: [
+      [
+        "📉",
+        "Rates",
+        "Supports business-management requirements across rates products and desks.",
+      ],
+      [
+        "💱",
+        "FX",
+        "Supports business-management requirements across currency products and desks.",
+      ],
+      [
+        "💳",
+        "Credit",
+        "Supports business-management requirements across credit products and desks.",
+      ],
+      [
+        "📈",
+        "Equities",
+        "Supports business-management requirements across equity products and desks.",
+      ],
+      [
+        "🛢️",
+        "Commodities",
+        "May support commodity businesses where included in the institution's Global Markets platform.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities in Markets COO / Business Management.",
+    cards: [
+      [
+        "🧭",
+        "Business Planning & Governance",
+        "Supports business priorities, governance processes and management decision-making.",
+      ],
+      [
+        "💰",
+        "Resource & Budget Management",
+        "Coordinates budgets, headcount, resources and other business-management requirements.",
+      ],
+      [
+        "🔧",
+        "Operating Model & Change",
+        "Coordinates business initiatives, process improvements and change programs across functions.",
+      ],
+      [
+        "📊",
+        "Management Information",
+        "Prepares and analyzes business metrics, performance information and management reporting.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to a Markets Business Manager / COO.",
+    cards: [
+      [
+        "👔",
+        "Global Markets Leadership",
+        "Supports senior management with planning, governance and business priorities.",
+      ],
+      [
+        "📈",
+        "Sales, Trading & Structuring",
+        "Works with front-office desks on business requirements, initiatives and operating issues.",
+      ],
+      [
+        "💰",
+        "Finance",
+        "Coordinates budgeting, financial information and business-performance reporting.",
+      ],
+      [
+        "🛡️",
+        "Risk & Compliance",
+        "Coordinates governance, controls, regulatory requirements and business initiatives.",
+      ],
+      [
+        "⚙️",
+        "Operations & Technology",
+        "Coordinates processes, systems, infrastructure and change across the operating platform.",
+      ],
+      [
+        "👥",
+        "Human Resources",
+        "Supports workforce planning and organizational requirements.",
+      ],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Work?",
+    description: "Systems supporting Markets business management.",
+    cards: [
+      [
+        "📊",
+        "Management Information Systems",
+        "Provide business metrics, reporting and performance information.",
+      ],
+      [
+        "💰",
+        "Financial Planning Systems",
+        "Support budgeting, expense management and resource planning.",
+      ],
+      [
+        "🗂️",
+        "Workflow & Project Tools",
+        "Support initiatives, governance processes and cross-functional coordination.",
+      ],
+      [
+        "🛡️",
+        "Governance & Control Platforms",
+        "Support issue tracking, controls, approvals and regulatory or governance processes.",
+      ],
+    ],
+  },
+];
+
+function MarketsBusinessManagerMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Markets COO / Business Management"
+      title="Markets Business Manager / COO"
+      intro="Supports the management and operating model of Global Markets, coordinating planning, governance, resources, management information and cross-functional business initiatives."
+      sections={marketsBusinessManagerSections}
+      eyebrow="BUSINESS MANAGEMENT ROLE"
+    />
+  );
+}
+
+function FinancingMap({
+  goBack,
+  openRepo,
+  openSecuritiesLending,
+  openEquityFinance,
+  openCreditFinancing,
+  openCrossAssetFinancing,
+}: {
+  goBack: () => void;
+  openRepo: () => void;
+  openSecuritiesLending: () => void;
+  openEquityFinance: () => void;
+  openCreditFinancing: () => void;
+  openCrossAssetFinancing: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Global Markets
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">💼</div>
+        <div>
+          <p className="eyebrow">GLOBAL MARKETS</p>
+          <h1>Financing / Securities Finance</h1>
+          <p className="intro">
+            Explore financing businesses that provide secured funding,
+            securities borrowing and lending, and balance-sheet solutions
+            across financial markets.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">💼</span>
+          <div>
+            <h2>Financing / Securities Finance</h2>
+            <p>Select an area to explore its work and representative roles.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          {financingDesks.map((item) => (
+            <button
+              className="finance-card"
+              key={item.id}
+              onClick={() => {
+                if (item.id === "financing-repo") {
+                  openRepo();
+                } else if (item.id === "financing-securities-lending") {
+                  openSecuritiesLending();
+                } else if (item.id === "financing-equity") {
+                  openEquityFinance();
+                } else if (item.id === "financing-credit") {
+                  openCreditFinancing();
+                } else if (item.id === "financing-cross-asset") {
+                  openCrossAssetFinancing();
+                }
+              }}
+            >
+              <span>{item.emoji}</span>
+              <strong>{item.label}</strong>
+              <span className="card-arrow">→</span>
+            </button>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
+}
+
+
+
+
+
+function CrossAssetFinancingMap({
+  goBack,
+  openRole,
+}: {
+  goBack: () => void;
+  openRole: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Financing / Securities Finance
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">🧩</div>
+        <div>
+          <p className="eyebrow">FINANCING DESK</p>
+          <h1>Cross-Asset Financing</h1>
+          <p className="intro">
+            Explore roles that coordinate financing solutions across
+            multiple asset classes, collateral types and funding requirements.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🧩</span>
+          <div>
+            <h2>Cross-Asset Financing Roles</h2>
+            <p>Explore a representative role across multi-asset financing activity.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openRole}>
+            <span>👤</span>
+            <strong>Cross-Asset Financing Specialist</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const crossAssetFinancingSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Financing / Securities Finance"],
+      ["🧩", "Cross-Asset Financing", "Cross-Asset Financing Specialist"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The markets connected to cross-asset financing activity.",
+    cards: [
+      [
+        "🌍",
+        "Multiple Financing Markets",
+        "Works across secured funding and securities-financing markets depending on asset class, collateral and client requirements.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core assets and financing structures commonly involved.",
+    cards: [
+      [
+        "🏛️",
+        "Government Securities",
+        "Sovereign securities used in secured funding and collateralized transactions.",
+      ],
+      [
+        "📈",
+        "Equities",
+        "Equity positions and securities used in financing and borrowing or lending activity.",
+      ],
+      [
+        "💳",
+        "Credit Securities",
+        "Eligible corporate, sovereign and other credit assets used in financing activity.",
+      ],
+      [
+        "🧱",
+        "Collateralized Financing",
+        "Financing arrangements supported by eligible collateral across asset classes.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities in Cross-Asset Financing.",
+    cards: [
+      [
+        "🧩",
+        "Develop Financing Solutions",
+        "Evaluate financing structures across different securities, collateral types and funding requirements.",
+      ],
+      [
+        "💵",
+        "Price Financing",
+        "Assess funding costs, collateral, liquidity, maturity and balance-sheet considerations.",
+      ],
+      [
+        "🔗",
+        "Coordinate Across Desks",
+        "Connect financing requirements with relevant product, trading, treasury and securities-finance teams.",
+      ],
+      [
+        "📊",
+        "Manage Financing Risk",
+        "Monitor market, funding, liquidity, collateral and counterparty exposures across transactions.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to Cross-Asset Financing.",
+    cards: [
+      [
+        "🤝",
+        "Sales / Client Coverage",
+        "Coordinates broader institutional financing requirements.",
+      ],
+      [
+        "📊",
+        "Product Trading Desks",
+        "Connects financing activity with securities inventory, pricing and market liquidity.",
+      ],
+      [
+        "🔄",
+        "Securities Finance Teams",
+        "Coordinates repo, securities lending, equity finance and other financing capabilities.",
+      ],
+      [
+        "💰",
+        "Treasury",
+        "Connects financing solutions with funding, liquidity and balance-sheet considerations.",
+      ],
+      [
+        "🛡️",
+        "Risk",
+        "Monitors counterparty, collateral, market, funding and liquidity exposures.",
+      ],
+      [
+        "⚙️",
+        "Middle Office / Operations",
+        "Supports booking, collateral, settlement and transaction lifecycle processes.",
+      ],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Work?",
+    description: "Systems supporting cross-asset financing activity.",
+    cards: [
+      [
+        "💻",
+        "Financing & Trading Systems",
+        "Support pricing, execution, booking and management across financing products.",
+      ],
+      [
+        "🧱",
+        "Collateral Management Systems",
+        "Track collateral eligibility, valuation, margin and movement across asset classes.",
+      ],
+      [
+        "📡",
+        "Market & Reference Data",
+        "Provides security prices, rates, reference data and financing-market information.",
+      ],
+      [
+        "🔗",
+        "Clearing & Settlement Infrastructure",
+        "Supports movement and settlement of securities, collateral and cash.",
+      ],
+    ],
+  },
+];
+
+function CrossAssetFinancingSpecialistMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Cross-Asset Financing"
+      title="Cross-Asset Financing Specialist"
+      intro="Coordinates financing solutions across multiple asset classes, combining funding, collateral and securities-finance capabilities to support broader institutional requirements."
+      sections={crossAssetFinancingSections}
+      eyebrow="FINANCING ROLE"
+    />
+  );
+}
+
+function CreditFinancingMap({
+  goBack,
+  openRole,
+}: {
+  goBack: () => void;
+  openRole: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Financing / Securities Finance
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">💳</div>
+        <div>
+          <p className="eyebrow">FINANCING DESK</p>
+          <h1>Credit Financing</h1>
+          <p className="intro">
+            Explore roles that provide financing against credit securities
+            and positions while managing collateral, funding and liquidity.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">💳</span>
+          <div>
+            <h2>Credit Financing Roles</h2>
+            <p>Explore a representative role in credit financing.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openRole}>
+            <span>👤</span>
+            <strong>Credit Financing Trader</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const creditFinancingTraderSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Financing / Securities Finance"],
+      ["💳", "Credit Financing", "Credit Financing Trader"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The markets connected to credit-financing activity.",
+    cards: [
+      [
+        "💳",
+        "Credit & Secured Financing Markets",
+        "Provides financing linked to eligible credit securities and positions across institutional markets.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core securities and financing exposures commonly involved.",
+    cards: [
+      [
+        "🏢",
+        "Corporate Bonds",
+        "Eligible investment-grade and high-yield securities used in financing activity.",
+      ],
+      [
+        "🌍",
+        "Sovereign & EM Credit",
+        "Eligible sovereign and emerging-market credit securities depending on desk mandate.",
+      ],
+      [
+        "💵",
+        "Secured Financing",
+        "Funding provided against eligible credit securities or portfolios.",
+      ],
+      [
+        "🧱",
+        "Collateral",
+        "Credit securities and other eligible assets used to support financing transactions.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities in Credit Financing.",
+    cards: [
+      [
+        "💵",
+        "Price Financing",
+        "Evaluate financing terms based on collateral quality, liquidity, maturity, funding and market conditions.",
+      ],
+      [
+        "🔁",
+        "Execute Financing Transactions",
+        "Arrange secured funding linked to eligible credit securities and positions.",
+      ],
+      [
+        "🧱",
+        "Manage Collateral & Funding",
+        "Monitor collateral values, funding requirements and financing capacity.",
+      ],
+      [
+        "📊",
+        "Manage Financing Risk",
+        "Monitor market, liquidity, counterparty, collateral and funding exposures associated with the book.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to a Credit Financing Trader.",
+    cards: [
+      [
+        "🤝",
+        "Sales / Client Coverage",
+        "Coordinates institutional financing requirements and transaction activity.",
+      ],
+      [
+        "💳",
+        "Credit Trading",
+        "Connects financing conditions with credit-security pricing, inventory and market liquidity.",
+      ],
+      [
+        "💰",
+        "Treasury",
+        "Connects financing activity with bank funding, liquidity and balance-sheet considerations.",
+      ],
+      [
+        "🛡️",
+        "Risk",
+        "Monitors counterparty, market, liquidity, collateral and concentration risks.",
+      ],
+      [
+        "⚙️",
+        "Middle Office / Operations",
+        "Supports booking, collateral, settlement and transaction lifecycle processes.",
+      ],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Work?",
+    description: "Systems supporting credit-financing activity.",
+    cards: [
+      [
+        "💻",
+        "Financing & Trading Systems",
+        "Support pricing, execution, booking and management of credit-financing transactions.",
+      ],
+      [
+        "🧱",
+        "Collateral Management Systems",
+        "Track collateral eligibility, valuation, margin and movement.",
+      ],
+      [
+        "📡",
+        "Credit & Market Data",
+        "Provides security prices, spreads, ratings, reference data and financing-market information.",
+      ],
+      [
+        "🔗",
+        "Clearing & Settlement Infrastructure",
+        "Supports movement and settlement of securities, collateral and cash.",
+      ],
+    ],
+  },
+];
+
+function CreditFinancingTraderMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Credit Financing"
+      title="Credit Financing Trader"
+      intro="Provides financing linked to credit securities and positions, pricing secured funding while managing collateral, liquidity, funding and associated risks."
+      sections={creditFinancingTraderSections}
+      eyebrow="FINANCING ROLE"
+    />
+  );
+}
+
+function EquityFinanceMap({
+  goBack,
+  openRole,
+}: {
+  goBack: () => void;
+  openRole: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Financing / Securities Finance
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">📈</div>
+        <div>
+          <p className="eyebrow">FINANCING DESK</p>
+          <h1>Equity Finance</h1>
+          <p className="intro">
+            Explore roles that provide financing, inventory and securities
+            solutions linked to equity-market activity.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">📈</span>
+          <div>
+            <h2>Equity Finance Roles</h2>
+            <p>Explore a representative role in equity financing.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openRole}>
+            <span>👤</span>
+            <strong>Equity Finance Trader</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const equityFinanceTraderSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Financing / Securities Finance"],
+      ["📈", "Equity Finance", "Equity Finance Trader"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The markets connected to equity financing activity.",
+    cards: [
+      [
+        "📈",
+        "Equity & Securities Financing Markets",
+        "Supports financing and securities activity linked to institutional equity positions, inventory and market liquidity.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core products and exposures commonly involved in equity finance.",
+    cards: [
+      [
+        "📈",
+        "Equity Securities",
+        "Listed shares used in financing, inventory and securities-borrowing activity.",
+      ],
+      [
+        "🔄",
+        "Stock Borrow / Loan",
+        "Borrowing and lending arrangements supporting equity positions and market activity.",
+      ],
+      [
+        "💵",
+        "Equity Financing",
+        "Financing arrangements supported by equity positions or related collateral.",
+      ],
+      [
+        "🧱",
+        "Collateral",
+        "Cash and eligible securities used to secure financing transactions.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities in Equity Finance.",
+    cards: [
+      [
+        "💵",
+        "Price Financing",
+        "Evaluate financing terms based on inventory, collateral, liquidity, funding and market conditions.",
+      ],
+      [
+        "📦",
+        "Manage Equity Inventory",
+        "Monitor securities availability, demand and utilization across financing activity.",
+      ],
+      [
+        "🔄",
+        "Coordinate Borrow & Loan",
+        "Connect equity financing requirements with securities borrowing and lending activity.",
+      ],
+      [
+        "📊",
+        "Manage Financing Risk",
+        "Monitor market, funding, liquidity, collateral and counterparty exposures associated with the book.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to an Equity Finance Trader.",
+    cards: [
+      [
+        "🤝",
+        "Sales / Client Coverage",
+        "Coordinates institutional financing and securities requirements.",
+      ],
+      [
+        "🔄",
+        "Securities Lending",
+        "Coordinates stock availability, borrow demand and lending activity.",
+      ],
+      [
+        "📊",
+        "Equity Trading",
+        "Connects financing and inventory conditions with broader equity-market activity.",
+      ],
+      [
+        "💰",
+        "Treasury",
+        "Connects financing activity with funding, liquidity and balance-sheet considerations.",
+      ],
+      [
+        "🛡️",
+        "Risk",
+        "Monitors counterparty, market, liquidity and collateral-related exposures.",
+      ],
+      [
+        "⚙️",
+        "Middle Office / Operations",
+        "Supports booking, collateral, settlement and transaction lifecycle processes.",
+      ],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Work?",
+    description: "Systems supporting equity-financing activity.",
+    cards: [
+      [
+        "💻",
+        "Equity Finance Systems",
+        "Support pricing, execution, booking and management of financing transactions.",
+      ],
+      [
+        "📦",
+        "Inventory & Position Systems",
+        "Track equity positions, securities availability, utilization and financing demand.",
+      ],
+      [
+        "🧱",
+        "Collateral Management Systems",
+        "Support collateral valuation, margin and movement.",
+      ],
+      [
+        "🔗",
+        "Clearing & Settlement Infrastructure",
+        "Supports movement and settlement of securities, collateral and cash.",
+      ],
+    ],
+  },
+];
+
+function EquityFinanceTraderMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Equity Finance"
+      title="Equity Finance Trader"
+      intro="Provides financing and securities solutions linked to equity positions, managing inventory, funding, collateral and borrowing or lending activity."
+      sections={equityFinanceTraderSections}
+      eyebrow="FINANCING ROLE"
+    />
+  );
+}
+
+function SecuritiesLendingMap({
+  goBack,
+  openRole,
+}: {
+  goBack: () => void;
+  openRole: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Financing / Securities Finance
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">🔄</div>
+        <div>
+          <p className="eyebrow">FINANCING DESK</p>
+          <h1>Securities Lending</h1>
+          <p className="intro">
+            Explore roles that facilitate the borrowing and lending of
+            securities to support liquidity, settlement and investment strategies.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🔄</span>
+          <div>
+            <h2>Securities Lending Roles</h2>
+            <p>Explore a representative role in securities lending markets.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openRole}>
+            <span>👤</span>
+            <strong>Securities Lending Trader</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const securitiesLendingTraderSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Financing / Securities Finance"],
+      ["🔄", "Securities Lending", "Securities Lending Trader"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The market activity supported by securities lending.",
+    cards: [
+      [
+        "🔄",
+        "Securities Lending Market",
+        "Facilitates temporary borrowing and lending of securities across institutional markets.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core securities and transactions commonly involved.",
+    cards: [
+      [
+        "📈",
+        "Equity Securities",
+        "Listed shares borrowed and lent across supported markets.",
+      ],
+      [
+        "🏛️",
+        "Government Securities",
+        "Sovereign securities used in borrowing, lending and collateral activity.",
+      ],
+      [
+        "💳",
+        "Fixed-Income Securities",
+        "Eligible bonds and other fixed-income securities available for lending.",
+      ],
+      [
+        "🧱",
+        "Collateral",
+        "Cash or eligible securities exchanged to secure lending transactions.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities in Securities Lending.",
+    cards: [
+      [
+        "💵",
+        "Price Securities Loans",
+        "Evaluate lending fees and terms based on supply, demand, liquidity and security availability.",
+      ],
+      [
+        "🔄",
+        "Execute Borrowing & Lending",
+        "Arrange securities loans between market participants and available inventory.",
+      ],
+      [
+        "📦",
+        "Manage Inventory",
+        "Monitor securities availability, demand and utilization across the lending book.",
+      ],
+      [
+        "🧱",
+        "Manage Collateral & Risk",
+        "Monitor collateral, counterparty exposure and transaction requirements.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to a Securities Lending Trader.",
+    cards: [
+      [
+        "🤝",
+        "Sales / Client Coverage",
+        "Coordinates institutional borrowing and lending requirements.",
+      ],
+      [
+        "📈",
+        "Equity Finance",
+        "Coordinates inventory, financing and related equity-market activity.",
+      ],
+      [
+        "📊",
+        "Trading Desks",
+        "Connects securities availability and financing conditions with market activity.",
+      ],
+      [
+        "🛡️",
+        "Risk",
+        "Monitors counterparty, collateral, liquidity and market-related exposures.",
+      ],
+      [
+        "⚙️",
+        "Middle Office / Operations",
+        "Supports collateral, settlement, recalls and transaction lifecycle processes.",
+      ],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Work?",
+    description: "Systems supporting securities lending activity.",
+    cards: [
+      [
+        "💻",
+        "Securities Lending Platforms",
+        "Support pricing, execution, inventory management and transaction booking.",
+      ],
+      [
+        "📦",
+        "Inventory Systems",
+        "Track available securities, positions, utilization and lending demand.",
+      ],
+      [
+        "🧱",
+        "Collateral Management Systems",
+        "Support collateral valuation, margin and movement.",
+      ],
+      [
+        "🔗",
+        "Clearing & Settlement Infrastructure",
+        "Supports movement and settlement of securities, collateral and cash.",
+      ],
+    ],
+  },
+];
+
+function SecuritiesLendingTraderMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Securities Lending"
+      title="Securities Lending Trader"
+      intro="Facilitates the borrowing and lending of securities, pricing loans and managing inventory, collateral and market demand across institutional financing activity."
+      sections={securitiesLendingTraderSections}
+      eyebrow="FINANCING ROLE"
+    />
+  );
+}
+
+function RepoFinancingMap({
+  goBack,
+  openRole,
+}: {
+  goBack: () => void;
+  openRole: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Financing / Securities Finance
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">🏦</div>
+        <div>
+          <p className="eyebrow">FINANCING DESK</p>
+          <h1>Repo / Secured Financing</h1>
+          <p className="intro">
+            Explore roles that provide secured funding and liquidity using
+            securities as collateral.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🏦</span>
+          <div>
+            <h2>Repo / Secured Financing Roles</h2>
+            <p>Explore a representative role in secured financing markets.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openRole}>
+            <span>👤</span>
+            <strong>Repo / Financing Trader</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const repoFinancingTraderSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Financing / Securities Finance"],
+      ["🏦", "Repo / Secured Financing", "Repo / Financing Trader"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "The markets in which secured financing activity takes place.",
+    cards: [
+      [
+        "💰",
+        "Money & Secured Funding Markets",
+        "Provides short-term and other secured financing using eligible securities as collateral.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Core secured-financing products and exposures.",
+    cards: [
+      [
+        "🔁",
+        "Repurchase Agreements",
+        "Secured funding transactions in which securities are sold with an agreement to repurchase them.",
+      ],
+      [
+        "🏛️",
+        "Government-Securities Financing",
+        "Financing and liquidity activity backed by government securities.",
+      ],
+      [
+        "🧱",
+        "Collateralized Financing",
+        "Funding transactions supported by eligible securities and collateral arrangements.",
+      ],
+      [
+        "📅",
+        "Term & Overnight Funding",
+        "Secured financing across different maturities depending on client and balance-sheet needs.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities in Repo / Secured Financing.",
+    cards: [
+      [
+        "💵",
+        "Price Financing",
+        "Quote and evaluate secured funding transactions based on collateral, maturity, liquidity and market conditions.",
+      ],
+      [
+        "🔁",
+        "Execute Repo Transactions",
+        "Manage borrowing and lending activity through secured financing markets.",
+      ],
+      [
+        "🧱",
+        "Manage Collateral & Funding",
+        "Monitor collateral requirements, funding needs and securities availability.",
+      ],
+      [
+        "📊",
+        "Manage Market Risk",
+        "Monitor rates, spreads, liquidity and other risks associated with the financing book.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Key functions connected to a Repo / Financing Trader.",
+    cards: [
+      [
+        "🤝",
+        "Sales / Client Coverage",
+        "Coordinates client financing needs and transaction activity.",
+      ],
+      [
+        "📊",
+        "Rates & Other Trading Desks",
+        "Coordinates securities inventory, market liquidity and related trading activity.",
+      ],
+      [
+        "💰",
+        "Treasury",
+        "Connects financing activity with bank funding, liquidity and balance-sheet considerations.",
+      ],
+      [
+        "🛡️",
+        "Risk",
+        "Monitors counterparty, market, liquidity and collateral-related risk.",
+      ],
+      [
+        "⚙️",
+        "Middle Office / Operations",
+        "Supports confirmations, collateral processes, settlement and transaction lifecycle management.",
+      ],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Work?",
+    description: "Systems supporting secured financing activity.",
+    cards: [
+      [
+        "💻",
+        "Trading & Financing Systems",
+        "Support pricing, execution, booking and management of financing transactions.",
+      ],
+      [
+        "🧱",
+        "Collateral Management Systems",
+        "Track collateral eligibility, valuation, margin and movement.",
+      ],
+      [
+        "📡",
+        "Market & Reference Data",
+        "Provides rates, security prices, reference data and financing-market information.",
+      ],
+      [
+        "🔗",
+        "Clearing & Settlement Infrastructure",
+        "Supports clearing, collateral movement and settlement of securities and cash.",
+      ],
+    ],
+  },
+];
+
+function RepoFinancingTraderMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Repo / Secured Financing"
+      title="Repo / Financing Trader"
+      intro="Provides secured funding and liquidity using securities as collateral, pricing and managing repo transactions while coordinating funding, collateral and balance-sheet requirements."
+      sections={repoFinancingTraderSections}
+      eyebrow="FINANCING ROLE"
+    />
+  );
+}
 
 function ResearchStrategyMap({
   goBack,
@@ -10724,7 +12065,7 @@ function FunctionMap({
 }
 
 function App() {
-  const [page, setPage] = useState<"system" | "central-bank" | "banks" | "global-markets" | "research-strategy" | "research-macro" | "research-macro-role" | "research-fx" | "research-fx-role" | "research-rates" | "research-rates-role" | "research-credit" | "research-credit-role" | "research-equity" | "research-equity-role" | "research-cross-asset" | "research-cross-asset-role" | "structuring" | "structuring-fx" | "structuring-fx-structurer" | "structuring-rates" | "structuring-rates-structurer" | "structuring-credit" | "structuring-credit-structurer" | "structuring-equity" | "structuring-equity-structurer" | "structuring-commodities" | "structuring-commodities-structurer" | "structuring-cross-asset" | "structuring-cross-asset-structurer" | "sales" | "sales-fx" | "sales-fx-salesperson" | "sales-rates" | "sales-rates-salesperson" | "sales-credit" | "sales-credit-salesperson" | "sales-equities" | "sales-equities-salesperson" | "sales-commodities" | "sales-commodities-salesperson" | "sales-cross-asset" | "sales-cross-asset-salesperson" | "trading" | "credit-trading" | "credit-ig" | "credit-ig-trader" | "credit-hy" | "credit-hy-trader" | "credit-em" | "credit-em-trader" | "credit-derivatives" | "credit-derivatives-trader" | "credit-electronic" | "credit-electronic-trader" | "cross-asset-trading" | "cross-asset-trader" | "commodities-trading" | "commodities-oil-energy" | "commodities-oil-energy-trader" | "commodities-natural-gas" | "commodities-natural-gas-trader" | "commodities-power" | "commodities-power-trader" | "commodities-metals" | "commodities-metals-trader" | "commodities-agriculture" | "commodities-agriculture-trader" | "equities-trading" | "equities-cash" | "equities-cash-trader" | "equities-derivatives" | "equities-derivatives-trader" | "equities-index-etf" | "equities-index-etf-trader" | "equities-electronic" | "equities-electronic-trader" | "equities-em" | "equities-em-trader" | "rates-trading" | "rates-government-bonds" | "rates-government-bond-trader" | "rates-swaps" | "rates-swap-trader" | "rates-futures-stir" | "rates-futures-trader" | "rates-options" | "rates-options-trader" | "rates-electronic" | "rates-electronic-trader" | "fx-trading" | "fx-spot" | "fx-spot-trader" | "fx-forwards-swaps" | "fx-forward-swap-trader" | "fx-options" | "fx-options-trader" | "fx-em-ndf" | "fx-em-ndf-trader" | "fx-electronic" | "fx-electronic-trader" | "function">(
+  const [page, setPage] = useState<"system" | "central-bank" | "banks" | "global-markets" | "financing" | "financing-repo" | "financing-repo-role" | "financing-securities-lending" | "financing-securities-lending-role" | "financing-equity" | "financing-equity-role" | "financing-credit" | "financing-credit-role" | "financing-cross-asset" | "financing-cross-asset-role" | "markets-coo" | "markets-coo-role" | "research-strategy" | "research-macro" | "research-macro-role" | "research-fx" | "research-fx-role" | "research-rates" | "research-rates-role" | "research-credit" | "research-credit-role" | "research-equity" | "research-equity-role" | "research-cross-asset" | "research-cross-asset-role" | "structuring" | "structuring-fx" | "structuring-fx-structurer" | "structuring-rates" | "structuring-rates-structurer" | "structuring-credit" | "structuring-credit-structurer" | "structuring-equity" | "structuring-equity-structurer" | "structuring-commodities" | "structuring-commodities-structurer" | "structuring-cross-asset" | "structuring-cross-asset-structurer" | "sales" | "sales-fx" | "sales-fx-salesperson" | "sales-rates" | "sales-rates-salesperson" | "sales-credit" | "sales-credit-salesperson" | "sales-equities" | "sales-equities-salesperson" | "sales-commodities" | "sales-commodities-salesperson" | "sales-cross-asset" | "sales-cross-asset-salesperson" | "trading" | "credit-trading" | "credit-ig" | "credit-ig-trader" | "credit-hy" | "credit-hy-trader" | "credit-em" | "credit-em-trader" | "credit-derivatives" | "credit-derivatives-trader" | "credit-electronic" | "credit-electronic-trader" | "cross-asset-trading" | "cross-asset-trader" | "commodities-trading" | "commodities-oil-energy" | "commodities-oil-energy-trader" | "commodities-natural-gas" | "commodities-natural-gas-trader" | "commodities-power" | "commodities-power-trader" | "commodities-metals" | "commodities-metals-trader" | "commodities-agriculture" | "commodities-agriculture-trader" | "equities-trading" | "equities-cash" | "equities-cash-trader" | "equities-derivatives" | "equities-derivatives-trader" | "equities-index-etf" | "equities-index-etf-trader" | "equities-electronic" | "equities-electronic-trader" | "equities-em" | "equities-em-trader" | "rates-trading" | "rates-government-bonds" | "rates-government-bond-trader" | "rates-swaps" | "rates-swap-trader" | "rates-futures-stir" | "rates-futures-trader" | "rates-options" | "rates-options-trader" | "rates-electronic" | "rates-electronic-trader" | "fx-trading" | "fx-spot" | "fx-spot-trader" | "fx-forwards-swaps" | "fx-forward-swap-trader" | "fx-options" | "fx-options-trader" | "fx-em-ndf" | "fx-em-ndf-trader" | "fx-electronic" | "fx-electronic-trader" | "function">(
     "system"
   );
 
@@ -11231,6 +12572,121 @@ function App() {
     );
   }
 
+  if (page === "markets-coo-role") {
+    return (
+      <MarketsBusinessManagerMap
+        goBack={() => setPage("markets-coo")}
+      />
+    );
+  }
+
+  if (page === "markets-coo") {
+    return (
+      <MarketsCOOMap
+        goBack={() => setPage("global-markets")}
+        openRole={() => setPage("markets-coo-role")}
+      />
+    );
+  }
+
+  if (page === "financing-cross-asset-role") {
+    return (
+      <CrossAssetFinancingSpecialistMap
+        goBack={() => setPage("financing-cross-asset")}
+      />
+    );
+  }
+
+  if (page === "financing-cross-asset") {
+    return (
+      <CrossAssetFinancingMap
+        goBack={() => setPage("financing")}
+        openRole={() => setPage("financing-cross-asset-role")}
+      />
+    );
+  }
+
+  if (page === "financing-credit-role") {
+    return (
+      <CreditFinancingTraderMap
+        goBack={() => setPage("financing-credit")}
+      />
+    );
+  }
+
+  if (page === "financing-credit") {
+    return (
+      <CreditFinancingMap
+        goBack={() => setPage("financing")}
+        openRole={() => setPage("financing-credit-role")}
+      />
+    );
+  }
+
+  if (page === "financing-equity-role") {
+    return (
+      <EquityFinanceTraderMap
+        goBack={() => setPage("financing-equity")}
+      />
+    );
+  }
+
+  if (page === "financing-equity") {
+    return (
+      <EquityFinanceMap
+        goBack={() => setPage("financing")}
+        openRole={() => setPage("financing-equity-role")}
+      />
+    );
+  }
+
+  if (page === "financing-securities-lending-role") {
+    return (
+      <SecuritiesLendingTraderMap
+        goBack={() => setPage("financing-securities-lending")}
+      />
+    );
+  }
+
+  if (page === "financing-securities-lending") {
+    return (
+      <SecuritiesLendingMap
+        goBack={() => setPage("financing")}
+        openRole={() => setPage("financing-securities-lending-role")}
+      />
+    );
+  }
+
+  if (page === "financing-repo-role") {
+    return (
+      <RepoFinancingTraderMap
+        goBack={() => setPage("financing-repo")}
+      />
+    );
+  }
+
+  if (page === "financing-repo") {
+    return (
+      <RepoFinancingMap
+        goBack={() => setPage("financing")}
+        openRole={() => setPage("financing-repo-role")}
+      />
+    );
+  }
+
+  if (page === "financing") {
+    return (
+      <FinancingMap
+        goBack={() => setPage("global-markets")}
+        openRepo={() => setPage("financing-repo")}
+        openSecuritiesLending={() => setPage("financing-securities-lending")}
+        openEquityFinance={() => setPage("financing-equity")}
+        openCreditFinancing={() => setPage("financing-credit")}
+        openCrossAssetFinancing={() => setPage("financing-cross-asset")}
+      />
+    );
+  }
+
   if (page === "research-cross-asset-role") {
     return (
       <CrossAssetStrategistMap
@@ -11601,6 +13057,8 @@ function App() {
         openSales={() => setPage("sales")}
         openStructuring={() => setPage("structuring")}
         openResearchStrategy={() => setPage("research-strategy")}
+        openFinancing={() => setPage("financing")}
+        openMarketsCOO={() => setPage("markets-coo")}
       />
     );
   }

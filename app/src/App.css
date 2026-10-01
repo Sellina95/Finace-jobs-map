@@ -438,3 +438,32 @@ footer span {
 .search-result-item:hover {
   background: rgba(238, 244, 246, 0.8);
 }
+
+
+/* Public project links */
+footer .footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border: 1px solid rgba(110, 125, 145, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: #53636d;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+}
+
+footer .footer-link:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 20px rgba(70, 90, 110, 0.10);
+}
+
+footer .footer-link strong {
+  font-weight: 700;
+}
