@@ -831,6 +831,7 @@ function TradingMap({
   openCredit,
   openEquities,
   openCommodities,
+  openCrossAsset,
 }: {
   goBack: () => void;
   openFX: () => void;
@@ -838,6 +839,7 @@ function TradingMap({
   openCredit: () => void;
   openEquities: () => void;
   openCommodities: () => void;
+  openCrossAsset: () => void;
 }) {
   return (
     <main className="world">
@@ -884,6 +886,8 @@ function TradingMap({
                   openEquities();
                 } else if (item.id === "commodities") {
                   openCommodities();
+                } else if (item.id === "cross-asset") {
+                  openCrossAsset();
                 }
               }}
             >
@@ -2652,6 +2656,225 @@ function OilEnergyTraderMap({
       title="Oil / Energy Trader"
       intro="Trades oil and related energy products, provides liquidity and manages commodity price, spread and market risk across supported markets."
       sections={oilEnergyTraderSections}
+    />
+  );
+}
+
+
+function CrossAssetTradingMap({
+  goBack,
+  openTrader,
+}: {
+  goBack: () => void;
+  openTrader: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Trading
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">🧩</div>
+        <div>
+          <p className="eyebrow">TRADING</p>
+          <h1>Cross-Asset / Multi-Asset</h1>
+          <p className="intro">
+            Explore trading roles that work across multiple asset classes rather
+            than within a single product market.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🧩</span>
+          <div>
+            <h2>Cross-Asset / Multi-Asset Roles</h2>
+            <p>
+              Explore a trading role spanning multiple institutional markets
+              and product families.
+            </p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openTrader}>
+            <span>👤</span>
+            <strong>Cross-Asset / Multi-Asset Trader</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+const crossAssetTraderSections: RoleDetailSection[] = [
+  {
+    emoji: "📍",
+    title: "Where Am I?",
+    description: "See where this role sits within the financial system.",
+    cards: [
+      ["🏦", "Financial Institutions", "Banks"],
+      ["📈", "Global Markets", "Trading"],
+      ["🧩", "Cross-Asset / Multi-Asset", "Cross-Asset / Multi-Asset Trader"],
+    ],
+  },
+  {
+    emoji: "📈",
+    title: "What Market?",
+    description: "Cross-asset roles operate across more than one financial market.",
+    cards: [
+      [
+        "🌍",
+        "Multiple Financial Markets",
+        "Activity may span rates, FX, credit, equities, commodities and related derivatives depending on the desk mandate.",
+      ],
+    ],
+  },
+  {
+    emoji: "🧩",
+    title: "What Products?",
+    description: "Product coverage varies by institution and desk mandate.",
+    cards: [
+      [
+        "📉",
+        "Rates",
+        "Government bonds, interest-rate derivatives and other supported rates exposures.",
+      ],
+      [
+        "💱",
+        "FX",
+        "Currencies and related FX derivatives.",
+      ],
+      [
+        "💳",
+        "Credit",
+        "Credit instruments and related derivatives where included in the desk mandate.",
+      ],
+      [
+        "📈",
+        "Equities",
+        "Equity and equity-linked exposures where included in the desk mandate.",
+      ],
+      [
+        "🛢️",
+        "Commodities",
+        "Commodity exposures where supported by the institution and desk mandate.",
+      ],
+    ],
+  },
+  {
+    emoji: "💼",
+    title: "What Do I Actually Do?",
+    description: "Typical responsibilities in a cross-asset or multi-asset trading role.",
+    cards: [
+      [
+        "💱",
+        "Price & Execute",
+        "Price and execute transactions across products supported by the desk.",
+      ],
+      [
+        "📊",
+        "Manage Cross-Asset Risk",
+        "Monitor market risk and interactions between exposures across multiple asset classes.",
+      ],
+      [
+        "🔗",
+        "Trade Market Relationships",
+        "Evaluate relative-value and transmission relationships between different markets and instruments.",
+      ],
+      [
+        "🌍",
+        "Monitor Global Markets",
+        "Track macroeconomic developments, policy, liquidity and market conditions across asset classes.",
+      ],
+    ],
+  },
+  {
+    emoji: "🔗",
+    title: "Who Do I Work With?",
+    description: "Functions commonly connected to cross-asset trading.",
+    cards: [
+      [
+        "🤝",
+        "Sales",
+        "Connects institutional client activity and cross-asset opportunities with the desk.",
+      ],
+      [
+        "🧩",
+        "Structuring",
+        "Supports multi-product and customized cross-asset solutions.",
+      ],
+      [
+        "🔬",
+        "Research / Strategy",
+        "Provides macro, market and cross-asset analysis.",
+      ],
+      [
+        "📊",
+        "Product Trading Desks",
+        "Coordinates with specialist FX, rates, credit, equities and commodity desks where applicable.",
+      ],
+      [
+        "🛡️",
+        "Market Risk",
+        "Monitors market exposures, concentrations and risk limits.",
+      ],
+      [
+        "⚙️",
+        "Middle Office / Product Control",
+        "Supports trade control, valuation oversight and P&L processes.",
+      ],
+      [
+        "💸",
+        "Operations",
+        "Supports confirmations, settlements and post-trade processing across applicable products.",
+      ],
+    ],
+  },
+  {
+    emoji: "⚙️",
+    title: "What Infrastructure Supports the Work?",
+    description: "Infrastructure spanning multiple financial markets.",
+    cards: [
+      [
+        "💻",
+        "Trading & Pricing Systems",
+        "Support pricing, execution, position management and risk monitoring across supported products.",
+      ],
+      [
+        "📡",
+        "Market & Reference Data",
+        "Provides prices, curves, volatility, reference data and other inputs across asset classes.",
+      ],
+      [
+        "🏛️",
+        "Trading Venues & Exchanges",
+        "Support execution and price discovery across applicable markets and instruments.",
+      ],
+      [
+        "🔗",
+        "Clearing, Settlement & Post-Trade",
+        "Different products connect to different clearing, settlement and post-trade infrastructures.",
+      ],
+    ],
+  },
+];
+
+function CrossAssetTraderMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <RoleDetailPage
+      goBack={goBack}
+      backLabel="Cross-Asset / Multi-Asset"
+      title="Cross-Asset / Multi-Asset Trader"
+      intro="Trades across multiple asset classes, evaluates relationships between markets and manages risk across a broader multi-product mandate."
+      sections={crossAssetTraderSections}
     />
   );
 }
@@ -6538,7 +6761,7 @@ function FunctionMap({
 }
 
 function App() {
-  const [page, setPage] = useState<"system" | "central-bank" | "banks" | "global-markets" | "trading" | "credit-trading" | "credit-ig" | "credit-ig-trader" | "credit-hy" | "credit-hy-trader" | "credit-em" | "credit-em-trader" | "credit-derivatives" | "credit-derivatives-trader" | "credit-electronic" | "credit-electronic-trader" | "commodities-trading" | "commodities-oil-energy" | "commodities-oil-energy-trader" | "commodities-natural-gas" | "commodities-natural-gas-trader" | "commodities-power" | "commodities-power-trader" | "commodities-metals" | "commodities-metals-trader" | "commodities-agriculture" | "commodities-agriculture-trader" | "equities-trading" | "equities-cash" | "equities-cash-trader" | "equities-derivatives" | "equities-derivatives-trader" | "equities-index-etf" | "equities-index-etf-trader" | "equities-electronic" | "equities-electronic-trader" | "equities-em" | "equities-em-trader" | "rates-trading" | "rates-government-bonds" | "rates-government-bond-trader" | "rates-swaps" | "rates-swap-trader" | "rates-futures-stir" | "rates-futures-trader" | "rates-options" | "rates-options-trader" | "rates-electronic" | "rates-electronic-trader" | "fx-trading" | "fx-spot" | "fx-spot-trader" | "fx-forwards-swaps" | "fx-forward-swap-trader" | "fx-options" | "fx-options-trader" | "fx-em-ndf" | "fx-em-ndf-trader" | "fx-electronic" | "fx-electronic-trader" | "function">(
+  const [page, setPage] = useState<"system" | "central-bank" | "banks" | "global-markets" | "trading" | "credit-trading" | "credit-ig" | "credit-ig-trader" | "credit-hy" | "credit-hy-trader" | "credit-em" | "credit-em-trader" | "credit-derivatives" | "credit-derivatives-trader" | "credit-electronic" | "credit-electronic-trader" | "cross-asset-trading" | "cross-asset-trader" | "commodities-trading" | "commodities-oil-energy" | "commodities-oil-energy-trader" | "commodities-natural-gas" | "commodities-natural-gas-trader" | "commodities-power" | "commodities-power-trader" | "commodities-metals" | "commodities-metals-trader" | "commodities-agriculture" | "commodities-agriculture-trader" | "equities-trading" | "equities-cash" | "equities-cash-trader" | "equities-derivatives" | "equities-derivatives-trader" | "equities-index-etf" | "equities-index-etf-trader" | "equities-electronic" | "equities-electronic-trader" | "equities-em" | "equities-em-trader" | "rates-trading" | "rates-government-bonds" | "rates-government-bond-trader" | "rates-swaps" | "rates-swap-trader" | "rates-futures-stir" | "rates-futures-trader" | "rates-options" | "rates-options-trader" | "rates-electronic" | "rates-electronic-trader" | "fx-trading" | "fx-spot" | "fx-spot-trader" | "fx-forwards-swaps" | "fx-forward-swap-trader" | "fx-options" | "fx-options-trader" | "fx-em-ndf" | "fx-em-ndf-trader" | "fx-electronic" | "fx-electronic-trader" | "function">(
     "system"
   );
 
@@ -6730,6 +6953,23 @@ function App() {
         openOptions={() => setPage("fx-options")}
         openEMNDF={() => setPage("fx-em-ndf")}
         openElectronicFX={() => setPage("fx-electronic")}
+      />
+    );
+  }
+
+  if (page === "cross-asset-trader") {
+    return (
+      <CrossAssetTraderMap
+        goBack={() => setPage("cross-asset-trading")}
+      />
+    );
+  }
+
+  if (page === "cross-asset-trading") {
+    return (
+      <CrossAssetTradingMap
+        goBack={() => setPage("trading")}
+        openTrader={() => setPage("cross-asset-trader")}
       />
     );
   }
@@ -7037,6 +7277,7 @@ function App() {
         openCredit={() => setPage("credit-trading")}
         openEquities={() => setPage("equities-trading")}
         openCommodities={() => setPage("commodities-trading")}
+        openCrossAsset={() => setPage("cross-asset-trading")}
       />
     );
   }
