@@ -783,6 +783,15 @@ function GlobalMarketsMap({
   );
 }
 
+
+const ratesTradingAreas: Item[] = [
+  { id: "rates-government-bonds", emoji: "🏛️", label: "Government Bonds" },
+  { id: "rates-swaps", emoji: "🔁", label: "Interest Rate Swaps" },
+  { id: "rates-futures-stir", emoji: "📅", label: "Rates Futures / STIR" },
+  { id: "rates-options", emoji: "🧩", label: "Rates Options" },
+  { id: "rates-electronic", emoji: "⚡", label: "Electronic Rates" },
+];
+
 const fxTradingAreas: Item[] = [
   { id: "fx-spot", emoji: "💵", label: "Spot" },
   { id: "fx-forwards-swaps", emoji: "🔁", label: "Forwards / FX Swaps" },
@@ -794,9 +803,11 @@ const fxTradingAreas: Item[] = [
 function TradingMap({
   goBack,
   openFX,
+  openRates,
 }: {
   goBack: () => void;
   openFX: () => void;
+  openRates: () => void;
 }) {
   return (
     <main className="world">
@@ -835,6 +846,8 @@ function TradingMap({
               onClick={() => {
                 if (item.id === "fx") {
                   openFX();
+                } else if (item.id === "rates") {
+                  openRates();
                 }
               }}
             >
@@ -843,6 +856,1270 @@ function TradingMap({
               <span className="card-arrow">→</span>
             </button>
           ))}
+        </div>
+      </section>
+    </main>
+  );
+}
+
+
+function RatesTradingMap({
+  goBack,
+  openGovernmentBonds,
+  openSwaps,
+  openFuturesSTIR,
+  openOptions,
+  openElectronicRates,
+}: {
+  goBack: () => void;
+  openGovernmentBonds: () => void;
+  openSwaps: () => void;
+  openFuturesSTIR: () => void;
+  openOptions: () => void;
+  openElectronicRates: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Trading
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">📉</div>
+
+        <div>
+          <p className="eyebrow">TRADING</p>
+          <h1>Rates Trading</h1>
+
+          <p className="intro">
+            Explore trading areas across government bonds, interest rates and
+            rates derivatives.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">📉</span>
+
+          <div>
+            <h2>Rates Trading Areas</h2>
+            <p>
+              Explore major product and trading areas commonly found across
+              institutional rates businesses.
+            </p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          {ratesTradingAreas.map((item) => (
+            <button
+              className="finance-card"
+              key={item.id}
+              onClick={() => {
+                if (item.id === "rates-government-bonds") {
+                  openGovernmentBonds();
+                } else if (item.id === "rates-swaps") {
+                  openSwaps();
+                } else if (item.id === "rates-futures-stir") {
+                  openFuturesSTIR();
+                } else if (item.id === "rates-options") {
+                  openOptions();
+                } else if (item.id === "rates-electronic") {
+                  openElectronicRates();
+                }
+              }}
+            >
+              <span>{item.emoji}</span>
+              <strong>{item.label}</strong>
+              <span className="card-arrow">→</span>
+            </button>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
+}
+
+
+
+
+
+
+function ElectronicRatesMap({
+  goBack,
+  openTrader,
+}: {
+  goBack: () => void;
+  openTrader: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>← Rates Trading</button>
+
+      <header className="hero detail-hero">
+        <div className="globe">⚡</div>
+        <div>
+          <p className="eyebrow">RATES TRADING</p>
+          <h1>Electronic Rates</h1>
+          <p className="intro">
+            Explore trading roles focused on electronic pricing, execution and
+            liquidity across rates markets.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">⚡</span>
+          <div>
+            <h2>Electronic Rates Roles</h2>
+            <p>Explore a core trading role in electronic rates.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openTrader}>
+            <span>👤</span>
+            <strong>Electronic Rates Trader</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+function ElectronicRatesTraderMap({ goBack }: { goBack: () => void }) {
+  const sections = [
+    {
+      emoji: "📍",
+      title: "Where Am I?",
+      description: "See where this role sits within the financial system.",
+      cards: [
+        ["🏦", "Financial Institutions", "Banks"],
+        ["📈", "Global Markets", "Trading"],
+        ["📉", "Rates Trading", "Electronic Rates → Electronic Rates Trader"],
+      ],
+    },
+    {
+      emoji: "📈",
+      title: "What Market?",
+      description: "The markets in which this role primarily operates.",
+      cards: [
+        ["📉", "Rates Markets",
+         "Electronic markets for government bonds and other supported interest-rate products."],
+      ],
+    },
+    {
+      emoji: "🧩",
+      title: "What Products?",
+      description: "Products commonly supported by electronic rates trading.",
+      cards: [
+        ["🏛️", "Government Bonds",
+         "Sovereign bonds traded through electronic and dealer markets."],
+        ["📅", "Electronic Rates Products",
+         "Depending on the desk and venue, electronic workflows can support additional rates instruments."],
+      ],
+    },
+    {
+      emoji: "💼",
+      title: "What Do I Actually Do?",
+      description: "Typical responsibilities in institutional electronic rates trading.",
+      cards: [
+        ["⚡", "Manage Electronic Pricing",
+         "Monitor electronically distributed prices and liquidity."],
+        ["📊", "Manage Trading Risk",
+         "Monitor positions and rates exposures generated by electronic trading."],
+        ["🖥️", "Monitor Execution",
+         "Monitor execution quality, liquidity and trading activity across electronic venues."],
+        ["🔧", "Improve Trading Workflows",
+         "Work with quantitative and technology teams on pricing, execution and automation."],
+      ],
+    },
+    {
+      emoji: "🔗",
+      title: "Who Do I Work With?",
+      description: "Key functions connected to electronic rates trading.",
+      cards: [
+        ["🤝", "Rates Sales", "Connects client activity and execution needs with the desk."],
+        ["🧮", "Quantitative Trading / Research", "Supports pricing and execution analytics."],
+        ["💻", "Technology", "Builds and maintains trading systems, connectivity and automation."],
+        ["🛡️", "Market Risk", "Monitors market-risk exposures and risk limits."],
+        ["⚙️", "Middle Office", "Supports trade control, monitoring and exception management."],
+        ["💸", "Operations", "Supports post-trade processing and settlement workflows."],
+      ],
+    },
+    {
+      emoji: "⚙️",
+      title: "What Infrastructure Supports the Trades?",
+      description: "Electronic market and post-trade infrastructure supporting rates trading.",
+      cards: [
+        ["🖥️", "Electronic Trading Platforms",
+         "Electronic venues support price discovery and execution."],
+        ["🔌", "Market Connectivity",
+         "Connectivity links trading systems with venues, clients and liquidity sources."],
+        ["📡", "Market Data",
+         "Real-time prices, yields and rates data support trading decisions."],
+        ["🔗", "Clearing & Settlement Infrastructure",
+         "Post-trade infrastructure supports applicable clearing and settlement."],
+      ],
+    },
+  ];
+
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>← Electronic Rates</button>
+
+      <header className="hero detail-hero">
+        <div className="globe">👤</div>
+        <div>
+          <p className="eyebrow">TRADING ROLE</p>
+          <h1>Electronic Rates Trader</h1>
+          <p className="intro">
+            Supports electronic rates pricing and execution, manages trading
+            risk and monitors liquidity across electronic markets.
+          </p>
+        </div>
+      </header>
+
+      {sections.map((section) => (
+        <section className="island central-bank-island" key={section.title}>
+          <div className="island-heading">
+            <span className="island-emoji">{section.emoji}</span>
+            <div>
+              <h2>{section.title}</h2>
+              <p>{section.description}</p>
+            </div>
+          </div>
+
+          <div className="cards function-cards">
+            {section.cards.map(([emoji, title, text]) => (
+              <div className="finance-card" key={title}>
+                <span>{emoji}</span>
+                <strong>{title}</strong>
+                <span>{text}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      ))}
+    </main>
+  );
+}
+
+function RatesOptionsMap({
+  goBack,
+  openTrader,
+}: {
+  goBack: () => void;
+  openTrader: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>← Rates Trading</button>
+
+      <header className="hero detail-hero">
+        <div className="globe">🧩</div>
+        <div>
+          <p className="eyebrow">RATES TRADING</p>
+          <h1>Rates Options</h1>
+          <p className="intro">
+            Explore trading roles in interest-rate options and volatility markets.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🧩</span>
+          <div>
+            <h2>Rates Options Roles</h2>
+            <p>Explore a core trading role in rates options.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openTrader}>
+            <span>👤</span>
+            <strong>Rates Options Trader</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+function RatesOptionsTraderMap({ goBack }: { goBack: () => void }) {
+  const sections = [
+    {
+      emoji: "📍",
+      title: "Where Am I?",
+      description: "See where this role sits within the financial system.",
+      cards: [
+        ["🏦", "Financial Institutions", "Banks"],
+        ["📈", "Global Markets", "Trading"],
+        ["📉", "Rates Trading", "Rates Options → Rates Options Trader"],
+      ],
+    },
+    {
+      emoji: "📈",
+      title: "What Market?",
+      description: "The market in which this role primarily operates.",
+      cards: [
+        ["🧩", "Interest Rate Derivatives Market",
+         "The market for derivatives linked to interest rates, yield curves and rates volatility."],
+      ],
+    },
+    {
+      emoji: "🧩",
+      title: "What Products?",
+      description: "Core instruments associated with this role.",
+      cards: [
+        ["🔁", "Swaptions",
+         "Options that provide the right to enter into an interest-rate swap under specified terms."],
+        ["📅", "Options on Rates Futures",
+         "Options linked to listed interest-rate futures contracts."],
+      ],
+    },
+    {
+      emoji: "💼",
+      title: "What Do I Actually Do?",
+      description: "Typical responsibilities on an institutional rates options desk.",
+      cards: [
+        ["💱", "Price Options", "Quote and price rates options across supported markets and maturities."],
+        ["📊", "Manage Option Risk", "Monitor and manage interest-rate and volatility exposures."],
+        ["⚡", "Execute Flow", "Execute client and interdealer rates options transactions."],
+        ["🌍", "Monitor Rates & Volatility", "Track yield curves, volatility, monetary policy and market conditions."],
+      ],
+    },
+    {
+      emoji: "🔗",
+      title: "Who Do I Work With?",
+      description: "Key functions connected to a rates options trading desk.",
+      cards: [
+        ["🤝", "Rates Sales", "Connects institutional client activity with the trading desk."],
+        ["🧩", "Structuring", "Works with sales and trading on customized rates solutions."],
+        ["🛡️", "Market Risk", "Monitors market-risk exposures and risk limits."],
+        ["⚙️", "Middle Office", "Supports trade control, monitoring and exception management."],
+        ["🧮", "Product Control", "Supports valuation control and trading P&L oversight."],
+        ["💸", "Operations", "Supports confirmations, lifecycle events and post-trade processing."],
+      ],
+    },
+    {
+      emoji: "⚙️",
+      title: "What Infrastructure Supports the Trades?",
+      description: "Infrastructure supporting rates options from pricing through post-trade processing.",
+      cards: [
+        ["🖥️", "Trading & Pricing Systems", "Support pricing, execution and position management."],
+        ["📡", "Market Data & Curves", "Rates, curves and volatility data support pricing and risk decisions."],
+        ["🔗", "Clearing & Post-Trade Infrastructure", "Supports applicable clearing, confirmation and lifecycle processing."],
+      ],
+    },
+  ];
+
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>← Rates Options</button>
+
+      <header className="hero detail-hero">
+        <div className="globe">👤</div>
+        <div>
+          <p className="eyebrow">TRADING ROLE</p>
+          <h1>Rates Options Trader</h1>
+          <p className="intro">
+            Prices and trades interest-rate options, manages volatility and
+            interest-rate risk, and provides liquidity across rates derivatives.
+          </p>
+        </div>
+      </header>
+
+      {sections.map((section) => (
+        <section className="island central-bank-island" key={section.title}>
+          <div className="island-heading">
+            <span className="island-emoji">{section.emoji}</span>
+            <div>
+              <h2>{section.title}</h2>
+              <p>{section.description}</p>
+            </div>
+          </div>
+
+          <div className="cards function-cards">
+            {section.cards.map(([emoji, title, text]) => (
+              <div className="finance-card" key={title}>
+                <span>{emoji}</span>
+                <strong>{title}</strong>
+                <span>{text}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      ))}
+    </main>
+  );
+}
+
+function RatesFuturesSTIRMap({
+  goBack,
+  openTrader,
+}: {
+  goBack: () => void;
+  openTrader: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Rates Trading
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">📅</div>
+        <div>
+          <p className="eyebrow">RATES TRADING</p>
+          <h1>Rates Futures / STIR</h1>
+          <p className="intro">
+            Explore trading roles across listed interest-rate futures and
+            short-term interest-rate markets.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">📅</span>
+          <div>
+            <h2>Rates Futures / STIR Roles</h2>
+            <p>Explore a core trading role in listed rates derivatives.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openTrader}>
+            <span>👤</span>
+            <strong>Rates Futures Trader</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+function RatesFuturesTraderMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Rates Futures / STIR
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">👤</div>
+        <div>
+          <p className="eyebrow">TRADING ROLE</p>
+          <h1>Rates Futures Trader</h1>
+          <p className="intro">
+            Trades listed interest-rate futures, manages rates exposure and
+            provides liquidity across supported contracts and maturities.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">📍</span>
+          <div>
+            <h2>Where Am I?</h2>
+            <p>See where this role sits within the financial system.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <div className="finance-card">
+            <span>🏦</span>
+            <strong>Financial Institutions</strong>
+            <span>Banks</span>
+          </div>
+
+          <div className="finance-card">
+            <span>📈</span>
+            <strong>Global Markets</strong>
+            <span>Trading</span>
+          </div>
+
+          <div className="finance-card">
+            <span>📉</span>
+            <strong>Rates Trading</strong>
+            <span>Rates Futures / STIR → Rates Futures Trader</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">📈</span>
+          <div>
+            <h2>What Market?</h2>
+            <p>The market in which this role primarily operates.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <div className="finance-card">
+            <span>📅</span>
+            <strong>Listed Rates Derivatives Market</strong>
+            <span>
+              Exchange-traded markets for futures linked to government bonds
+              and short-term interest rates.
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🧩</span>
+          <div>
+            <h2>What Products?</h2>
+            <p>Core instruments associated with this role.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <div className="finance-card">
+            <span>🏛️</span>
+            <strong>Government Bond Futures</strong>
+            <span>
+              Exchange-traded futures linked to government bond markets.
+            </span>
+          </div>
+
+          <div className="finance-card">
+            <span>⏱️</span>
+            <strong>Short-Term Interest Rate Futures</strong>
+            <span>
+              Futures linked to short-term interest-rate benchmarks and
+              expectations for future policy rates.
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">💼</span>
+          <div>
+            <h2>What Do I Actually Do?</h2>
+            <p>Typical responsibilities on an institutional rates futures desk.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <div className="finance-card">
+            <span>💱</span>
+            <strong>Trade &amp; Provide Liquidity</strong>
+            <span>
+              Execute and provide liquidity across supported rates futures contracts.
+            </span>
+          </div>
+
+          <div className="finance-card">
+            <span>📊</span>
+            <strong>Manage Rate Risk</strong>
+            <span>
+              Monitor positions and interest-rate exposures generated by trading activity.
+            </span>
+          </div>
+
+          <div className="finance-card">
+            <span>🔗</span>
+            <strong>Manage Relative-Value Relationships</strong>
+            <span>
+              Monitor pricing relationships across contracts, maturities and
+              related rates instruments.
+            </span>
+          </div>
+
+          <div className="finance-card">
+            <span>🌍</span>
+            <strong>Monitor Rates Markets</strong>
+            <span>
+              Track central-bank policy, economic data, yield curves and market liquidity.
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🔗</span>
+          <div>
+            <h2>Who Do I Work With?</h2>
+            <p>Key functions connected to a rates futures trading desk.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <div className="finance-card">
+            <span>🤝</span>
+            <strong>Rates Sales</strong>
+            <span>
+              Connects institutional client activity and market information with the desk.
+            </span>
+          </div>
+
+          <div className="finance-card">
+            <span>🏛️</span>
+            <strong>Government Bond Traders</strong>
+            <span>
+              Coordinate around related cash bond and futures market activity.
+            </span>
+          </div>
+
+          <div className="finance-card">
+            <span>🛡️</span>
+            <strong>Market Risk</strong>
+            <span>Monitors market-risk exposures and risk limits.</span>
+          </div>
+
+          <div className="finance-card">
+            <span>⚙️</span>
+            <strong>Middle Office</strong>
+            <span>Supports trade control, monitoring and exception management.</span>
+          </div>
+
+          <div className="finance-card">
+            <span>🧮</span>
+            <strong>Product Control</strong>
+            <span>Supports valuation control and trading P&amp;L oversight.</span>
+          </div>
+
+          <div className="finance-card">
+            <span>💸</span>
+            <strong>Operations</strong>
+            <span>Supports post-trade processing and contract lifecycle workflows.</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">⚙️</span>
+          <div>
+            <h2>What Infrastructure Supports the Trades?</h2>
+            <p>
+              Exchange, clearing and market infrastructure supporting listed
+              rates derivatives.
+            </p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <div className="finance-card">
+            <span>🖥️</span>
+            <strong>Futures Exchanges &amp; Trading Platforms</strong>
+            <span>
+              Listed venues provide standardized contracts, price discovery and execution.
+            </span>
+          </div>
+
+          <div className="finance-card">
+            <span>🧹</span>
+            <strong>Central Clearing</strong>
+            <span>
+              Clearing houses manage post-trade clearing and margin for listed futures.
+            </span>
+          </div>
+
+          <div className="finance-card">
+            <span>📡</span>
+            <strong>Market Data</strong>
+            <span>
+              Futures prices, rates and market information support trading and risk decisions.
+            </span>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+function InterestRateSwapsMap({
+  goBack,
+  openTrader,
+}: {
+  goBack: () => void;
+  openTrader: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Rates Trading
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">🔁</div>
+        <div>
+          <p className="eyebrow">RATES TRADING</p>
+          <h1>Interest Rate Swaps</h1>
+          <p className="intro">
+            Explore trading roles in interest-rate swap markets.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🔁</span>
+          <div>
+            <h2>Interest Rate Swap Roles</h2>
+            <p>Explore a core trading role in interest-rate derivatives.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openTrader}>
+            <span>👤</span>
+            <strong>Interest Rate Swap Trader</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+function InterestRateSwapTraderMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Interest Rate Swaps
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">👤</div>
+        <div>
+          <p className="eyebrow">TRADING ROLE</p>
+          <h1>Interest Rate Swap Trader</h1>
+          <p className="intro">
+            Prices and trades interest-rate swaps, provides liquidity and
+            manages interest-rate risk across supported currencies and maturities.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">📍</span>
+          <div>
+            <h2>Where Am I?</h2>
+            <p>See where this role sits within the financial system.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <div className="finance-card">
+            <span>🏦</span>
+            <strong>Financial Institutions</strong>
+            <span>Banks</span>
+          </div>
+
+          <div className="finance-card">
+            <span>📈</span>
+            <strong>Global Markets</strong>
+            <span>Trading</span>
+          </div>
+
+          <div className="finance-card">
+            <span>📉</span>
+            <strong>Rates Trading</strong>
+            <span>Interest Rate Swaps → Interest Rate Swap Trader</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">📈</span>
+          <div>
+            <h2>What Market?</h2>
+            <p>The market in which this role primarily operates.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <div className="finance-card">
+            <span>🔁</span>
+            <strong>Interest Rate Derivatives Market</strong>
+            <span>
+              The market for derivatives whose value is linked to interest
+              rates and yield curves.
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🧩</span>
+          <div>
+            <h2>What Products?</h2>
+            <p>Core instruments associated with this role.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <div className="finance-card">
+            <span>🔁</span>
+            <strong>Interest Rate Swaps</strong>
+            <span>
+              Contracts that exchange interest-payment streams based on
+              specified rates and terms.
+            </span>
+          </div>
+
+          <div className="finance-card">
+            <span>📅</span>
+            <strong>Forward-Starting Swaps</strong>
+            <span>
+              Interest-rate swaps whose contractual swap period begins at a
+              future date.
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">💼</span>
+          <div>
+            <h2>What Do I Actually Do?</h2>
+            <p>Typical responsibilities on an institutional rates swap desk.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <div className="finance-card">
+            <span>💱</span>
+            <strong>Make Markets</strong>
+            <span>
+              Quote swap rates and provide liquidity across supported
+              currencies and maturities.
+            </span>
+          </div>
+
+          <div className="finance-card">
+            <span>📊</span>
+            <strong>Manage Rate Risk</strong>
+            <span>
+              Monitor and manage interest-rate and curve exposures generated
+              by trading activity.
+            </span>
+          </div>
+
+          <div className="finance-card">
+            <span>⚡</span>
+            <strong>Execute Flow</strong>
+            <span>
+              Execute client and interdealer interest-rate swap transactions.
+            </span>
+          </div>
+
+          <div className="finance-card">
+            <span>🌍</span>
+            <strong>Monitor Rates Markets</strong>
+            <span>
+              Track yield curves, monetary policy, economic data and market liquidity.
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🔗</span>
+          <div>
+            <h2>Who Do I Work With?</h2>
+            <p>Key functions connected to an interest-rate swap desk.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <div className="finance-card">
+            <span>🤝</span>
+            <strong>Rates Sales</strong>
+            <span>
+              Connects institutional client activity and market information
+              with the trading desk.
+            </span>
+          </div>
+
+          <div className="finance-card">
+            <span>🧩</span>
+            <strong>Structuring</strong>
+            <span>
+              Works with sales and trading on customized rates solutions and
+              derivative structures.
+            </span>
+          </div>
+
+          <div className="finance-card">
+            <span>🛡️</span>
+            <strong>Market Risk</strong>
+            <span>Monitors market-risk exposures and risk limits.</span>
+          </div>
+
+          <div className="finance-card">
+            <span>⚙️</span>
+            <strong>Middle Office</strong>
+            <span>Supports trade control, monitoring and exception management.</span>
+          </div>
+
+          <div className="finance-card">
+            <span>🧮</span>
+            <strong>Product Control</strong>
+            <span>Supports valuation control and trading P&amp;L oversight.</span>
+          </div>
+
+          <div className="finance-card">
+            <span>💸</span>
+            <strong>Operations</strong>
+            <span>
+              Supports confirmations, lifecycle events and post-trade processing.
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">⚙️</span>
+          <div>
+            <h2>What Infrastructure Supports the Trades?</h2>
+            <p>
+              Trading and post-trade infrastructure supporting interest-rate
+              derivatives.
+            </p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <div className="finance-card">
+            <span>🖥️</span>
+            <strong>Trading Venues &amp; Market Connectivity</strong>
+            <span>
+              Dealer and electronic trading systems support pricing and execution.
+            </span>
+          </div>
+
+          <div className="finance-card">
+            <span>📡</span>
+            <strong>Market Data &amp; Curves</strong>
+            <span>
+              Rates, yield curves and market data support pricing and risk management.
+            </span>
+          </div>
+
+          <div className="finance-card">
+            <span>🔗</span>
+            <strong>Clearing &amp; Post-Trade Infrastructure</strong>
+            <span>
+              Clearing, confirmation and lifecycle systems support applicable
+              swap transactions after execution.
+            </span>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+function GovernmentBondsMap({
+  goBack,
+  openTrader,
+}: {
+  goBack: () => void;
+  openTrader: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Rates Trading
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">🏛️</div>
+        <div>
+          <p className="eyebrow">RATES TRADING</p>
+          <h1>Government Bonds</h1>
+          <p className="intro">
+            Explore trading roles in sovereign government bond markets.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🏛️</span>
+          <div>
+            <h2>Government Bond Roles</h2>
+            <p>Explore a core trading role in government bond markets.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <button className="finance-card" onClick={openTrader}>
+            <span>👤</span>
+            <strong>Government Bond Trader</strong>
+            <span className="card-arrow">→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+function GovernmentBondTraderMap({
+  goBack,
+}: {
+  goBack: () => void;
+}) {
+  return (
+    <main className="world">
+      <button className="back-button" onClick={goBack}>
+        ← Government Bonds
+      </button>
+
+      <header className="hero detail-hero">
+        <div className="globe">👤</div>
+        <div>
+          <p className="eyebrow">TRADING ROLE</p>
+          <h1>Government Bond Trader</h1>
+          <p className="intro">
+            Trades sovereign government bonds, provides liquidity and manages
+            interest-rate and market risk across supported maturities.
+          </p>
+        </div>
+      </header>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">📍</span>
+          <div>
+            <h2>Where Am I?</h2>
+            <p>See where this role sits within the financial system.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <div className="finance-card">
+            <span>🏦</span>
+            <strong>Financial Institutions</strong>
+            <span>Banks</span>
+          </div>
+
+          <div className="finance-card">
+            <span>📈</span>
+            <strong>Global Markets</strong>
+            <span>Trading</span>
+          </div>
+
+          <div className="finance-card">
+            <span>📉</span>
+            <strong>Rates Trading</strong>
+            <span>Government Bonds → Government Bond Trader</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">📈</span>
+          <div>
+            <h2>What Market?</h2>
+            <p>The market in which this role primarily operates.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <div className="finance-card">
+            <span>🏛️</span>
+            <strong>Government Bond Market</strong>
+            <span>
+              The market for debt securities issued by sovereign governments.
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🧩</span>
+          <div>
+            <h2>What Products?</h2>
+            <p>Core instruments associated with this role.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <div className="finance-card">
+            <span>📜</span>
+            <strong>Government Bonds</strong>
+            <span>
+              Sovereign debt securities across short-, medium- and long-term maturities.
+            </span>
+          </div>
+
+          <div className="finance-card">
+            <span>💵</span>
+            <strong>Treasury Bills / Short-Term Government Debt</strong>
+            <span>
+              Short-dated sovereign instruments used in government funding and money markets.
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">💼</span>
+          <div>
+            <h2>What Do I Actually Do?</h2>
+            <p>Typical responsibilities on an institutional government bond desk.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <div className="finance-card">
+            <span>💱</span>
+            <strong>Make Markets</strong>
+            <span>
+              Quote government bonds and provide liquidity across supported maturities.
+            </span>
+          </div>
+
+          <div className="finance-card">
+            <span>📊</span>
+            <strong>Manage Risk</strong>
+            <span>
+              Monitor positions and interest-rate exposures generated by trading activity.
+            </span>
+          </div>
+
+          <div className="finance-card">
+            <span>⚡</span>
+            <strong>Execute Flow</strong>
+            <span>
+              Execute client and interdealer government bond transactions.
+            </span>
+          </div>
+
+          <div className="finance-card">
+            <span>🌍</span>
+            <strong>Monitor Rates Markets</strong>
+            <span>
+              Track yields, central-bank policy, economic data, issuance and market liquidity.
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">🔗</span>
+          <div>
+            <h2>Who Do I Work With?</h2>
+            <p>Key functions connected to a government bond trading desk.</p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <div className="finance-card">
+            <span>🤝</span>
+            <strong>Rates Sales</strong>
+            <span>
+              Connects institutional client activity and market information with the trading desk.
+            </span>
+          </div>
+
+          <div className="finance-card">
+            <span>🔬</span>
+            <strong>Rates Research / Strategy</strong>
+            <span>
+              Provides analysis of rates, monetary policy and government bond markets.
+            </span>
+          </div>
+
+          <div className="finance-card">
+            <span>🛡️</span>
+            <strong>Market Risk</strong>
+            <span>Monitors market-risk exposures and risk limits.</span>
+          </div>
+
+          <div className="finance-card">
+            <span>⚙️</span>
+            <strong>Middle Office</strong>
+            <span>Supports trade control, monitoring and exception management.</span>
+          </div>
+
+          <div className="finance-card">
+            <span>🧮</span>
+            <strong>Product Control</strong>
+            <span>Supports valuation control and trading P&amp;L oversight.</span>
+          </div>
+
+          <div className="finance-card">
+            <span>💸</span>
+            <strong>Operations / Settlement</strong>
+            <span>Supports post-trade processing and securities settlement.</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="island central-bank-island">
+        <div className="island-heading">
+          <span className="island-emoji">⚙️</span>
+          <div>
+            <h2>What Infrastructure Supports the Trades?</h2>
+            <p>
+              Market and post-trade infrastructure supporting government bond
+              trading from execution through settlement.
+            </p>
+          </div>
+        </div>
+
+        <div className="cards function-cards">
+          <div className="finance-card">
+            <span>🖥️</span>
+            <strong>Trading Venues &amp; Market Connectivity</strong>
+            <span>
+              Electronic venues and dealer-market connectivity support price discovery and execution.
+            </span>
+          </div>
+
+          <div className="finance-card">
+            <span>📡</span>
+            <strong>Market Data</strong>
+            <span>
+              Bond prices, yields, curves and market information support trading decisions.
+            </span>
+          </div>
+
+          <div className="finance-card">
+            <span>🔗</span>
+            <strong>Clearing &amp; Settlement Infrastructure</strong>
+            <span>
+              Post-trade systems support clearing, securities movement and cash settlement.
+            </span>
+          </div>
         </div>
       </section>
     </main>
@@ -2421,7 +3698,7 @@ function FunctionMap({
 }
 
 function App() {
-  const [page, setPage] = useState<"system" | "central-bank" | "banks" | "global-markets" | "trading" | "fx-trading" | "fx-spot" | "fx-spot-trader" | "fx-forwards-swaps" | "fx-forward-swap-trader" | "fx-options" | "fx-options-trader" | "fx-em-ndf" | "fx-em-ndf-trader" | "fx-electronic" | "fx-electronic-trader" | "function">(
+  const [page, setPage] = useState<"system" | "central-bank" | "banks" | "global-markets" | "trading" | "rates-trading" | "rates-government-bonds" | "rates-government-bond-trader" | "rates-swaps" | "rates-swap-trader" | "rates-futures-stir" | "rates-futures-trader" | "rates-options" | "rates-options-trader" | "rates-electronic" | "rates-electronic-trader" | "fx-trading" | "fx-spot" | "fx-spot-trader" | "fx-forwards-swaps" | "fx-forward-swap-trader" | "fx-options" | "fx-options-trader" | "fx-em-ndf" | "fx-em-ndf-trader" | "fx-electronic" | "fx-electronic-trader" | "function">(
     "system"
   );
 
@@ -2510,6 +3787,100 @@ function App() {
     );
   }
 
+  if (page === "rates-electronic-trader") {
+    return (
+      <ElectronicRatesTraderMap
+        goBack={() => setPage("rates-electronic")}
+      />
+    );
+  }
+
+  if (page === "rates-electronic") {
+    return (
+      <ElectronicRatesMap
+        goBack={() => setPage("rates-trading")}
+        openTrader={() => setPage("rates-electronic-trader")}
+      />
+    );
+  }
+
+  if (page === "rates-options-trader") {
+    return <RatesOptionsTraderMap goBack={() => setPage("rates-options")} />;
+  }
+
+  if (page === "rates-options") {
+    return (
+      <RatesOptionsMap
+        goBack={() => setPage("rates-trading")}
+        openTrader={() => setPage("rates-options-trader")}
+      />
+    );
+  }
+
+  if (page === "rates-futures-trader") {
+    return (
+      <RatesFuturesTraderMap
+        goBack={() => setPage("rates-futures-stir")}
+      />
+    );
+  }
+
+  if (page === "rates-futures-stir") {
+    return (
+      <RatesFuturesSTIRMap
+        goBack={() => setPage("rates-trading")}
+        openTrader={() => setPage("rates-futures-trader")}
+      />
+    );
+  }
+
+  if (page === "rates-swap-trader") {
+    return (
+      <InterestRateSwapTraderMap
+        goBack={() => setPage("rates-swaps")}
+      />
+    );
+  }
+
+  if (page === "rates-swaps") {
+    return (
+      <InterestRateSwapsMap
+        goBack={() => setPage("rates-trading")}
+        openTrader={() => setPage("rates-swap-trader")}
+      />
+    );
+  }
+
+  if (page === "rates-government-bond-trader") {
+    return (
+      <GovernmentBondTraderMap
+        goBack={() => setPage("rates-government-bonds")}
+      />
+    );
+  }
+
+  if (page === "rates-government-bonds") {
+    return (
+      <GovernmentBondsMap
+        goBack={() => setPage("rates-trading")}
+        openTrader={() => setPage("rates-government-bond-trader")}
+      />
+    );
+  }
+
+  if (page === "rates-trading") {
+    return (
+      <RatesTradingMap
+        goBack={() => setPage("trading")}
+        openGovernmentBonds={() => setPage("rates-government-bonds")}
+        openSwaps={() => setPage("rates-swaps")}
+        openFuturesSTIR={() => setPage("rates-futures-stir")}
+        openOptions={() => setPage("rates-options")}
+        openElectronicRates={() => setPage("rates-electronic")}
+      />
+    );
+  }
+
   if (page === "fx-trading") {
     return (
       <FXTradingMap
@@ -2528,6 +3899,7 @@ function App() {
       <TradingMap
         goBack={() => setPage("global-markets")}
         openFX={() => setPage("fx-trading")}
+        openRates={() => setPage("rates-trading")}
       />
     );
   }
