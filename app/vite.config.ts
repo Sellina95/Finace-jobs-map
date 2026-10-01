@@ -3,6 +3,6 @@ import { defineConfig } from 'vite'
 // https://vite.dev/config/
 
 export default defineConfig({
-  base: '/Finace-jobs-map/',
+  base: '/Finance-jobs-map/',
   plugins: [react()],
 })
